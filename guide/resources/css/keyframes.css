@@ -1,0 +1,34 @@
+@keyframes LineHide {
+	0% {
+		width: 24px;
+		opacity: 1;
+	}
+	50%, 100% {
+		width: 0;
+		opacity: 0;
+	}
+}
+@keyframes ScaleChange {
+	0% {
+		width: 24px;
+	}
+	50%, 100% {
+		width: 28px;
+	}
+}
+@keyframes Clockwise {
+	0%, 50% {
+		transform: translate(-50%, -50%) rotate(0);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+}
+@keyframes Counterclockwise {
+	0%, 50% {
+		transform: translate(-50%, -50%) rotate(0);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+}

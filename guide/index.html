@@ -8,6 +8,7 @@
 <title>Dashboard</title>
 
 <link href="resources/css/style.css" rel="stylesheet">
+<script src="resources/js/common.js" defer></script>
 
 <style>
 </style>
@@ -15,29 +16,66 @@
 
 <body>
 
-<div class="guide_wrap">
+<div id="wrap">
 
-  <header id="guide_header">
-    <a href="index.html" class="logo">Company Coding Guide</a>
+  <header id="header">
+    <a href="index.html" class="logo">Coding Guide</a>
+    <button type="button" class="snb_handle" title="사이드메뉴선택">
+      <span class="icon"><i></i><i></i><i></i><i></i></span>
+    </button>
   </header>
   <!-- //header -->
 
   <aside class="snb">
 
     <ul>
-      <li>
-        <a href="">Dashboard</a>
+      <li class="snb_item">
+        <a href="" class="snb_link">Dashboard</a>
       </li>
-      <li>
-        <a href="">Components</a>
+      <li class="snb_item">
+        <header id="accordion-header-1" class="accordion_header">
+          <button type="button" aria-expanded="false" aria-controls="accordion-panel-1" class="snb_link collapsed">
+            <span class="title">Components</span>
+          </button>
+        </header>
+        <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion_panel snb_submenu">
+            <ul>
+              <li><a href="">Alerts</a></li>
+              <li><a href="">Accordion</a></li>
+            </ul>
+        </div>
       </li>
-      <li>
-        <a href="">Forms</a>
+      <li class="snb_item">
+        <header id="accordion-header-2" class="accordion_header">
+          <button type="button" aria-expanded="false" aria-controls="accordion-panel-2" class="snb_link collapsed">
+            <span class="title">Forms</span>
+          </button>
+        </header>
+        <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion_panel snb_submenu">
+            <ul>
+              <li><a href="">Form Elements</a></li>
+              <li><a href="">Form Layouts</a></li>
+            </ul>
+        </div>
+        <a href="" class="snb_link collapsed">Forms</a>
+      </li>
+      <li class="snb_item">
+        <a href="" class="snb_link collapsed">Tables</a>
+      </li>
+      <li class="snb_item">
+        <a href="" class="snb_link collapsed">Charts</a>
+      </li>
+      <li class="snb_item">
+        <a href="" class="snb_link collapsed">Icons</a>
       </li>
     </ul>
 
   </aside>
-  <!-- // -->
+  <!-- //side navigation bar -->
+  
+  <main id="content">
+    컨텐츠
+  </main>
 
 </div>
 
