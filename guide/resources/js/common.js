@@ -9,7 +9,7 @@ const a11yBtnExpand = {
       if(targetIndex != index) {
         expandElAll.style.height = '0px';
         expandButtonAll.setAttribute("aria-expanded", false);
-        expandButtonAll.querySelector('i').classList.replace('fa-minus', 'fa-plus');
+        // expandButtonAll.querySelector('i').classList.replace('fa-minus', 'fa-plus');
       }
     });
   },
@@ -22,7 +22,7 @@ const a11yBtnExpand = {
           expandEl.style.height = '0px';
           expandButton.setAttribute("aria-expanded", false);
         } else {
-          expandEl.style.height = `${expandEl.scrollHeight}px`;
+          expandEl.style.height = expandEl.scrollHeight+'px';
           expandButton.setAttribute("aria-expanded", true);
         }
         a11yBtnExpand.removeOpen(index);

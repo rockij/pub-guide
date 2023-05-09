@@ -9,7 +9,6 @@
 
 <link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<script src="resources/js/enlighterjs.min.js"></script>
 <script src="resources/js/common.js" defer></script>
 
 <style>
@@ -42,8 +41,8 @@
         </header>
         <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion_panel snb_submenu">
             <ul>
-              <li><a href="">Alerts</a></li>
-              <li><a href="">Accordion</a></li>
+              <li><button onclick="ItemName('Components', 'Accordion', ...accordion)">Accordion</button></li>
+              <li><button onclick="ItemName('Components', 'Popup', ...popup)">Popup</button></li>
             </ul>
         </div>
       </li>
@@ -74,26 +73,58 @@
 
   </aside>
   <!-- //side navigation bar -->
-  
-  <main id="content">
 
-    <pre data-enlighter-language="generic">
-<div class="container">
-  <div class="clipped-item"></div>
-</div>
-        </pre>
-
-  </main>
+  <main id="content"></main>
 
 </div>
 
-<!-- Init Code -->
+<script src="resources/js/enlighterjs.min.js"></script>
+<script src="resources/js/accordion.js"></script>
+<script src="resources/js/popup.js"></script>
 <script type="text/javascript">
-  // - highlight all pre + code tags (CSS3 selectors)
-  // - use javascript as default language
-  // - use theme "enlighter" as default theme
-  // - replace tabs with 2 spaces
-  EnlighterJS.init('pre', 'code', {});
+function ItemName(snbName, dataTitle, dataName) {
+    document.querySelector('#content').innerHTML = '';
+    const items = {
+    data: [
+        dataName,
+    ]
+    };
+    for (let i of items.data) {
+        const content = document.querySelector('#content');
+        let card = document.createElement('div');
+        let pageTitle = document.createElement('div');
+        let title = document.createElement('h2');
+        let tagTitle = document.createElement('h3');
+        let pre_html = document.createElement('pre');
+        let pre_css = document.createElement('pre');
+        let pre_js = document.createElement('pre');
+        let breadCrumb = document.createElement('div');
+
+        card.classList.add('section_card');
+        pageTitle.classList.add('pagetitle');
+        breadCrumb.classList.add('breadcrumb');
+        pre_html.setAttribute('data-enlighter-language','generic');
+        pre_css.setAttribute('data-enlighter-language','generic');
+        pre_js.setAttribute('data-enlighter-language','generic');
+        content.appendChild(card);
+        content.prepend(pageTitle);
+        pageTitle.appendChild(title);
+        pageTitle.appendChild(breadCrumb);
+        card.prepend(tagTitle);
+        card.appendChild(pre_html);
+        card.appendChild(pre_css);
+        card.appendChild(pre_js);
+        title.innerHTML = dataTitle;
+        tagTitle.innerHTML = i.tag_title;
+        pre_html.innerHTML = i.tag_html;
+        pre_css.innerHTML = i.tag_css;
+        pre_js.innerHTML = i.tag_js;
+        breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
+    }
+    EnlighterJS.init('pre', 'code', {});
+}
+
+ItemName('Components', 'Accordion', ...accordion);
 </script>
 
 </body>

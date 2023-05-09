@@ -2,8 +2,8 @@
 @import url('keyframes.css');
 
 /* base */
-*, *:after, *:before {-webkit-box-sizing:border-box;box-sizing:border-box}
-html{font-size:10px;line-height:15px}
+*, *:after, *:before{-webkit-box-sizing:border-box;box-sizing:border-box}
+html{font-size:10px;line-height:1.6}
 body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,select,table,td,textarea,th,ul{margin:0;padding:0}
 body{
   position:relative;color:#000;word-break:break-all;
@@ -23,7 +23,7 @@ a{
 img{vertical-align:top}
 mark{color:inherit;font-weight:700;background:none}
 button,input{border-radius:0;background:none}
-button, input, optgroup, select, textarea {
+button, input, optgroup, select, textarea{
   -webkit-appearance:none;appearance:none;
   margin:0;padding:0;
   background-color:transparent;
@@ -37,7 +37,7 @@ textarea{overflow:auto}
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button{height:auto}
 [type="search"]{-webkit-appearance:textfield;outline-offset:-2px}
-[type="search"]::-webkit-search-decoration {-webkit-appearance:none}
+[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
 ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
 progress{vertical-align:baseline}
 hr{box-sizing:content-box;height:0;overflow:visible}
@@ -81,70 +81,46 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 .snb_handle.animation .icon i:nth-child(3){animation-name:ScaleChange, Clockwise}
 .snb_handle.animation .icon i:nth-child(4){animation-name:ScaleChange, Counterclockwise}
 .snb{
-  position:fixed;
-  top:60px;
-  left:0;
-  bottom:0;
-  width:300px;
-  z-index:25;
-  transition:all 0.3s;
-  padding:20px;
-  overflow-y:auto;
-  scrollbar-width:thin;
-  scrollbar-color:#aab7cf transparent;
+  overflow-y:auto;background-color:#fff;
+  position:fixed;top:60px;left:0;bottom:0;
+  width:300px;z-index:25;padding:20px;
+  scrollbar-width:thin;scrollbar-color:#aab7cf transparent;
   box-shadow:0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color:#fff;
+  transition:all 0.3s
 }
-.snb_item {
-  margin-bottom:5px;
+.snb_item{margin-bottom:5px}
+.snb_link{
+  display:flex;align-items:center;
+  width:100%;padding:15px;border-radius:4px;
+  font-size:15px;font-weight:600;color:#4154f1;  
+  background:#f6f9ff;transition:0.3  
 }
-.snb_link {
-  width:100%;
-  display:flex;
-  align-items:center;
-  font-size:15px;
-  font-weight:600;
-  color:#4154f1;
-  transition:0.3;
-  background:#f6f9ff;
-  padding:15px;
-  border-radius:4px;
+.snb_link.collapsed{color:#012970;background:#fff}
+.snb_link:hover{color:#4154f1;background:#f6f9ff}
+.snb_submenu a, .snb_submenu button{
+  display:flex;align-items:center;padding:10px 0 10px 30px;
+  font-size:14px;color:#012970;transition:0.3;
 }
-.snb_link.collapsed {
-  color:#012970;
-  background:#fff;
+.snb_submenu a:hover{color:#012970;text-decoration:underline}
+#content{margin-top:60px;padding:20px 30px;margin-left:300px;transition:all 0.3s}
+.snbOn .snb{left:-300px}
+.snbOn #content{margin-left:0}
+.pagetitle{margin-bottom: 10px;}
+.pagetitle h2{font-size:24px;margin-bottom:0;font-weight:600;color:#012970}
+.pagetitle .breadcrumb{font-size:14px;color:#899bbd}
+.pagetitle .breadcrumb.active{color:#51678f}
+.section_card{
+  margin-bottom: 30px;
+  padding: 15px 20px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
-.snb_link:hover {
-  color:#4154f1;
-  background:#f6f9ff;
-}
-.snb_submenu a{
-  display:flex;
-  align-items:center;
-  font-size:14px;
-  color:#012970;
-  transition:0.3;
-  padding:10px 0 10px 30px;
-  transition:0.3s;
-}
-.snb_submenu a:hover{
-  color:#012970;
-  text-decoration:underline;
-}
-
-#content {
-  margin-top:60px;
-  padding:20px 30px;
-  margin-left:300px;
-  transition:all 0.3s;
-}
-
-.snbOn .snb{
- left:-300px; 
-}
-
-.snbOn #content {
-  margin-left:0;
+.section_card h3 {
+  padding-bottom:10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #012970;
+  font-family: "Poppins", sans-serif;
 }
 
 /* enlighter */
@@ -156,10 +132,10 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 }
 
 /* no animation */
-@media (prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion:reduce){
   *,
   *::before,
-  *::after {
+  *::after{
     animation-duration:.01ms !important;
     animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
