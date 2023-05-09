@@ -7,7 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>Dashboard</title>
 
+<link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
+<script src="resources/js/enlighterjs.min.js"></script>
 <script src="resources/js/common.js" defer></script>
 
 <style>
@@ -74,12 +76,25 @@
   <!-- //side navigation bar -->
   
   <main id="content">
-    컨텐츠
+
+    <pre data-enlighter-language="generic">
+<div class="container">
+  <div class="clipped-item"></div>
+</div>
+        </pre>
+
   </main>
 
 </div>
 
-<script></script>
+<!-- Init Code -->
+<script type="text/javascript">
+  // - highlight all pre + code tags (CSS3 selectors)
+  // - use javascript as default language
+  // - use theme "enlighter" as default theme
+  // - replace tabs with 2 spaces
+  EnlighterJS.init('pre', 'code', {});
+</script>
 
 </body>
 </html>
