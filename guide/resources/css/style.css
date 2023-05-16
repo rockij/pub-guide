@@ -53,6 +53,8 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
   transition:all 0.2s linear
 }
 
+/* 아래부터는 guide 페이지를 위한 소스 */
+
 /* layout */
 #wrap{}
 #header{
@@ -121,6 +123,31 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
   font-weight: 700;
   color: #012970;
   font-family: "Poppins", sans-serif;
+}
+.section_card{}
+.section_card table{
+    width: 100%;
+}
+
+.codeview + .enlighter-default{margin-top: 15px;}
+
+.accordion_default_header{
+    border:1px solid #ebeef4;
+}
+.accordion_default_header button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow-anchor: none;
+    padding: 16px 20px;
+    font-size: 16px;
+    background-color: #f6f9ff;
+}
+.accordion_default_content{
+    padding: 16px 20px;
+    border-bottom:1px solid #ebeef4;
+    font-size: 14px;
 }
 
 /* enlighter */

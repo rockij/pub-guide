@@ -22,7 +22,7 @@ const a11yBtnExpand = {
           expandEl.style.height = '0px';
           expandButton.setAttribute("aria-expanded", false);
         } else {
-          expandEl.style.height = expandEl.scrollHeight+'px';
+          expandEl.style.height = `${expandEl.scrollHeight}px`;
           expandButton.setAttribute("aria-expanded", true);
         }
         a11yBtnExpand.removeOpen(index);
