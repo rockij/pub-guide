@@ -41,12 +41,12 @@
         </header>
         <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="componentsName('Components', 'Layout', ...layout)">Layout</button></li>
-              <li><button onclick="componentsName('Components', 'Accordion', ...accordion)">Accordion</button></li>
-              <li><button onclick="componentsName('Components', 'Popup', ...popup)">Popup</button></li>
-              <li><button onclick="componentsName('Components', 'Btns', ...btns)">Btns</button></li>
-              <li><button onclick="componentsName('Components', 'Icons', ...icons)">Icons</button></li>
-              <li><button onclick="componentsName('Components', 'Popup', ...forms)">Forms</button></li>
+              <li><button onclick="componentsName('Components', 'Layout', layout)">Layout</button></li>
+              <li><button onclick="componentsName('Components', 'Accordion', accordion)">Accordion</button></li>
+              <li><button onclick="componentsName('Components', 'Popup', popup)">Popup</button></li>
+              <li><button onclick="componentsName('Components', 'Btns', btns)">Btns</button></li>
+              <li><button onclick="componentsName('Components', 'Icons', icons)">Icons</button></li>
+              <li><button onclick="componentsName('Components', 'Popup', forms)">Forms</button></li>
             </ul>
         </div>
       </li>
@@ -58,7 +58,7 @@
         </header>
         <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="projectName('Project Name', 'Menu1', ...project)">Menu1</button></li>
+              <li><button onclick="projectName('Project Name', 'Menu1', project)">Menu1</button></li>
             </ul>
         </div>
       </li>
@@ -88,7 +88,6 @@ function componentsName(snbName, dataTitle, dataName) {
     let breadCrumb = document.createElement('div');
     let cardTitle = document.createElement('h2');
     for (let i of items.data) {
-        console.log(items.data);
         let card = document.createElement('div');
         let tagTitle = document.createElement('h3');
         let pre_html = document.createElement('pre');
@@ -118,14 +117,14 @@ function componentsName(snbName, dataTitle, dataName) {
     }
     EnlighterJS.init('pre', 'code', {});
 }
-componentsName('Components', 'Accordion', accordion);
+// componentsName('Components', 'Accordion', accordion);
 
 function projectName(snbName, dataTitle, dataName) {
     document.querySelector('#content').innerHTML = '';
 
     const items = {
       data: [
-          dataName,
+          ...dataName,
       ]
     };
 
@@ -152,23 +151,34 @@ function projectName(snbName, dataTitle, dataName) {
     cardTitle.innerHTML = dataTitle;
     card.innerHTML = tables;
     breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
-
+    
     const tbody = document.createElement('tbody');
-    
-    
     for (let i of items.data) {
-        console.log(items.data);
-        let row = document.createElement('tr');
-        let cell = document.createElement('td');
-        cellText = document.createTextNode('');
-        cell.appendChild(cellText);
-        tbody.appendChild(row);
-        row.appendChild(cell);
-        cell.innerHTML = i.dep2;
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
+        let td4 = document.createElement('td');
+        let td5 = document.createElement('td');
+        let td6 = document.createElement('td');
+        let td7 = document.createElement('td');
+        let td8 = document.createElement('td');
+        let td9 = document.createElement('td');
+        let td10 = document.createElement('td');
+        
+        tbody.appendChild(tr);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+
+        td1.innerHTML = i.dep2;
+        td2.innerHTML = i.dep3;
+        td3.innerHTML = i.dep3;
+
     }
     card.querySelector('table').appendChild(tbody);
 }
-// projectName('Project Name', 'Menu1', ...project);
+projectName('Project Name', 'Menu1', project);
 </script>
 
 </body>
