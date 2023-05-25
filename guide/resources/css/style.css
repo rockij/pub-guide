@@ -7,6 +7,7 @@ html{font-size:10px;line-height:1.6}
 body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,select,table,td,textarea,th,ul{margin:0;padding:0}
 body{
   position:relative;color:#000;word-break:break-all;
+  font-size: 1.4rem;
   -webkit-text-size-adjust:none
 }
 main,details{display:block}
@@ -56,7 +57,9 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 /* 아래부터는 guide 페이지를 위한 소스 */
 
 /* layout */
-#wrap{}
+#wrap{
+  --snb: 240px;
+}
 #header{
   background-color:#fff;padding-left:20px;  
   display:flex;align-items:center;z-index:30;height:60px;
@@ -85,7 +88,7 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 .snb{
   overflow-y:auto;background-color:#fff;
   position:fixed;top:60px;left:0;bottom:0;
-  width:300px;z-index:25;padding:20px;
+  width:var(--snb);z-index:25;padding:20px;
   scrollbar-width:thin;scrollbar-color:#aab7cf transparent;
   box-shadow:0px 0px 20px rgba(1, 41, 112, 0.1);
   transition:all 0.3s
@@ -104,8 +107,8 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
   font-size:14px;color:#012970;transition:0.3;
 }
 .snb_submenu a:hover{color:#012970;text-decoration:underline}
-#content{margin-top:60px;padding:20px 30px;margin-left:300px;transition:all 0.3s}
-.snbOn .snb{left:-300px}
+#content{margin-top:60px;padding:20px 30px;margin-left:var(--snb);transition:all 0.3s}
+.snbOn .snb{left:-var(--snb)}
 .snbOn #content{margin-left:0}
 .pagetitle{margin-bottom: 10px;}
 .pagetitle h2{font-size:24px;margin-bottom:0;font-weight:600;color:#012970}
@@ -124,9 +127,23 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
   color: #012970;
   font-family: "Poppins", sans-serif;
 }
-.section_card{}
-.section_card table{
+.table{
     width: 100%;
+}
+.table thead{
+    background-color: #f6f6fe;
+}
+.table>:not(caption)>*>* {
+  padding: 10px;
+}
+.table td{
+  border-bottom:1px solid #d9d9d9;
+  text-align: center;
+  font-size: 12px;
+}
+.table a {
+  text-decoration: underline;
+  color:#4154f1;
 }
 
 .codeview + .enlighter-default{margin-top: 15px;}

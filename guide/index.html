@@ -9,7 +9,7 @@
 
 <link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<script src="resources/js/common.js" defer></script>
+<script src="resources/js/common.js"></script>
 
 <style>
 </style>
@@ -34,19 +34,19 @@
         <a href="" class="snb_link">Dashboard</a>
       </li>
       <li class="snb_item">
-        <header id="accordion-header-1" class="accordion_header">
+        <header id="accordion-header-1" class="">
           <button type="button" aria-expanded="false" aria-controls="accordion-panel-1" class="snb_link collapsed">
             <span class="title">Components</span>
           </button>
         </header>
         <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="componentsName('Components', 'Layout', layout)">Layout</button></li>
-              <li><button onclick="componentsName('Components', 'Accordion', accordion)">Accordion</button></li>
-              <li><button onclick="componentsName('Components', 'Popup', popup)">Popup</button></li>
-              <li><button onclick="componentsName('Components', 'Btns', btns)">Btns</button></li>
-              <li><button onclick="componentsName('Components', 'Icons', icons)">Icons</button></li>
-              <li><button onclick="componentsName('Components', 'Popup', forms)">Forms</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)">Layout</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Accordion', accordion)">Accordion</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)">Popup</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Btns', btns)">Btns</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Icons', icons)">Icons</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Popup', forms)">Forms</button></li>
             </ul>
         </div>
       </li>
@@ -58,7 +58,7 @@
         </header>
         <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="projectName('Project Name', 'Menu1', project)">Menu1</button></li>
+              <li><button onclick="contentSelect.projectName('Project Name', 'Menu1', project)">Menu1</button></li>
             </ul>
         </div>
       </li>
@@ -72,113 +72,13 @@
 </div>
 
 <script src="resources/js/enlighterjs.min.js"></script>
+<script src="resources/js/guide.js"></script>
 <script src="resources/js/accordion.js"></script>
 <script src="resources/js/popup.js"></script>
 <script src="resources/js/project.js"></script>
 <script type="text/javascript">
-function componentsName(snbName, dataTitle, dataName) {
-    document.querySelector('#content').innerHTML = '';
-    const items = {
-      data: [
-          ...dataName,
-      ]
-    };
-    const content = document.querySelector('#content');
-    let pageTitle = document.createElement('div');
-    let breadCrumb = document.createElement('div');
-    let cardTitle = document.createElement('h2');
-    for (let i of items.data) {
-        let card = document.createElement('div');
-        let tagTitle = document.createElement('h3');
-        let pre_html = document.createElement('pre');
-        let pre_css = document.createElement('pre');
-        let codeView = document.createElement('div');
-
-        content.prepend(pageTitle);
-        content.appendChild(card);
-        pageTitle.classList.add('pagetitle');
-        breadCrumb.classList.add('breadcrumb');
-        pre_html.setAttribute('data-enlighter-language','generic');
-        pre_css.setAttribute('data-enlighter-language','generic');
-        codeView.classList.add('codeview');
-        card.classList.add('section_card');
-        pageTitle.appendChild(cardTitle);
-        pageTitle.appendChild(breadCrumb);
-        card.prepend(tagTitle);
-        card.appendChild(codeView);
-        card.appendChild(pre_html);
-        card.appendChild(pre_css);
-        cardTitle.innerHTML = dataTitle;
-        tagTitle.innerHTML = i.tag_title;
-        pre_html.innerHTML = i.tag_html;
-        pre_css.innerHTML = i.tag_css;
-        codeView.innerHTML = i.tag_view;
-        breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
-    }
-    EnlighterJS.init('pre', 'code', {});
-}
-// componentsName('Components', 'Accordion', accordion);
-
-function projectName(snbName, dataTitle, dataName) {
-    document.querySelector('#content').innerHTML = '';
-
-    const items = {
-      data: [
-          ...dataName,
-      ]
-    };
-
-    const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '구분', '화면명', 'ID', '완료일', '수정일', '담당자', '상태', '비고'];
-    const tableHeadlWidth = ['10', '10', '10', '5', '20', '8', '8', '8', '8', '6', ''];
-    let tables = '<table><thead><tr>';
-    for (dhead in tableHead) {
-        tables += `<th width="${tableHeadlWidth[dhead]}%">${tableHead[dhead]}</th>`;
-    }
-    tables += '</tr></thead></table>';
-
-    const content = document.querySelector('#content');
-    let pageTitle = document.createElement('div');
-    let breadCrumb = document.createElement('div');
-    let cardTitle = document.createElement('h2');
-    let card = document.createElement('div');
-    content.prepend(pageTitle);
-    content.appendChild(card);
-    card.classList.add('section_card');
-    pageTitle.classList.add('pagetitle');
-    breadCrumb.classList.add('breadcrumb');
-    pageTitle.appendChild(cardTitle);
-    pageTitle.appendChild(breadCrumb);
-    cardTitle.innerHTML = dataTitle;
-    card.innerHTML = tables;
-    breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
-    
-    const tbody = document.createElement('tbody');
-    for (let i of items.data) {
-        let tr = document.createElement('tr');
-        let td1 = document.createElement('td');
-        let td2 = document.createElement('td');
-        let td3 = document.createElement('td');
-        let td4 = document.createElement('td');
-        let td5 = document.createElement('td');
-        let td6 = document.createElement('td');
-        let td7 = document.createElement('td');
-        let td8 = document.createElement('td');
-        let td9 = document.createElement('td');
-        let td10 = document.createElement('td');
-        
-        tbody.appendChild(tr);
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-
-        td1.innerHTML = i.dep2;
-        td2.innerHTML = i.dep3;
-        td3.innerHTML = i.dep3;
-
-    }
-    card.querySelector('table').appendChild(tbody);
-}
-projectName('Project Name', 'Menu1', project);
+contentSelect.componentsName('Components', 'Accordion', accordion);
+// contentSelect.projectName('Members', '회원가입', project);
 </script>
 
 </body>
