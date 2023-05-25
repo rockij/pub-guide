@@ -15,6 +15,22 @@ function hamburgerToggle() {
 	clone.addEventListener('click', hamburgerToggle);
 	wrap.classList.toggle('snbOn');
 }
+function snbToggle() {
+    const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
+    expandButtons.forEach(function (expandButton, index) {
+        expandButton.addEventListener('click', () => {
+            const expandEl = document.querySelector("#" + expandButton.getAttribute("aria-controls"));
+            if (expandButton.getAttribute('aria-expanded') === 'true') {
+                expandEl.style.height = '0px';
+                expandButton.setAttribute("aria-expanded", false);
+            } else {
+                expandEl.style.height = `${expandEl.scrollHeight}px`;
+                expandButton.setAttribute("aria-expanded", true);
+            }
+        });
+    });
+}
+snbToggle();
 
 // content handle
 const contentSelect = {

@@ -9,7 +9,8 @@
 
 <link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
-<script src="resources/js/common.js"></script>
+<script src="resources/js/enlighterjs.min.js"></script>
+<script src="resources/js/components.js"></script>
 
 <style>
 </style>
@@ -34,7 +35,7 @@
         <a href="" class="snb_link">Dashboard</a>
       </li>
       <li class="snb_item">
-        <header id="accordion-header-1" class="">
+        <header id="accordion-header-1" class="snb_toggle">
           <button type="button" aria-expanded="false" aria-controls="accordion-panel-1" class="snb_link collapsed">
             <span class="title">Components</span>
           </button>
@@ -51,7 +52,7 @@
         </div>
       </li>
       <li class="snb_item">
-        <header id="accordion-header-2" class="accordion_header">
+        <header id="accordion-header-2" class="snb_toggle">
           <button type="button" aria-expanded="false" aria-controls="accordion-panel-2" class="snb_link collapsed">
             <span class="title">Project Name</span>
           </button>
@@ -71,11 +72,10 @@
 
 </div>
 
-<script src="resources/js/enlighterjs.min.js"></script>
 <script src="resources/js/guide.js"></script>
-<script src="resources/js/accordion.js"></script>
-<script src="resources/js/popup.js"></script>
-<script src="resources/js/project.js"></script>
+<script src="resources/js/menuitem/accordion.js"></script>
+<script src="resources/js/menuitem/popup.js"></script>
+<script src="resources/js/menuitem/project.js"></script>
 <script type="text/javascript">
 contentSelect.componentsName('Components', 'Accordion', accordion);
 // contentSelect.projectName('Members', '회원가입', project);

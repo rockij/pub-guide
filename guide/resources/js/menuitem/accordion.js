@@ -7,7 +7,7 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="accordion-panel-preview" role="region" aria-labelledby="accordion-header-preview" class="accordion_panel accordion_connect accordion_default_panel">
+<div id="accordion-panel-preview" role="region" aria-labelledby="accordion-header-preview" class="accordion_panel accordion_default_panel accordion_connect">
     <div class="accordion_default_content">
         accordion_panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
     </div>

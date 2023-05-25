@@ -21,7 +21,7 @@ const accordionHandle = {
     removeOpen(targetIndex) { // all close
         const expandButtonsAll = document.querySelectorAll('.accordion_header [aria-expanded]');
         expandButtonsAll.forEach((expandButtonAll, index) => {
-            const expandElAll = document.querySelector('.accordion_connect');
+            const expandElAll = document.querySelector("#" + expandButtonAll.getAttribute("aria-controls"));
             if(targetIndex != index) {
                 expandElAll.style.height = '0px';
                 expandButtonAll.setAttribute("aria-expanded", false);
