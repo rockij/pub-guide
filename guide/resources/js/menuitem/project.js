@@ -22,7 +22,7 @@ let project = [
     pageEnd: '23-05-24',
     pageModi: '23-05-25',
     worker: '김익중',
-    state: '진행',
+    state: '완료',
     etc: '',
   },
   {

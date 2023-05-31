@@ -157,7 +157,7 @@ const contentSelect = {
         }
         card.querySelector('table').appendChild(tbody);
 
-        let ingCount = 0;
+        let countIng = 0, countTest = 0, countDone = 0, countModi = 0, countDefer = 0, countTotal = 0;
         const states = document.querySelectorAll('.state');
         states.forEach(state => {
 
@@ -166,26 +166,30 @@ const contentSelect = {
             switch (stateText) {
             case '진행':
                 state.classList.add('ing');
-                ingCount++;
-                break;                
+                countIng++;
+                break;
 
             case '검수':
                 state.classList.add('test');
+                countTest++;
                 break;
 
             case '완료':
                 state.classList.add('done');
+                countDone++;
                 break;
 
             case '수정':
                 state.classList.add('modi');
+                countModi++;
                 break;
 
             case '보류':
             case '삭제':
                 state.parentNode.classList.add('defer');
+                countDefer++;
                 break;
-            
+
             default:
                 break;
 
@@ -193,7 +197,25 @@ const contentSelect = {
 
         });
 
-        console.log(ingCount);
+        // count set
+        document.querySelector('.count-ing').textContent = countIng;
+        document.querySelector('.count-test').textContent = countTest;
+        document.querySelector('.count-done').textContent = countDone;
+        document.querySelector('.count-modi').textContent = countModi;
+        document.querySelector('.count-defer').textContent = countDefer;
+
+        const countValues = document.querySelectorAll('.info_value');
+        countValues.forEach(countValue => {
+            countTotal += parseInt(countValue.textContent);
+        });
+        document.querySelector('.count-total').textContent = countTotal;
+
+        const donePercent = Math.floor((countDone / (countTotal - countDefer)) * 100);
+        document.querySelector('.progress_done').style.width = `${donePercent}%`;
+        document.querySelector('.percent-done').textContent = `${donePercent}%`;
+
+        console.log(countTotal);
+
     },
 
 }
