@@ -69,7 +69,7 @@
 
     <ul>
       <li class="snb_item">
-        <button onclick="" class="snb_link snb-link">Convention</button>
+        <button onclick="contentSelect.componentsName('Convention', 'Convention', convention)" class="snb_link snb-link">Convention</button>
       </li>
       <li class="snb_item">
         <header id="accordion-header-1" class="snb_toggle">
@@ -96,8 +96,8 @@
         </header>
         <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="contentSelect.projectName('Project', 'Members', project)">Members</button></li>
-              <li><button onclick="contentSelect.projectName('Project', '자산', project2)">자산</button></li>
+              <li><button onclick="contentSelect.projectName('Project', 'Members', project)" class="snb-link">Members</button></li>
+              <li><button onclick="contentSelect.projectName('Project', '자산', project2)" class="snb-link">자산</button></li>
             </ul>
         </div>
       </li>
@@ -111,6 +111,7 @@
 </div>
 
 <script src="resources/js/guide.js"></script>
+<script src="resources/js/menuitem/convention.js"></script>
 <script src="resources/js/menuitem/accordion.js"></script>
 <script src="resources/js/menuitem/popup.js"></script>
 <script src="resources/js/menuitem/project.js"></script>

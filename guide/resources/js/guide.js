@@ -30,20 +30,25 @@ function snbToggle() {
         });
     });
 }
-function snbLink() {
-    const snbLinks = document.querySelectorAll('.snb-link');
-    snbLinks.forEach((snbLink, index) => {
-        snbLink.addEventListener('click', () => {
-            snbLink.classList.add('active');
-        });
+function snbLink(e) {
+    e.preventDefault();
+    const buttonGroup = this;
+    const active = buttonGroup.querySelector('.active');
+    const snbLinkAll = document.querySelectorAll('.snb-link');
+    snbLinkAll.forEach((button, index) => {
+        button.classList.remove('active');
     });
+    e.currentTarget.classList.add('active');
 }
+const snbLinks = document.querySelectorAll('.snb-link');
+snbLinks.forEach((button, index) => {
+    button.addEventListener('click', snbLink);
+});
 snbToggle();
-snbLink();
 
 // content handle
 const contentSelect = {
-    
+
     // content reset
     contentRemove() {
         document.querySelector('#content').innerHTML = '';
@@ -63,7 +68,7 @@ const contentSelect = {
 
             const targetGo = document.createElement('a');
             targetGo.classList.add('go');
-            targetGo.innerHTML = targetText;            
+            targetGo.innerHTML = targetText;
             targetGo.setAttribute('href',`#target${index}`);
             area.appendChild(targetGo);
 
