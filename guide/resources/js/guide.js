@@ -17,7 +17,7 @@ function hamburgerToggle() {
 }
 function snbToggle() {
     const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
-    expandButtons.forEach(function (expandButton, index) {
+    expandButtons.forEach((expandButton, index) => {
         expandButton.addEventListener('click', () => {
             const expandEl = document.querySelector("#" + expandButton.getAttribute("aria-controls"));
             if (expandButton.getAttribute('aria-expanded') === 'true') {
@@ -30,63 +30,101 @@ function snbToggle() {
         });
     });
 }
+function snbLink() {
+    const snbLinks = document.querySelectorAll('.snb-link');
+    snbLinks.forEach((snbLink, index) => {
+        snbLink.addEventListener('click', () => {
+            snbLink.classList.add('active');
+        });
+    });
+}
 snbToggle();
+snbLink();
 
 // content handle
 const contentSelect = {
-
-  componentsName: function(snbName, dataTitle, dataName) {
-    document.querySelector('#content').innerHTML = '';
-    const items = {
-      data: [
-        ...dataName,
-      ]
-    };
-    const content = document.querySelector('#content');
-    let pageTitle = document.createElement('div');
-    let breadCrumb = document.createElement('div');
-    let cardTitle = document.createElement('h2');
-    for (let i of items.data) {
-      let card = document.createElement('div');
-      let tagTitle = document.createElement('h3');
-      let pre_html = document.createElement('pre');
-      let pre_css = document.createElement('pre');
-      let codeView = document.createElement('div');
-
-      content.prepend(pageTitle);
-      content.appendChild(card);
-      pageTitle.classList.add('pagetitle');
-      breadCrumb.classList.add('breadcrumb');
-      pre_html.setAttribute('data-enlighter-language','generic');
-      pre_css.setAttribute('data-enlighter-language','generic');
-      codeView.classList.add('codeview');
-      card.classList.add('section_card');
-      pageTitle.appendChild(cardTitle);
-      pageTitle.appendChild(breadCrumb);
-      card.prepend(tagTitle);
-      card.appendChild(codeView);
-      card.appendChild(pre_html);
-      card.appendChild(pre_css);
-      cardTitle.innerHTML = dataTitle;
-      tagTitle.innerHTML = i.tag_title;
-      pre_html.innerHTML = i.tag_html;
-      pre_css.innerHTML = i.tag_css;
-      codeView.innerHTML = i.tag_view;
-      breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
-    }
-    EnlighterJS.init('pre', 'code', {});
-    accordionHandle.init();
-  },
-
-    projectName: function(snbName, dataTitle, dataName) {
+    
+    // content reset
+    contentRemove() {
         document.querySelector('#content').innerHTML = '';
+        document.querySelector('.shortcut').innerHTML = '';
+    },
 
+    // shortcut
+    shortCut(){
+        const area = document.querySelector('.shortcut');
+        const targets = document.querySelectorAll('.table td:first-child');
+        let prevTargetText = null;
+        targets.forEach((target, index) => {
+            const targetText = target.textContent;
+            const row = target.parentElement;
+            if (prevTargetText == targetText || targetText == '' || row.classList.contains('defer')) return;
+            row.setAttribute('id', `target${index}`);
+
+            const targetGo = document.createElement('a');
+            targetGo.classList.add('go');
+            targetGo.innerHTML = targetText;            
+            targetGo.setAttribute('href',`#target${index}`);
+            area.appendChild(targetGo);
+
+            prevTargetText = target.textContent;
+        });
+    },
+
+    // components
+    componentsName(snbName, dataTitle, dataName) {
+        contentSelect.contentRemove();
+        document.querySelector('.state_info').style.display = 'none';
+        const items = {
+            data: [
+            ...dataName,
+            ]
+        };
+        const content = document.querySelector('#content');
+        let pageTitle = document.createElement('div');
+        let breadCrumb = document.createElement('div');
+        let cardTitle = document.createElement('h2');
+        for (let i of items.data) {
+            let card = document.createElement('div');
+            let tagTitle = document.createElement('h3');
+            let pre_html = document.createElement('pre');
+            let pre_css = document.createElement('pre');
+            let codeView = document.createElement('div');
+
+            content.prepend(pageTitle);
+            content.appendChild(card);
+            pageTitle.classList.add('pagetitle');
+            breadCrumb.classList.add('breadcrumb');
+            pre_html.setAttribute('data-enlighter-language','generic');
+            pre_css.setAttribute('data-enlighter-language','generic');
+            codeView.classList.add('codeview');
+            card.classList.add('section_card');
+            pageTitle.appendChild(cardTitle);
+            pageTitle.appendChild(breadCrumb);
+            card.prepend(tagTitle);
+            card.appendChild(codeView);
+            card.appendChild(pre_html);
+            card.appendChild(pre_css);
+            cardTitle.innerHTML = dataTitle;
+            tagTitle.innerHTML = i.tag_title;
+            pre_html.innerHTML = i.tag_html;
+            pre_css.innerHTML = i.tag_css;
+            codeView.innerHTML = i.tag_view;
+            breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
+        }
+        EnlighterJS.init('pre', 'code', {});
+        accordionHandle.init(); // 처음나와야할 컨포넌트
+    },
+
+    // project
+    projectName(snbName, dataTitle, dataName) {
+        contentSelect.contentRemove();
+        document.querySelector('.state_info').style.display = '';
         const items = {
             data: [
                 ...dataName,
             ]
         };
-
         const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '구분', '화면명', 'ID', '완료일', '수정일', '담당자', '상태', '비고'];
         const tableHeadlWidth = ['10', '10', '10', '5', '20', '8', '8', '8', '8', '6', ''];
         let tables = '<table class="table"><thead><tr>';
@@ -214,7 +252,7 @@ const contentSelect = {
         document.querySelector('.progress_done').style.width = `${donePercent}%`;
         document.querySelector('.percent-done').textContent = `${donePercent}%`;
 
-        console.log(countTotal);
+        contentSelect.shortCut();
 
     },
 

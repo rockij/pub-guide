@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Language" content="ko-KR" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>Dashboard</title>
+<title>Coding Guide</title>
 
 <link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -25,6 +25,7 @@
     <button type="button" class="snb_handle" title="사이드메뉴선택">
       <span class="icon"><i></i><i></i><i></i><i></i></span>
     </button>
+    <div class="shortcut"></div>
     <div class="state_info">
         <div class="info_item">
             <div class="info_key">진행</div>
@@ -68,7 +69,7 @@
 
     <ul>
       <li class="snb_item">
-        <a href="" class="snb_link">Dashboard</a>
+        <button onclick="" class="snb_link snb-link">Convention</button>
       </li>
       <li class="snb_item">
         <header id="accordion-header-1" class="snb_toggle">
@@ -78,24 +79,25 @@
         </header>
         <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)">Layout</button></li>
-              <li><button onclick="contentSelect.componentsName('Components', 'Accordion', accordion)">Accordion</button></li>
-              <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)">Popup</button></li>
-              <li><button onclick="contentSelect.componentsName('Components', 'Btns', btns)">Btns</button></li>
-              <li><button onclick="contentSelect.componentsName('Components', 'Icons', icons)">Icons</button></li>
-              <li><button onclick="contentSelect.componentsName('Components', 'Popup', forms)">Forms</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)" class="snb-link">Layout</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Accordion', accordion)" class="snb-link">Accordion</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)" class="snb-link">Popup</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Btns', btns)" class="snb-link">Btns</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Icons', icons)" class="snb-link">Icons</button></li>
+              <li><button onclick="contentSelect.componentsName('Components', 'Popup', forms)" class="snb-link">Forms</button></li>
             </ul>
         </div>
       </li>
       <li class="snb_item">
         <header id="accordion-header-2" class="snb_toggle">
           <button type="button" aria-expanded="false" aria-controls="accordion-panel-2" class="snb_link collapsed">
-            <span class="title">Project Name</span>
+            <span class="title">Project</span>
           </button>
         </header>
         <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion_panel snb_submenu">
             <ul>
-              <li><button onclick="contentSelect.projectName('Project Name', 'Menu1', project)">Menu1</button></li>
+              <li><button onclick="contentSelect.projectName('Project', 'Members', project)">Members</button></li>
+              <li><button onclick="contentSelect.projectName('Project', '자산', project2)">자산</button></li>
             </ul>
         </div>
       </li>
@@ -112,9 +114,10 @@
 <script src="resources/js/menuitem/accordion.js"></script>
 <script src="resources/js/menuitem/popup.js"></script>
 <script src="resources/js/menuitem/project.js"></script>
+<script src="resources/js/menuitem/project2.js"></script>
 <script type="text/javascript">
-// contentSelect.componentsName('Components', 'Accordion', accordion);
-contentSelect.projectName('Members', '회원가입', project);
+contentSelect.componentsName('Components', 'Accordion', accordion);
+// contentSelect.projectName('Project', 'Members', project);
 </script>
 
 </body>
