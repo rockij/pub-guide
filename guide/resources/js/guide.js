@@ -1,50 +1,35 @@
 // 'use strict';
 
-// snb handle
-const hamburgerButtons = document.querySelectorAll('.snb_handle');
+// snb
 const wrap = document.querySelector('#wrap');
-hamburgerButtons.forEach(button => {
-	button.addEventListener('click', hamburgerToggle);
-});
-function hamburgerToggle() {
-	let button = this;
-	button.classList.add('animation');
-	button.classList.toggle('active');
-	let clone = button.cloneNode(true);
-	button.parentNode.replaceChild(clone, button);
-	clone.addEventListener('click', hamburgerToggle);
-	wrap.classList.toggle('snbOn');
-}
-function snbToggle() {
-    const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
-    expandButtons.forEach((expandButton, index) => {
-        expandButton.addEventListener('click', () => {
-            const expandEl = document.querySelector("#" + expandButton.getAttribute("aria-controls"));
-            if (expandButton.getAttribute('aria-expanded') === 'true') {
-                expandEl.style.height = '0px';
-                expandButton.setAttribute("aria-expanded", false);
-            } else {
-                expandEl.style.height = `${expandEl.scrollHeight}px`;
-                expandButton.setAttribute("aria-expanded", true);
-            }
+const snbEvent = {
+    hamburgerToggle() {
+        let button = this;
+        button.classList.add('animation');
+        button.classList.toggle('active');
+        let clone = button.cloneNode(true);
+        button.parentNode.replaceChild(clone, button);
+        clone.addEventListener('click', snbEvent.hamburgerToggle);
+        wrap.classList.toggle('snbOn');
+    },
+    snbToggle() {
+        const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
+        expandButtons.forEach(expandButton => {
+            expandButton.addEventListener('click', () => expandedEvent.default(expandButton));
         });
-    });
-}
-function snbLink(e) {
-    e.preventDefault();
-    const buttonGroup = this;
-    const active = buttonGroup.querySelector('.active');
-    const snbLinkAll = document.querySelectorAll('.snb-link');
-    snbLinkAll.forEach((button, index) => {
-        button.classList.remove('active');
-    });
-    e.currentTarget.classList.add('active');
-}
+    },
+    snbLink(e) {
+        e.preventDefault();
+        const snbLinkAll = document.querySelectorAll('.snb-link');
+        snbLinkAll.forEach(button => button.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+    }    
+};
+const hamburgerButtons = document.querySelectorAll('.snb_handle');
+hamburgerButtons.forEach(button => button.addEventListener('click', snbEvent.hamburgerToggle));
 const snbLinks = document.querySelectorAll('.snb-link');
-snbLinks.forEach((button, index) => {
-    button.addEventListener('click', snbLink);
-});
-snbToggle();
+snbLinks.forEach(button => button.addEventListener('click', snbEvent.snbLink));
+snbEvent.snbToggle();
 
 // content handle
 const contentSelect = {
@@ -118,7 +103,7 @@ const contentSelect = {
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
         }
         EnlighterJS.init('pre', 'code', {});
-        accordionHandle.init(); // 처음나와야할 컨포넌트
+        expandedEvent.init('.accordion_header [aria-expanded]'); // 처음나와야할 컨포넌트
     },
 
     // project
@@ -130,8 +115,8 @@ const contentSelect = {
                 ...dataName,
             ]
         };
-        const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '구분', '화면명', 'ID', '완료일', '수정일', '담당자', '상태', '비고'];
-        const tableHeadlWidth = ['10', '10', '10', '5', '20', '8', '8', '8', '8', '6', ''];
+        const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '화면명', '구분', 'ID', '완료일', '수정일', '담당자', '상태', '비고'];
+        const tableHeadlWidth = ['10', '10', '10', '20', '6', '8', '8', '8', '8', '6', ''];
         let tables = '<table class="table"><thead><tr>';
         for (dhead in tableHead) {
             tables += `<th width="${tableHeadlWidth[dhead]}%">${tableHead[dhead]}</th>`;
@@ -186,8 +171,8 @@ const contentSelect = {
             td1.innerHTML = i.depth2; // depth2
             td2.innerHTML = i.depth3; // depth3
             td3.innerHTML = i.depth4; // depth4
-            td4.innerHTML = i.section; // 구분
-            td5.innerHTML = i.pageName; // 화면명
+            td4.innerHTML = i.pageName; // 화면명
+            td5.innerHTML = i.section; // 구분
             td6.innerHTML = i.pageID; // 화면ID
             td7.innerHTML = i.pageEnd; // 완료일
             td8.innerHTML = i.pageModi; // 수정일
@@ -195,6 +180,11 @@ const contentSelect = {
             td10.innerHTML = `<strong>${i.state}</strong>`; // 상태
             td11.innerHTML = i.etc; // 비고
 
+            td1.classList.add('depth2');
+            td2.classList.add('depth3');
+            td3.classList.add('depth4');
+            td4.classList.add('pagename');
+            td5.classList.add('section');
             td10.classList.add('state');
             td10.setAttribute('data-state', i.state);
         }

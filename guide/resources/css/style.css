@@ -11,12 +11,12 @@
     --color-done:#77ba04;
 
     --bg-base:#f3f2f2;
-    --bg-button:#dbdada;
     --bg-card:#fff;
 
     --border:#d9d9d9;
 
     --snb-size: 220px;
+    --preview-size: 400px;
 }
 
 /* base */
@@ -169,7 +169,7 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
     display: inline-block;
     padding: 3px 15px;
     border-radius: 27px;
-    background-color: var(--bg-button);
+    background-color: var(--bg-base);
     font-weight: 700;
     font-size: 13px;
     line-height: 1.5;
@@ -238,16 +238,28 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 }
 .snb_submenu button:hover,
 .snb_submenu button.active{color:var(--color-primary);text-decoration:underline}
-#content{padding:20px 30px;margin-left:var(--snb-size);transition:all 0.3s}
+#content{
+    padding:20px 30px;
+    margin-left:var(--snb-size);
+    margin-right:var(--preview-size);
+    transition:all 0.3s
+}
 .snbOn .snb{left:calc(var(--snb-size) * -1)}
 .snbOn #content{margin-left:0}
+.preview{
+    overflow-y:auto;background-color:#fff;
+    position:fixed;top:60px;right:0;height:100%;
+    z-index:25;width:var(--preview-size);
+    border:0;border-left:1px solid var(--border);
+    box-shadow:0px 0px 20px rgba(1, 41, 112, 0.1);
+}
 .pagetitle{margin-bottom: 10px;}
 .pagetitle h2{font-size:24px;margin-bottom:0;font-weight:600;color:var(--color-primary)}
 .pagetitle .breadcrumb{font-size:12px;color:var(--color-secondary)}
 .pagetitle .breadcrumb.active{color:#51678f}
 .section_card{
   margin-bottom: 30px;
-  padding: 15px 20px 10px;
+  padding:20px;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
   background-color: var(--bg-card);
@@ -302,6 +314,11 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 .table tr.defer td.state strong {
     color: var(--color-warning);
 }
+.table td.depth2,
+.table td.depth3,
+.table td.depth4,
+.table td.section,
+.table td.pagename{text-align: left;}
 
 .codeview + .enlighter-default{margin-top: 15px;}
 
