@@ -1,7 +1,8 @@
 // 'use strict';
 
-// snb
 const wrap = document.querySelector('#wrap');
+
+// snb
 const snbEvent = {
     hamburgerToggle() {
         let button = this;
@@ -10,13 +11,13 @@ const snbEvent = {
         let clone = button.cloneNode(true);
         button.parentNode.replaceChild(clone, button);
         clone.addEventListener('click', snbEvent.hamburgerToggle);
-        wrap.classList.toggle('snbOn');
+        wrap.classList.toggle('snbOpen');        
     },
     snbToggle() {
         const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
         expandButtons.forEach(expandButton => {
             expandButton.addEventListener('click', () => expandedEvent.default(expandButton));
-        });
+        });        
     },
     snbLink(e) {
         e.preventDefault();
@@ -115,7 +116,7 @@ const contentSelect = {
                 ...dataName,
             ]
         };
-        const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '화면명', '구분', 'ID', '완료일', '수정일', '담당자', '상태', '비고'];
+        const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '화면명', '구분', 'URL', '완료일', '수정일', '담당자', '상태', '비고'];
         const tableHeadlWidth = ['10', '10', '10', '20', '6', '8', '8', '8', '8', '6', ''];
         let tables = '<table class="table"><thead><tr>';
         for (dhead in tableHead) {
@@ -173,7 +174,10 @@ const contentSelect = {
             td3.innerHTML = i.depth4; // depth4
             td4.innerHTML = i.pageName; // 화면명
             td5.innerHTML = i.section; // 구분
-            td6.innerHTML = i.pageID; // 화면ID
+            // 화면ID
+            td6.innerHTML = `
+                <a href="${i.pageLink}" target="_blank">${i.pageLink}</a>
+            `; 
             td7.innerHTML = i.pageEnd; // 완료일
             td8.innerHTML = i.pageModi; // 수정일
             td9.innerHTML = i.worker; // 담당자
@@ -185,6 +189,7 @@ const contentSelect = {
             td3.classList.add('depth4');
             td4.classList.add('pagename');
             td5.classList.add('section');
+            td6.classList.add('id');
             td10.classList.add('state');
             td10.setAttribute('data-state', i.state);
         }
@@ -249,6 +254,32 @@ const contentSelect = {
 
         contentSelect.shortCut();
 
+        // preview
+        const tableLinks = document.querySelectorAll('.table .id a');
+        const preview = document.querySelector('.preview');
+        tableLinks.forEach(tableLink => {
+            tableLink.addEventListener('mouseover', () => {
+                const url = tableLink.getAttribute('href');
+                preview.setAttribute('src', url);
+            })
+        });
+
+        const previewHandle = document.querySelector('.preview_opener');
+        previewHandle.addEventListener('click', () => {
+            const content = document.querySelector('#content');
+            wrap.classList.toggle('previewOpen');
+        });
     },
 
+};
+
+// mobile
+function reportWindowSize() {
+    if(window.innerWidth <= 586) {
+        const hamburger = document.querySelector('.snb_handle');
+        hamburger.classList.add('active');
+        hamburger.classList.add('animation');
+        wrap.classList.add('snbOpen');
+    }
 }
+window.addEventListener("resize", reportWindowSize);
