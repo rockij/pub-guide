@@ -32,6 +32,34 @@ const snbLinks = document.querySelectorAll('.snb-link');
 snbLinks.forEach(button => button.addEventListener('click', snbEvent.snbLink));
 snbEvent.snbToggle();
 
+// table sort
+const tableSort = {
+    sort(ascending, columnClassName, tableId) {
+        const tbody = document.querySelector(`.${tableId}`).getElementsByTagName("tbody")[0];
+        const rows = tbody.getElementsByTagName("tr");
+        let unsorted = true;
+        while (unsorted) {
+            unsorted = false
+            for (let r = 0; r < rows.length - 1; r++) {
+            let row = rows[r];
+            let nextRow = rows[r + 1];
+            let value = row.getElementsByClassName(columnClassName)[0].innerHTML;
+            let nextValue = nextRow.getElementsByClassName(columnClassName)[0].innerHTML;
+            value = value.replace('-', ''); // in case a comma is used in float number
+            nextValue = nextValue.replace('-', '');
+            if (!isNaN(value)) {
+                value = parseFloat(value);
+                nextValue = parseFloat(nextValue);
+            }
+            if (ascending ? value > nextValue : value < nextValue) {
+                tbody.insertBefore(nextRow, row);
+                unsorted = true;
+            }
+            }
+        }
+    }
+}
+
 // content handle
 const contentSelect = {
 
@@ -116,11 +144,12 @@ const contentSelect = {
                 ...dataName,
             ]
         };
-        const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '화면명', '구분', 'URL', '완료일', '수정일', '담당자', '상태', '비고'];
-        const tableHeadlWidth = ['10', '10', '10', '20', '6', '8', '8', '8', '8', '6', ''];
+        const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '화면명', '구분', 'URL', '', '', '담당자', '상태', '비고'];
+        const tableHeadClass = ['depth2', 'depth3', 'depth4', 'pagename', 'section', 'url', 'end', 'modify', 'worker', 'state', 'etc'];
+        const tableHeadWidth = ['10', '10', '10', '20', '6', '8', '8', '8', '8', '6', ''];
         let tables = '<table class="table"><thead><tr>';
         for (dhead in tableHead) {
-            tables += `<th width="${tableHeadlWidth[dhead]}%">${tableHead[dhead]}</th>`;
+            tables += `<th class="${tableHeadClass[dhead]}" width="${tableHeadWidth[dhead]}%">${tableHead[dhead]}</th>`;
         }
         tables += '</tr></thead></table>';
 
@@ -140,6 +169,24 @@ const contentSelect = {
         card.innerHTML = tables;
         breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
 
+        const thEnd = document.querySelector('.end');
+        thEnd.innerHTML = `
+        완료일
+        <div class="sort_arrows">
+            <button type="button" onclick="tableSort.sort(true, 'end', 'table')" class="before" title="지난일"></button>
+            <button type="button" onclick="tableSort.sort(false, 'end', 'table')" class="after" title="최신일"></button>
+        </div>
+        `;
+
+        const thModify = document.querySelector('.modify');
+        thModify.innerHTML = `
+        수정일
+        <div class="sort_arrows">
+            <button type="button" onclick="tableSort.sort(true, 'modify', 'table')" class="before" title="지난일"></button>
+            <button type="button" onclick="tableSort.sort(false, 'modify', 'table');" class="after" title="최신일"></button>
+        </div>
+        `;
+
         const tbody = document.createElement('tbody');
 
         for (let i of items.data) {
@@ -149,7 +196,7 @@ const contentSelect = {
             let td3 = document.createElement('td'); // depth4
             let td4 = document.createElement('td'); // 구분
             let td5 = document.createElement('td'); // 화면명
-            let td6 = document.createElement('td'); // 화면ID
+            let td6 = document.createElement('td'); // 화면url
             let td7 = document.createElement('td'); // 완료일
             let td8 = document.createElement('td'); // 수정일
             let td9 = document.createElement('td'); // 담당자
@@ -179,7 +226,7 @@ const contentSelect = {
                 <a href="${i.pageLink}" target="_blank">${i.pageLink}</a>
             `; 
             td7.innerHTML = i.pageEnd; // 완료일
-            td8.innerHTML = i.pageModi; // 수정일
+            td8.innerHTML = i.pageModify; // 수정일
             td9.innerHTML = i.worker; // 담당자
             td10.innerHTML = `<strong>${i.state}</strong>`; // 상태
             td11.innerHTML = i.etc; // 비고
@@ -189,13 +236,21 @@ const contentSelect = {
             td3.classList.add('depth4');
             td4.classList.add('pagename');
             td5.classList.add('section');
-            td6.classList.add('id');
+            td5.setAttribute('data-label', '페이지유형');
+            td6.classList.add('url');
+            td7.classList.add('end');
+            td7.setAttribute('data-label', '완료일');
+            td8.classList.add('modify');
+            td8.setAttribute('data-label', '수정일');
+            td9.classList.add('worker');
+            td9.setAttribute('data-label', '작업자');
             td10.classList.add('state');
             td10.setAttribute('data-state', i.state);
+            td10.setAttribute('data-label', '작업상태');
         }
         card.querySelector('table').appendChild(tbody);
 
-        let countIng = 0, countTest = 0, countDone = 0, countModi = 0, countDefer = 0, countTotal = 0;
+        let countIng = 0, countTest = 0, countDone = 0, countModify = 0, countDefer = 0, countTotal = 0;
         const states = document.querySelectorAll('.state');
         states.forEach(state => {
 
@@ -218,8 +273,8 @@ const contentSelect = {
                 break;
 
             case '수정':
-                state.classList.add('modi');
-                countModi++;
+                state.classList.add('modify');
+                countModify++;
                 break;
 
             case '보류':
@@ -239,7 +294,7 @@ const contentSelect = {
         document.querySelector('.count-ing').textContent = countIng;
         document.querySelector('.count-test').textContent = countTest;
         document.querySelector('.count-done').textContent = countDone;
-        document.querySelector('.count-modi').textContent = countModi;
+        document.querySelector('.count-modify').textContent = countModify;
         document.querySelector('.count-defer').textContent = countDefer;
 
         const countValues = document.querySelectorAll('.info_value');
@@ -255,7 +310,7 @@ const contentSelect = {
         contentSelect.shortCut();
 
         // preview
-        const tableLinks = document.querySelectorAll('.table .id a');
+        const tableLinks = document.querySelectorAll('.table .url a');
         const preview = document.querySelector('.preview');
         tableLinks.forEach(tableLink => {
             tableLink.addEventListener('mouseover', () => {
@@ -275,11 +330,17 @@ const contentSelect = {
 
 // mobile
 function reportWindowSize() {
-    if(window.innerWidth <= 586) {
-        const hamburger = document.querySelector('.snb_handle');
+    const hamburger = document.querySelector('.snb_handle');
+    if(window.innerWidth <= 1024) {
         hamburger.classList.add('active');
         hamburger.classList.add('animation');
         wrap.classList.add('snbOpen');
+        wrap.classList.remove('previewOpen');
+    }else{
+        hamburger.classList.remove('active');
+        hamburger.classList.remove('animation');
+        wrap.classList.remove('snbOpen','previewOpen');
     }
 }
 window.addEventListener("resize", reportWindowSize);
+window.addEventListener("load", reportWindowSize);
