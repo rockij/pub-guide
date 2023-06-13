@@ -4,7 +4,7 @@
 :root{
     --color-primary:#333;
     --color-secondary:#555;
-    --color-secondary2:#aeaeae;    ;
+    --color-secondary2:#aeaeae;
     --color-warning:#f00;
     --color-positive:#086cfd;
     --color-notice:#f76900;
@@ -51,7 +51,7 @@ img{vertical-align:top}
 mark{color:inherit;font-weight:700;background:none}
 button,input{border-radius:0;background:none}
 button, input, optgroup, select, textarea{
-  -webkit-appearance:none;appearance:none;
+  appearance:none;
   margin:0;padding:0;
   background-color:transparent;
   border-radius:0;border:0;
@@ -84,6 +84,8 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 /* 아래부터는 guide 페이지를 위한 소스 */
 
 /* layout */
+table{width: 100%}
+.tac{text-align: center}
 #header{
   background-color:#fff;padding-left:20px;
   display:flex;align-items:center;z-index:30;height:60px;
@@ -337,13 +339,13 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
     border-radius: 0 0 2px 2px;
     background-color: #332d22;
 }
-.func{}
 
 .pagetitle{margin-bottom: 10px;}
 .pagetitle h2{font-size:24px;margin-bottom:0;font-weight:600;color:var(--color-primary)}
 .pagetitle .breadcrumb{font-size:12px;color:var(--color-secondary)}
 .pagetitle .breadcrumb.active{color:#51678f}
-.section_card{
+.section_card,
+.section_convention{
   margin-bottom: 30px;
   padding:20px;
   border-radius: 5px;
@@ -357,15 +359,16 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
   color: var(--color-primary);
   font-family: "Poppins", sans-serif;
 }
-.table{
-    width: 100%;
-}
-.table thead{
-    background-color: var(--bg-base);
-}
-.table>:not(caption)>*>* {
-    padding: 10px;
-}
+.section_convention h2{margin-bottom:20px;font-size:20px;}
+.section_convention h2:not(:first-of-type){margin-top:30px;}
+.section_convention h3{margin:20px 0 10px;font-size: 16px;}
+.section_convention h4{margin:10px 0;font-size: 14px;}
+.section_convention a[href*="#"]{text-decoration: underline;}
+.section_convention .pre{background-color:var(--bg-base);padding:10px 20px;}
+.section_convention .table2{margin-top: 10px;}
+.table thead{background-color: var(--bg-base)}
+.table th.state select{font-weight: 700;appearance:auto;height:33px}
+.table>:not(caption)>*>* {padding: 10px}
 .table td{
   border-bottom:1px solid var(--border);
   text-align: center;
@@ -410,6 +413,20 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 .table .sort_arrows .before::before{content:'▼'}
 .table .sort_arrows .after{margin-left:4px}
 .table .sort_arrows .after::before{content:'▲'}
+
+.table2{border-top:1px solid var(--border);border-right:1px solid var(--border)}
+.table2 caption{font-weight: 700;text-align: left;}
+.table2 thead{background-color: var(--bg-base)}
+.table2>:not(caption)>*>* {padding: 10px}
+.table2 th, .table2 td{
+    border-bottom:1px solid var(--border);
+    border-left:1px solid var(--border);
+}
+.table2 td{font-size: 12px}
+.table2 a {
+    text-decoration: underline;
+    color:var(--color-primary);
+}
 
 .codeview + .enlighter-default{margin-top: 15px;}
 
@@ -473,7 +490,7 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
     }
     .table th{
         display:inline-block;
-        min-width:100px;
+        min-width:80px;
         width:auto;
         background-color: var(--bg-card);
         border: 1px solid var(--border);
@@ -516,5 +533,6 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
     .table td.depth3::after{content:'>';position:absolute;right:-6px}
     .table td.section{border-top:1px solid var(--border)}
     .table td.etc{display:none}
+    .table .sort_arrows{display: inline-flex;}
     .table .sort_arrows button{width:33px;height:33px;font-size:14px}
 }

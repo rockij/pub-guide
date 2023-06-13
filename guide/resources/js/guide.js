@@ -6,25 +6,23 @@ const wrap = document.querySelector('#wrap');
 const snbEvent = {
     hamburgerToggle() {
         let button = this;
-        button.classList.add('animation');
-        button.classList.toggle('active');
         let clone = button.cloneNode(true);
         button.parentNode.replaceChild(clone, button);
         clone.addEventListener('click', snbEvent.hamburgerToggle);
-        wrap.classList.toggle('snbOpen');        
+        wrap.classList.toggle('snbOpen');
     },
     snbToggle() {
         const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
         expandButtons.forEach(expandButton => {
             expandButton.addEventListener('click', () => expandedEvent.default(expandButton));
-        });        
+        });
     },
     snbLink(e) {
         e.preventDefault();
         const snbLinkAll = document.querySelectorAll('.snb-link');
         snbLinkAll.forEach(button => button.classList.remove('active'));
         e.currentTarget.classList.add('active');
-    }    
+    }
 };
 const hamburgerButtons = document.querySelectorAll('.snb_handle');
 hamburgerButtons.forEach(button => button.addEventListener('click', snbEvent.hamburgerToggle));
@@ -41,23 +39,45 @@ const tableSort = {
         while (unsorted) {
             unsorted = false
             for (let r = 0; r < rows.length - 1; r++) {
-            let row = rows[r];
-            let nextRow = rows[r + 1];
-            let value = row.getElementsByClassName(columnClassName)[0].innerHTML;
-            let nextValue = nextRow.getElementsByClassName(columnClassName)[0].innerHTML;
-            value = value.replace('-', ''); // in case a comma is used in float number
-            nextValue = nextValue.replace('-', '');
-            if (!isNaN(value)) {
-                value = parseFloat(value);
-                nextValue = parseFloat(nextValue);
-            }
-            if (ascending ? value > nextValue : value < nextValue) {
-                tbody.insertBefore(nextRow, row);
-                unsorted = true;
-            }
+                let row = rows[r];
+                let nextRow = rows[r + 1];
+                let value = row.getElementsByClassName(columnClassName)[0].innerHTML;
+                let nextValue = nextRow.getElementsByClassName(columnClassName)[0].innerHTML;
+                value = value.replace('-', ''); // in case a comma is used in float number
+                nextValue = nextValue.replace('-', '');
+                if (!isNaN(value)) {
+                    value = parseFloat(value);
+                    nextValue = parseFloat(nextValue);
+                }
+                if (ascending ? value > nextValue : value < nextValue) {
+                    tbody.insertBefore(nextRow, row);
+                    unsorted = true;
+                }
             }
         }
-    }
+    },
+    selectSort() {
+        const selectMenu = document.querySelector(".state_menu");
+        let selectList = document.querySelector(".table").getElementsByTagName("tbody")[0];
+        let rows = selectList.getElementsByTagName("tr");
+        selectMenu.onchange = function () {
+            let selected = this.value;
+            if(selected !== "") {
+                for (let i = 0; i < rows.length; i++) {
+                    let row = rows[i].querySelector('.state');
+                    if(row.classList.contains(selected)) {
+                        row.parentNode.classList.add('selectSort');
+                    }else{
+                        row.parentNode.classList.remove('selectSort')
+                    }
+                }
+                const stateLists = document.querySelectorAll('.selectSort');
+                stateLists.forEach(stateList => {
+                    selectList.prepend(stateList);
+                });
+            }
+        }
+    },
 }
 
 // content handle
@@ -90,13 +110,41 @@ const contentSelect = {
         });
     },
 
+    // convention
+    convention(dataTitle, dataName) {
+        contentSelect.contentRemove();
+        document.querySelector('.state_info').style.display = 'none';
+        const items = {
+            data: [
+                ...dataName,
+            ]
+        };
+        const content = document.querySelector('#content');
+        let pageTitle = document.createElement('div');
+        let breadCrumb = document.createElement('div');
+        let cardTitle = document.createElement('h2');
+        for (let i of items.data) {
+            let card = document.createElement('div');
+            content.prepend(pageTitle);
+            content.appendChild(card);
+            pageTitle.classList.add('pagetitle');
+            breadCrumb.classList.add('breadcrumb');            
+            card.classList.add('section_convention');
+            pageTitle.appendChild(cardTitle);
+            pageTitle.appendChild(breadCrumb);
+            card.innerHTML = i.tag_html;            
+            cardTitle.innerHTML = dataTitle;            
+            breadCrumb.innerHTML = `Home / <span class="active">${dataTitle}</span>`;
+        }
+    },
+
     // components
     componentsName(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
         document.querySelector('.state_info').style.display = 'none';
         const items = {
             data: [
-            ...dataName,
+                ...dataName,
             ]
         };
         const content = document.querySelector('#content');
@@ -173,8 +221,8 @@ const contentSelect = {
         thEnd.innerHTML = `
         완료일
         <div class="sort_arrows">
-            <button type="button" onclick="tableSort.sort(true, 'end', 'table')" class="before" title="지난일"></button>
-            <button type="button" onclick="tableSort.sort(false, 'end', 'table')" class="after" title="최신일"></button>
+            <button onclick="tableSort.sort(true, 'end', 'table')" class="before" title="지난일"></button>
+            <button onclick="tableSort.sort(false, 'end', 'table')" class="after" title="최신일"></button>
         </div>
         `;
 
@@ -182,9 +230,19 @@ const contentSelect = {
         thModify.innerHTML = `
         수정일
         <div class="sort_arrows">
-            <button type="button" onclick="tableSort.sort(true, 'modify', 'table')" class="before" title="지난일"></button>
-            <button type="button" onclick="tableSort.sort(false, 'modify', 'table');" class="after" title="최신일"></button>
+            <button onclick="tableSort.sort(true, 'modify', 'table')" class="before" title="지난일"></button>
+            <button onclick="tableSort.sort(false, 'modify', 'table');" class="after" title="최신일"></button>
         </div>
+        `;
+
+        const thState = document.querySelector('.state');
+        thState.innerHTML = `
+        <select class="state_menu">
+        <option value="">상태</option>
+        <option value="ing">진행</option>
+        <option value="test">검수</option>
+        <option value="done">완료</option>
+        </select>
         `;
 
         const tbody = document.createElement('tbody');
@@ -224,7 +282,7 @@ const contentSelect = {
             // 화면ID
             td6.innerHTML = `
                 <a href="${i.pageLink}" target="_blank">${i.pageLink}</a>
-            `; 
+            `;
             td7.innerHTML = i.pageEnd; // 완료일
             td8.innerHTML = i.pageModify; // 수정일
             td9.innerHTML = i.worker; // 담당자
@@ -308,6 +366,7 @@ const contentSelect = {
         document.querySelector('.percent-done').textContent = `${donePercent}%`;
 
         contentSelect.shortCut();
+        tableSort.selectSort();
 
         // preview
         const tableLinks = document.querySelectorAll('.table .url a');
@@ -332,13 +391,9 @@ const contentSelect = {
 function reportWindowSize() {
     const hamburger = document.querySelector('.snb_handle');
     if(window.innerWidth <= 1024) {
-        hamburger.classList.add('active');
-        hamburger.classList.add('animation');
         wrap.classList.add('snbOpen');
         wrap.classList.remove('previewOpen');
     }else{
-        hamburger.classList.remove('active');
-        hamburger.classList.remove('animation');
         wrap.classList.remove('snbOpen','previewOpen');
     }
 }
