@@ -128,12 +128,12 @@ const contentSelect = {
             content.prepend(pageTitle);
             content.appendChild(card);
             pageTitle.classList.add('pagetitle');
-            breadCrumb.classList.add('breadcrumb');            
+            breadCrumb.classList.add('breadcrumb');
             card.classList.add('section_convention');
             pageTitle.appendChild(cardTitle);
             pageTitle.appendChild(breadCrumb);
-            card.innerHTML = i.tag_html;            
-            cardTitle.innerHTML = dataTitle;            
+            card.innerHTML = i.tag_html;
+            cardTitle.innerHTML = dataTitle;
             breadCrumb.innerHTML = `Home / <span class="active">${dataTitle}</span>`;
         }
     },
@@ -194,7 +194,7 @@ const contentSelect = {
         };
         const tableHead = ['DEPTH2', 'DEPTH3', 'DEPTH4', '화면명', '구분', 'URL', '', '', '담당자', '상태', '비고'];
         const tableHeadClass = ['depth2', 'depth3', 'depth4', 'pagename', 'section', 'url', 'end', 'modify', 'worker', 'state', 'etc'];
-        const tableHeadWidth = ['10', '10', '10', '20', '6', '8', '8', '8', '8', '6', ''];
+        const tableHeadWidth = ['10', '10', '10', '15', '6', '10', '8', '8', '8', '6', ''];
         let tables = '<table class="table"><thead><tr>';
         for (dhead in tableHead) {
             tables += `<th class="${tableHeadClass[dhead]}" width="${tableHeadWidth[dhead]}%">${tableHead[dhead]}</th>`;
@@ -282,6 +282,8 @@ const contentSelect = {
             // 화면ID
             td6.innerHTML = `
                 <a href="${i.pageLink}" target="_blank">${i.pageLink}</a>
+                <input type="text" value="${i.pageLink}" class="blind" />
+                <button class="copy">copy</button>
             `;
             td7.innerHTML = i.pageEnd; // 완료일
             td8.innerHTML = i.pageModify; // 수정일
@@ -354,19 +356,33 @@ const contentSelect = {
         document.querySelector('.count-done').textContent = countDone;
         document.querySelector('.count-modify').textContent = countModify;
         document.querySelector('.count-defer').textContent = countDefer;
-
         const countValues = document.querySelectorAll('.info_value');
         countValues.forEach(countValue => {
             countTotal += parseInt(countValue.textContent);
         });
         document.querySelector('.count-total').textContent = countTotal;
-
         const donePercent = Math.floor((countDone / (countTotal - countDefer)) * 100);
         document.querySelector('.progress_done').style.width = `${donePercent}%`;
         document.querySelector('.percent-done').textContent = `${donePercent}%`;
 
-        contentSelect.shortCut();
-        tableSort.selectSort();
+        // url copy
+        const copyBtns = document.querySelectorAll('.copy');
+        copyBtns.forEach(copyBtn => {
+            copyBtn.addEventListener('click', () => {
+                const url = copyBtn.previousElementSibling;
+                url.select();
+                if(document.execCommand("copy")){
+                    copyBtn.innerText = 'copied';
+                    setTimeout(()=>{
+                        copyBtn.innerText = 'copy';
+                        window.getSelection().removeAllRanges();
+                    }, 500);
+                }
+            });
+        });
+
+        contentSelect.shortCut(); // 바로가기 버튼
+        tableSort.selectSort(); // 테이블 정렬
 
         // preview
         const tableLinks = document.querySelectorAll('.table .url a');
@@ -377,7 +393,6 @@ const contentSelect = {
                 preview.setAttribute('src', url);
             })
         });
-
         const previewHandle = document.querySelector('.preview_opener');
         previewHandle.addEventListener('click', () => {
             const content = document.querySelector('#content');

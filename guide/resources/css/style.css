@@ -378,6 +378,15 @@ table{width: 100%}
     text-decoration: underline;
     color:var(--color-primary);
 }
+.table td.url .copy{
+    display: inline-block;
+    background-color: var(--color-secondary2);
+    padding: 2px 4px 4px;
+    border-radius: 4px;
+    line-height:1.1;
+    font-size: 11px;
+    color: #fff;
+}
 .table td.state strong {
     display: inline-block;
     padding: 2px 4px;
@@ -385,7 +394,7 @@ table{width: 100%}
     color: #fff;
 }
 .table td.ing strong {
-  background-color: var(--color-ing);
+    background-color: var(--color-ing);
 }
 .table td.test strong {
     background-color: var(--color-notice);
