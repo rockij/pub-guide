@@ -111,8 +111,9 @@ const contentSelect = {
     },
 
     // convention
-    convention(dataTitle, dataName) {
+    originalTag(dataTitle, dataName) {
         contentSelect.contentRemove();
+        document.querySelector('.shortcut').style.display = 'none';
         document.querySelector('.state_info').style.display = 'none';
         const items = {
             data: [
@@ -187,6 +188,7 @@ const contentSelect = {
     projectName(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
         document.querySelector('.state_info').style.display = '';
+        document.querySelector('.shortcut').style.display = '';
         const items = {
             data: [
                 ...dataName,

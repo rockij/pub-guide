@@ -7,12 +7,12 @@ let convention = [
 마크업 개발은 프런트-엔드 페이지의 기본 골격을 형성하기 때문에 디자인, 브라우저, 스크립트, 성능, 접근성
 등과 긴밀한 관계가 있다. 즉, 마크업 개발을 잘 해야 모든 브라우저에서 콘텐츠를 손실 없이, 빠르고 쉽게
 사용자에게 전달할 수 있다.
-<br/>
+<br>
 또한, 유지보수에 투자되는 비용을 최소화하기 위해 통일된 코드 작성법을 제시한다. 코드를 최초로 작성한
 사람이 끝까지 유지보수할 확률은 매우 낮다. 따라서, 최초 개발자가 아닌 사람도 코드를 빠르고 정확하게
 이해할 수 있도록 작성하는 것은 코드의 유지보수 비용을 절감하고 업무 효율을 높이는 데 결정적인 역할을
 한다. 
-<br/>
+<br>
 적어도 한 프로젝트의 마크업 코드는 같은 코딩 컨벤션에 따라 작성해야 한다. 코딩 컨벤션을 준수하면
 프로젝트 멤버 간 코드 공유도 쉬워지고, 일관성 있게 코드를 작성할 수 있다. 어떤 코딩 컨벤션을
 선택하느냐가 중요한 것이 아니라, 통일된 기준으로 소스 코드를 작성하는 것이 중요하다.
@@ -36,18 +36,18 @@ let convention = [
 공통관리는 더블언더스코어(__)로 작성한다.
 
 <h4>B. 시작 이름</h4>
-이름은 영문 소문자로만 시작할 수 있다.<br/>
+이름은 영문 소문자로만 시작할 수 있다.<br>
 단, css 주석문은 영문 대문자를 허용한다.
 
 <h4>C. 약속어</h4>
-약속어는 레이아웃 약속어, 객체 약속어, 이미지 약속어에 근거하여 작성한다.<br/>
+약속어는 레이아웃 약속어, 객체 약속어, 이미지 약속어에 근거하여 작성한다.<br>
 약속어가 없으면, 종류와 특성을 나타내도록 네이밍
 <table class="table2">
     <caption>객체 약속어</caption>
     <colgroup>
-    <col width="15%" />
-    <col width="20%" />
-    <col />
+    <col width="15%">
+    <col width="20%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -124,7 +124,7 @@ let convention = [
     <tr>
         <td>. _area</td>
         <td>
-        위치에 제한이 없는 특정 기능을 수행하는 요소들의 그루핑<br/>
+        위치에 제한이 없는 특정 기능을 수행하는 요소들의 그루핑<br>
         area를 뒤에 붙인다.
         </td>
     </tr>
@@ -133,8 +133,8 @@ let convention = [
 <table class="table2">
     <caption>이미지 약속어</caption>
     <colgroup>
-    <col width="40%" />
-    <col />
+    <col width="40%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -216,13 +216,14 @@ let convention = [
     <li>id는 문서 전체의 고유 식별자 이므로 한 문서에서 동일한 id를 여러 번 사용하지 않는다.</li>
     <li>레이아웃을 제외한 id는 스타일을 지정하지 않는다.</li>
     <li>class는 문서에서 여러 번 사용할 수 있다.</li>
+    <li>(-)는 id 혹은 class는 스크립트를 이용한 기능 구현시에만 사용한다.</li>
 </ul>
 
 <h4>B. 레이아웃 약속어</h4>
 <table class="table2">
     <colgroup>
-    <col width="30%" />
-    <col />
+    <col width="30%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -253,12 +254,12 @@ let convention = [
     </tr>
     </tbody>
 </table>
-
+    
 <h4>C. 팝업 레이아웃 약속어</h4>
 <table class="table2">
     <colgroup>
-    <col width="30%" />
-    <col />
+    <col width="30%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -300,9 +301,9 @@ let convention = [
 </ul>
 <table class="table2">
     <colgroup>
-    <col width="30%" />
-    <col width="30%" />
-    <col />
+    <col width="30%">
+    <col width="30%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -315,12 +316,12 @@ let convention = [
     <tr>
         <td>공통</td>
         <td>
-        list__type<br/>
-        btn__x<br/>
-        form__type<br/>
+        list__type<br>
+        btn__x<br>
+        form__type<br>
         </td>
         <td>
-        일반 약속어 class와 겹치지 않기 위해 언더스코어를 두번(__) 사용<br/>
+        일반 약속어 class와 겹치지 않기 위해 언더스코어를 두번(__) 사용<br>
         공통업무 담당자에 한에서만 사용
         </td>
     </tr>
@@ -336,7 +337,7 @@ let convention = [
     <tr>
         <td>종속확장</td>
         <td>
-        list__type_v1<br/>
+        list__type_v1<br>
         msg_type_v1
         </td>
         <td>
@@ -346,11 +347,49 @@ let convention = [
     <tr>
         <td>독립확장</td>
         <td>
-        accrdion_type2<br/>
-        list__type2<br/>
-        msg_type<br/>
+        accrdion_type2<br>
+        list__type2<br>
+        msg_type<br>
         </td>
         <td>기본형 class의 변형이 타입으로 분류할 만큼 클 경우 사용하는 class.</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>F. (-)사용범위</h4>
+<table class="table2">
+    <colgroup>
+    <col width="30%">
+    <col width="30%">
+    <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>분류</th>
+        <th>사용 예</th>
+        <th>설명</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>popup</td>
+        <td>mw-alert</td>
+        <td>팝업에 사용</td>
+    </tr>
+    <tr>
+        <td>form</td>
+        <td>id="input-name"</td>
+        <td>입력폼의 아이디 값</td>
+    </tr>
+        <tr>
+        <td>form</td>
+        <td>aria-describedby="error-msg"</td>
+        <td>안내(에러) 메시지 연결</td>
+    </tr>
+        <tr>
+        <td>script</td>
+        <td>class="input-copy"</td>
+        <td>copy버튼 선택시 텍스트 복사</td>
     </tr>
     </tbody>
 </table>
@@ -366,9 +405,9 @@ let convention = [
 이미지 이름은 '형태_의미_상태' 순서로 조합한다.
 <table class="table2">
     <colgroup>
-    <col width="30%" />
-    <col width="30%" />
-    <col />
+    <col width="30%">
+    <col width="30%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -403,18 +442,18 @@ let convention = [
 
 <h2 id="convention3">3. 기본 공통 규칙</h2>
 <h3>3.1 들여쓰기 규칙</h3>
-들여쓰기를 하면 코드의 가독성이 높아지고 전체 HTML 구조를 쉽게 파악할 수 있다.<br/>
-마크업의 중첩이 깊어질 때마다 자식 요소는 1탭 들여 쓰고, 1탭의 크기는 공백 4칸으로 설정한다.<br/>
+들여쓰기를 하면 코드의 가독성이 높아지고 전체 HTML 구조를 쉽게 파악할 수 있다.<br>
+마크업의 중첩이 깊어질 때마다 자식 요소는 1탭 들여 쓰고, 1탭의 크기는 공백 4칸으로 설정한다.<br>
 문서 내에서 반드시 탭을 이용하여 들여쓰기를 하며, 탭을 대신하여 공백으로 띄어 들여쓰지 않는다.
 
 <h3>3.2 빈 줄</h3>
-빈 줄을 사용하려면 의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 만드는 것은 허용한다.<br/>
+빈 줄을 사용하려면 의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 만드는 것은 허용한다.<br>
 빈 줄의 간격은 1줄을 초과하지 않는다.
 
 <h3>3.3 주석</h3>
 <h4>A. 기본 형식</h4>
 HTML 주석의 시작과 종료는 아래와 같이 표기하며, 기본 형식에 맞게 작성한다.
-시작주석 &lt;!-- 주석내용 --&gt;<br/>
+시작주석 &lt;!-- 주석내용 --&gt;<br>
 종료주석 &lt;!-- 주석내용 --&gt;
 <ul>
     <li>주석 기호와 주석 내용 사이에는 반드시 공백 한 칸이 있어야 한다.</li>
@@ -428,7 +467,7 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <pre class="pre">&lt;!-- content --&gt;
 &lt;div id="content"&gt;
 &lt;!-- 네임카드 --&gt;
-&lt;div class="namecard"> ... &lt;/div&gt;
+&lt;div class="namecard"&gt; ... &lt;/div&gt;
 &lt;!-- //네임카드 --&gt;
 &lt;/div&gt;
 &lt;!-- //content --&gt;</pre>
@@ -474,8 +513,8 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 </ul>
 <table class="table2">
     <colgroup>
-    <col width="50%" />
-    <col />
+    <col width="50%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -486,12 +525,12 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
     <tbody>
     <tr>
         <td>
-        #content{border:1px solid #000}<br/>
-        #content .class{color:#000}<br/>
+        #content{border:1px solid #000}<br>
+        #content .class{color:#000}<br>
         </td>
         <td>
-        #content{border:1px solid #000}<br/>
-        #content .class{color:#000}<br/>
+        #content{border:1px solid #000}<br>
+        #content .class{color:#000}<br>
         </td>
     </tr>
     <tr>
@@ -499,8 +538,8 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
         @media all and (minwidth:480px){.vod_wrp2{height:278px}}
         </td>
         <td>
-        @media all and (min-width:480px){<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;.vod_wrp2{height:278px}<br/>
+        @media all and (min-width:480px){<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.vod_wrp2{height:278px}<br>
         }
         </td>
     </tr>
@@ -511,8 +550,8 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <h4>A. 속성 간 공백 제거</h4>
 <table class="table2">
     <colgroup>
-    <col width="50%" />
-    <col />
+    <col width="50%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -523,7 +562,7 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
     <tbody>
     <tr>
         <td>
-        .class p{color:#000;^line-height:18px}<br/>
+        .class p{color:#000;^line-height:18px}<br>
         .class p{color:#000^ ;line-height:18px}
         </td>
         <td>.class p{color:#000;line-height:18px}</td>
@@ -533,8 +572,8 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <h4>B. 중괄호 좌우 공백 제거</h4>
 <table class="table2">
     <colgroup>
-    <col width="50%" />
-    <col />
+    <col width="50%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -555,12 +594,12 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 </table>
 
 <h3>4.3 줄 바꿈</h3>
-클래스 이름이 짧을 경우 속성, 속성 값 사이 줄 바꿈은 하지 않는다.<br/>  
+클래스 이름이 짧을 경우 속성, 속성 값 사이 줄 바꿈은 하지 않는다.<br>  
 단, 클래스 이름이 길거나 중괄호”{}”가 중첩되는 경우 예외로 한다.  
 <table class="table2">
     <colgroup>
-    <col width="50%" />
-    <col />
+    <col width="50%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -600,13 +639,13 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 </table>
 
 <h3>4.4 속성</h3>
-속성을 선언할 때는 그 쓰임새가 레이아웃과 관련이 큰 것에서 시작하여 레이아웃과 무관한 것 순서로 선언한다.<br/>
+속성을 선언할 때는 그 쓰임새가 레이아웃과 관련이 큰 것에서 시작하여 레이아웃과 무관한 것 순서로 선언한다.<br>
 벤터속성(-webkit-)은 속성 앞에 선언하다. (-webkit-boder-radius:2px;border-radius:2px)
 <table class="table2">
     <colgroup>
-    <col width="10%" />
-    <col width="20%" />
-    <col />
+    <col width="10%">
+    <col width="20%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -656,21 +695,21 @@ z-index 속성의 속성 값의 범위는 최소 10, 최고 1000이며, 10 단�
     <li>주석 기호와 주석 내용 사이의 줄 바꿈은 허용하지 않는다. 단, 주석 내용 간 줄 바꿈은 허용한다.</li>
     <li>종료 주석은 사용하지 않는다</li>
     <li>
-    마크업과 개발의 편의를 위해 작성한 주석은 실제 서비스를 적용할 때 반드시 삭제한다.<br/>
+    마크업과 개발의 편의를 위해 작성한 주석은 실제 서비스를 적용할 때 반드시 삭제한다.<br>
     단, 작성자 정보와 그룹영역의 주석표기는 삭제하지 않는다
     </li>
 </ul>
 
 <h4>B. 의미 있는 그룹 영역의 주석 표기</h4>
-의미 있는 객체를 구분하기 위한 주석은 영역의 윗부분에 표기한다.<br/>
+의미 있는 객체를 구분하기 위한 주석은 영역의 윗부분에 표기한다.<br>
 초기화와 레이아웃 스타일 그룹을 제외한 의미 있는 그룹 영역의 주석 표기는 선택 사항이다.
 
 <h3>4.7 파일 분기</h3>
 파일순서는 공통 관련 css을 제일 위에 추가한다.
 <table class="table2">
     <colgroup>
-    <col width="30%" />
-    <col />
+    <col width="30%">
+    <col>
     </colgroup>
     <thead>
     <tr>
@@ -682,7 +721,7 @@ z-index 속성의 속성 값의 범위는 최소 10, 최고 1000이며, 10 단�
     <tr>
         <td>작은 프로젝트</td>
         <td>
-        글꼴.css, 공통.css, 컨텐츠.css 2개정도로 한다.<br/>
+        글꼴.css, 공통.css, 컨텐츠.css 2개정도로 한다.<br>
         많아도 3개를 넘기지 않는다.
         </td>
     </tr>
@@ -696,7 +735,7 @@ z-index 속성의 속성 값의 범위는 최소 10, 최고 1000이며, 10 단�
 </table>  
 
 <h3>4.8 CSS Sprites 사용</h3>
-동일 사이즈의 아이콘을 하나의 이미지 영역안에 배치하여 사용한다.<br/>
+동일 사이즈의 아이콘을 하나의 이미지 영역안에 배치하여 사용한다.<br>
 이미지 이름을 지정할때는 sp_20 식의 사이즈별로 구분한다.
 
 <h3>4.9 CSS Animation 사용</h3>
@@ -728,7 +767,7 @@ z-index 속성의 속성 값의 범위는 최소 10, 최고 1000이며, 10 단�
 <ul>
     <li>크로스 브라우징이 가능하도록 한다.</li>
     <li>모든 값은 따옴표(“)로 묶어준다.</li>
-    <li>단일 태그의 마무리는 항상 ‘/>’ 로 해준다. (&lt;br/&gt;)</li>
+    <li>단일 태그의 마무리는 항상 ‘/&gt;’ 로 해준다. (&lt;br/&gt;)</li>
     <li>이미지 태그에는 alt를 반드시 지정한다.</li>
     <li>제목(h) 태그를 적절하게 사용한다.</li>
     <li>현재 초점의 시각적 표시를 제공한다.</li>

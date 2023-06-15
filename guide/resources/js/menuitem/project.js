@@ -1,6 +1,19 @@
 let project = [
   {
-    depth2: '회원가입',
+    depth2: '회원가입1',
+    depth3: 'depth3',
+    depth4: 'depth4',
+    section: 'page',
+    pageName: '약관동의',
+    pageLink: '../charts-apexcharts.html',
+    pageEnd: '22-05-24',
+    pageModify: '22-05-25',
+    worker: '김익중',
+    state: '진행',
+    etc: '',
+  },
+  {
+    depth2: '회원가입2',
     depth3: 'depth3',
     depth4: 'depth4',
     section: 'page',
@@ -26,7 +39,7 @@ let project = [
     etc: '',
   },
   {
-    depth2: '회원가입',
+    depth2: '회원가입4',
     depth3: 'depth3',
     depth4: 'depth4',
     section: 'page',
