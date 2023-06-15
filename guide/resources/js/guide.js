@@ -111,7 +111,7 @@ const contentSelect = {
     },
 
     // convention
-    originalTag(dataTitle, dataName) {
+    originalTag(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
         document.querySelector('.shortcut').style.display = 'none';
         document.querySelector('.state_info').style.display = 'none';
@@ -135,7 +135,7 @@ const contentSelect = {
             pageTitle.appendChild(breadCrumb);
             card.innerHTML = i.tag_html;
             cardTitle.innerHTML = dataTitle;
-            breadCrumb.innerHTML = `Home / <span class="active">${dataTitle}</span>`;
+            breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
         }
     },
 
@@ -239,12 +239,12 @@ const contentSelect = {
 
         const thState = document.querySelector('.state');
         thState.innerHTML = `
-        <select class="state_menu">
+        <span><select class="state_menu">
         <option value="">상태</option>
         <option value="ing">진행</option>
         <option value="test">검수</option>
         <option value="done">완료</option>
-        </select>
+        </select></span>
         `;
 
         const tbody = document.createElement('tbody');

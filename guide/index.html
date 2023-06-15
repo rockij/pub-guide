@@ -69,7 +69,7 @@
 
     <ul>
       <li class="snb_item">
-        <button onclick="contentSelect.originalTag('Convention', convention)" class="snb_link snb-link">Convention</button>
+        <button onclick="contentSelect.originalTag('Convention','Convention', convention)" class="snb_link snb-link">Convention</button>
       </li>
       <li class="snb_item">
         <header id="accordion-header-1" class="snb_toggle">
@@ -79,6 +79,7 @@
         </header>
         <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion_panel snb_submenu">
             <ul>
+              <li><button onclick="contentSelect.originalTag('Convention','Convention', convention)" class="snb-link">Color</button></li>
               <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)" class="snb-link">Layout</button></li>
               <li><button onclick="contentSelect.componentsName('Components', 'Accordion', accordion)" class="snb-link">Accordion</button></li>
               <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)" class="snb-link">Popup</button></li>
@@ -128,7 +129,7 @@
 <script type="text/javascript">
 // contentSelect.componentsName('Components', 'Accordion', accordion);
 contentSelect.projectName('Project', 'Members', project);
-// contentSelect.originalTag('Convention', convention);
+// contentSelect.originalTag('Convention','Convention', convention);
 </script>
 
 </body>
