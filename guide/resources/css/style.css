@@ -404,7 +404,7 @@ table{width: 100%}
 .table thead{background-color: var(--bg-base)}
 .table th.state>span{position:relative;z-index: 1;}
 .table th.state>span::after{content:'▼';position:absolute;right:-2px;top:50%;transform: translateY(-50%);font-size:10px;z-index:-1;color:var(--color-primary)}
-.table th.state select{font-weight: 700;height:33px;padding-right:10px}
+.table th.state select{font-weight: 700;height:33px;padding-right:10px;color:var(--color-primary)}
 .table>:not(caption)>*>* {padding: 10px}
 .table td{
   border-bottom:1px solid var(--border);
@@ -593,4 +593,6 @@ table{width: 100%}
     .table td.etc{display:none}
     .table .sort_arrows{display: inline-flex;}
     .table .sort_arrows button{width:33px;height:33px;font-size:14px}
+    .table th.state>span::after{font-size:12px}
+    .table th.state select{padding-right:12px}
 }
