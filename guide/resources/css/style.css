@@ -536,6 +536,8 @@ table{width: 100%}
     .func .top{padding-left:0}
     .func .top:before{left: 20px;}
 
+    .func{bottom: 25px;}
+
     .table thead, .table tbody{
         display:block
     }

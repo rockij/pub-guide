@@ -23,6 +23,7 @@ const snbEvent = {
         snbLinkAll.forEach(button => button.classList.remove('active'));
         e.currentTarget.classList.add('active');
         wrap.classList.add('snbClose');
+        window.scrollTo(0, 0);
     }
 };
 const hamburgerButtons = document.querySelectorAll('.snb_handle');
