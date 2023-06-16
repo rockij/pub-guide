@@ -9,7 +9,7 @@ const snbEvent = {
         let clone = button.cloneNode(true);
         button.parentNode.replaceChild(clone, button);
         clone.addEventListener('click', snbEvent.hamburgerToggle);
-        wrap.classList.toggle('snbOpen');
+        wrap.classList.toggle('snbClose');
     },
     snbToggle() {
         const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
@@ -22,6 +22,7 @@ const snbEvent = {
         const snbLinkAll = document.querySelectorAll('.snb-link');
         snbLinkAll.forEach(button => button.classList.remove('active'));
         e.currentTarget.classList.add('active');
+        wrap.classList.add('snbClose');
     }
 };
 const hamburgerButtons = document.querySelectorAll('.snb_handle');
@@ -408,10 +409,10 @@ const contentSelect = {
 function reportWindowSize() {
     const hamburger = document.querySelector('.snb_handle');
     if(window.innerWidth <= 1024) {
-        wrap.classList.add('snbOpen');
+        wrap.classList.add('snbClose');
         wrap.classList.remove('previewOpen');
     }else{
-        wrap.classList.remove('snbOpen','previewOpen');
+        wrap.classList.remove('snbClose','previewOpen');
     }
 }
 window.addEventListener("resize", reportWindowSize);
