@@ -22,8 +22,10 @@ const snbEvent = {
         const snbLinkAll = document.querySelectorAll('.snb-link');
         snbLinkAll.forEach(button => button.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        wrap.classList.add('snbClose');
-        window.scrollTo(0, 0);
+        if(window.innerWidth <= 1024) {
+            wrap.classList.add('snbClose');
+            window.scrollTo(0, 0);
+        }
     }
 };
 const hamburgerButtons = document.querySelectorAll('.snb_handle');
