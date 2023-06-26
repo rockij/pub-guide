@@ -14,7 +14,7 @@ const snbEvent = {
     snbToggle() {
         const expandButtons = document.querySelectorAll('.snb_toggle [aria-expanded]');
         expandButtons.forEach(expandButton => {
-            expandButton.addEventListener('click', () => expandedEvent.default(expandButton));
+            expandButton.addEventListener('click', () => EXPANDED_EVENT.default(expandButton));
         });
     },
     snbLink(e) {
@@ -134,7 +134,6 @@ const contentSelect = {
             content.appendChild(card);
             pageTitle.classList.add('pagetitle');
             breadCrumb.classList.add('breadcrumb');
-            card.classList.add('section_convention');
             pageTitle.appendChild(cardTitle);
             pageTitle.appendChild(breadCrumb);
             card.innerHTML = i.tag_html;
@@ -153,20 +152,28 @@ const contentSelect = {
             ]
         };
         const content = document.querySelector('#content');
-        let pageTitle = document.createElement('div');
-        let breadCrumb = document.createElement('div');
-        let cardTitle = document.createElement('h2');
+        const pageTitle = document.createElement('div');
+        const cardWrap = document.createElement('div');
+        const breadCrumb = document.createElement('div');
+        const cardTitle = document.createElement('h2');
         for (let i of items.data) {
-            let card = document.createElement('div');
-            let tagTitle = document.createElement('h3');
-            let pre_html = document.createElement('pre');
-            let pre_css = document.createElement('pre');
-            let codeView = document.createElement('div');
+            const card = document.createElement('div');
+            const tagTitle = document.createElement('h3');
+            const pre_html = document.createElement('pre');
+            const pre_css = document.createElement('pre');
+            const codeView = document.createElement('div');
+            const codeWrap = document.createElement('div');
+            const codeHeader = document.createElement('header');
+            const codeHeaderBtn = document.createElement('button');
+            const codePanel = document.createElement('div');
 
             content.prepend(pageTitle);
-            content.appendChild(card);
+            content.appendChild(cardWrap);
+            cardWrap.appendChild(card);
+            cardWrap.classList.add('section_card_wrap');
             pageTitle.classList.add('pagetitle');
             breadCrumb.classList.add('breadcrumb');
+            codeWrap.classList.add('codeview_wrap');
             pre_html.setAttribute('data-enlighter-language','generic');
             pre_css.setAttribute('data-enlighter-language','generic');
             codeView.classList.add('codeview');
@@ -175,8 +182,21 @@ const contentSelect = {
             pageTitle.appendChild(breadCrumb);
             card.prepend(tagTitle);
             card.appendChild(codeView);
-            card.appendChild(pre_html);
-            card.appendChild(pre_css);
+            card.appendChild(codeWrap);
+            codeWrap.appendChild(codeHeader);
+            codeHeader.appendChild(codeHeaderBtn);
+            codeWrap.appendChild(codePanel);
+            codePanel.appendChild(pre_html);
+            codePanel.appendChild(pre_css);
+            codePanel.id = `codePanel-${i.number}`;
+            codePanel.classList.add('accordion__panel');
+            codePanel.setAttribute('aria-labelledby',`codeView-${i.number}`);
+            codePanel.setAttribute('role','region');
+            codeHeader.id = `codeView-${i.number}`;
+            codeHeader.classList.add('codeview_header');
+            codeHeaderBtn.innerText = '소스보기';
+            codeHeaderBtn.setAttribute('aria-controls',`codePanel-${i.number}`);
+            codeHeaderBtn.setAttribute('aria-expanded',false);
             cardTitle.innerHTML = dataTitle;
             tagTitle.innerHTML = i.tag_title;
             pre_html.innerHTML = i.tag_html;
@@ -185,7 +205,12 @@ const contentSelect = {
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
         }
         EnlighterJS.init('pre', 'code', {});
-        expandedEvent.init('.accordion_header [aria-expanded]'); // 처음나와야할 컨포넌트
+        EXPANDED_EVENT.init('.accordion_header [aria-expanded]'); // 처음나와야할 컨포넌트
+        
+        const expandButtons = document.querySelectorAll('.codeview_header [aria-expanded]');
+        expandButtons.forEach(expandButton => {
+            expandButton.addEventListener('click', () => EXPANDED_EVENT.default(expandButton));
+        });
     },
 
     // project

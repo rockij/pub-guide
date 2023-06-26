@@ -4,7 +4,7 @@
 // }, 0);
 
 // expanded event
-const expandedEvent = {
+const EXPANDED_EVENT = {
     default(btn) {
         const expandEl = document.querySelector("#" + btn.getAttribute("aria-controls"));
         if (btn.getAttribute('aria-expanded') === 'true') {
@@ -31,8 +31,8 @@ const expandedEvent = {
         const expandButtons = document.querySelectorAll(target);
         expandButtons.forEach((expandButton, index) => {
             expandButton.addEventListener('click', () => {
-                expandedEvent.default(expandButton);
-                expandedEvent.close(target, index);
+                EXPANDED_EVENT.default(expandButton);
+                EXPANDED_EVENT.close(target, index);
             });
         });
     }

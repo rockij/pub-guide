@@ -1,5 +1,6 @@
 let accordion = [
   {
+    number: 1,
     tag_title: 'Default Accordion',
     tag_view:`
 <header id="accordion-header-preview" class="accordion_header accordion_default_header">
@@ -7,9 +8,9 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="accordion-panel-preview" role="region" aria-labelledby="accordion-header-preview" class="accordion_panel accordion_default_panel accordion_connect">
+<div id="accordion-panel-preview" role="region" aria-labelledby="accordion-header-preview" class="accordion__panel accordion_default_panel accordion_connect">
     <div class="accordion_default_content">
-        accordion_panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
+        accordion__panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
     </div>
 </div>
     `,
@@ -19,12 +20,12 @@ let accordion = [
     <span class="title">Components</span>
 </button>
 </header>
-<div id="accordion-panel-value" role="region" aria-labelledby="accordion-header-value" class="accordion_panel accordion_connect">
+<div id="accordion-panel-value" role="region" aria-labelledby="accordion-header-value" class="accordion__panel accordion_connect">
   내용
 </div>
     `,
     tag_css: `
-.accordion_panel{
+.accordion__panel{
     overflow:hidden;
     height:0;
     transition:all 0.2s linear
@@ -32,16 +33,17 @@ let accordion = [
     `,
   },
   {
-    tag_title: 'Default Accordion2',
+    number: 2,
+    tag_title: 'FAQ',
     tag_view:`
 <header id="accordion-header-preview2" class="accordion_header accordion_default_header">
     <button type="button" aria-expanded="false" aria-controls="accordion-panel-preview2">
         accordion header
     </button>
 </header>
-<div id="accordion-panel-preview2" role="region" aria-labelledby="accordion-header-preview2" class="accordion_panel accordion_default_panel accordion_connect">
+<div id="accordion-panel-preview2" role="region" aria-labelledby="accordion-header-preview2" class="accordion__panel accordion_default_panel accordion_connect">
     <div class="accordion_default_content">
-        accordion_panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
+        accordion__panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
     </div>
 </div>
     `,
@@ -51,7 +53,7 @@ let accordion = [
     <span class="title">Components</span>
 </button>
 </header>
-<div id="accordion-panel-value" role="region" aria-labelledby="accordion-header-value" class="accordion_panel accordion_connect snb_submenu">
+<div id="accordion-panel-value" role="region" aria-labelledby="accordion-header-value" class="accordion__panel accordion_connect snb_submenu">
   <ul>
     <li><button onclick="ItemName('Accordion', ...accordion)">Accordion</button></li>
     <li><button onclick="ItemName('Popup', ...popup)">Popup</button></li>
@@ -59,7 +61,7 @@ let accordion = [
 </div>
     `,
     tag_css: `
-.accordion_panel{
+.accordion__panel{
     overflow:hidden;
     height:0;
     transition:all 0.2s linear
