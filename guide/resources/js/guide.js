@@ -159,6 +159,7 @@ const contentSelect = {
         for (let i of items.data) {
             const card = document.createElement('div');
             const tagTitle = document.createElement('h3');
+            const tagText = document.createElement('div');
             const pre_html = document.createElement('pre');
             const pre_css = document.createElement('pre');
             const codeView = document.createElement('div');
@@ -180,14 +181,15 @@ const contentSelect = {
             card.classList.add('section_card');
             pageTitle.appendChild(cardTitle);
             pageTitle.appendChild(breadCrumb);
+            card.prepend(tagText);
             card.prepend(tagTitle);
+            tagText.classList.add('codetext');
             card.appendChild(codeView);
             card.appendChild(codeWrap);
             codeWrap.appendChild(codeHeader);
             codeHeader.appendChild(codeHeaderBtn);
             codeWrap.appendChild(codePanel);
             codePanel.appendChild(pre_html);
-            codePanel.appendChild(pre_css);
             codePanel.id = `codePanel-${i.number}`;
             codePanel.classList.add('accordion__panel');
             codePanel.setAttribute('aria-labelledby',`codeView-${i.number}`);
@@ -199,13 +201,21 @@ const contentSelect = {
             codeHeaderBtn.setAttribute('aria-expanded',false);
             cardTitle.innerHTML = dataTitle;
             tagTitle.innerHTML = i.tag_title;
+            tagText.innerHTML = i.tag_text;
             pre_html.innerHTML = i.tag_html;
-            pre_css.innerHTML = i.tag_css;
+            
             codeView.innerHTML = i.tag_view;
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
+            console.log(i.tag_css);
+            if(!i.tag_css == '' || !i.tag_css == undefined) {
+                codePanel.appendChild(pre_css);
+                pre_css.innerHTML = i.tag_css;
+            }
+            if(i.tag_text == '' || i.tag_text == undefined) {
+                tagText.style.display = 'none';
+            }
         }
         EnlighterJS.init('pre', 'code', {});
-        EXPANDED_EVENT.init('.accordion_header [aria-expanded]'); // 처음나와야할 컨포넌트
         
         const expandButtons = document.querySelectorAll('.codeview_header [aria-expanded]');
         expandButtons.forEach(expandButton => {

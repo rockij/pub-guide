@@ -1,27 +1,37 @@
 let accordion = [
   {
     number: 1,
-    tag_title: 'Default Accordion',
+    tag_title: 'Default',
+    tag_text: `
+<ul class="list__type">
+<li>accordion__panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.</li>
+<li>header의 id와 panel aria-labelledby 값을 맞춘다.</li>
+<li>header button의 aria-controls 값과 panel id 값을 맞춘다.</li>
+<li>panel에 accordion__panel 클래스는 반드시 있어야한다.</li>
+</ul>
+    `,
     tag_view:`
-<header id="accordion-header-preview" class="accordion_header accordion_default_header">
-    <button type="button" aria-expanded="false" aria-controls="accordion-panel-preview">
+<header id="header1" class="accordion_sample_header">
+    <button type="button" aria-expanded="false" aria-controls="panel1">
         accordion header
     </button>
 </header>
-<div id="accordion-panel-preview" role="region" aria-labelledby="accordion-header-preview" class="accordion__panel accordion_default_panel accordion_connect">
-    <div class="accordion_default_content">
-        accordion__panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
+<div id="panel1" role="region" aria-labelledby="header1" class="accordion__panel">
+    <div class="accordion_sample_content">
+        accordion content
     </div>
 </div>
     `,
     tag_html: `
-<header id="accordion-header-value" class="accordion_header">
-<button type="button" aria-expanded="false" aria-controls="accordion-panel-value" class="snb_link collapsed">
-    <span class="title">Components</span>
-</button>
+<header id="header1-t" class="accordion_sample_header">
+    <button type="button" aria-expanded="false" aria-controls="panel1-t">
+        accordion header
+    </button>
 </header>
-<div id="accordion-panel-value" role="region" aria-labelledby="accordion-header-value" class="accordion__panel accordion_connect">
-  내용
+<div id="panel1-t" role="region" aria-labelledby="header1-t" class="accordion__panel">
+    <div class="accordion_sample_content">
+        accordion content
+    </div>
 </div>
     `,
     tag_css: `
@@ -34,38 +44,36 @@ let accordion = [
   },
   {
     number: 2,
-    tag_title: 'FAQ',
+    tag_title: 'No Animation',
+    tag_text: `
+<ul class="list__type">
+<li>기본셋팅은 Default Accordion 참고한다.</li>
+<li>panel 클래스에 animation__no 클래스를 추가한다.</li>
+</ul>
+    `,
     tag_view:`
-<header id="accordion-header-preview2" class="accordion_header accordion_default_header">
-    <button type="button" aria-expanded="false" aria-controls="accordion-panel-preview2">
+<header id="header2" class="accordion_sample_header">
+    <button type="button" aria-expanded="false" aria-controls="panel2">
         accordion header
     </button>
 </header>
-<div id="accordion-panel-preview2" role="region" aria-labelledby="accordion-header-preview2" class="accordion__panel accordion_default_panel accordion_connect">
-    <div class="accordion_default_content">
-        accordion__panel 에는 padding 값을 주면 안되고 안으로 div 하나 추가한다.
+<div id="panel2" role="region" aria-labelledby="header2" class="accordion__panel animation__no">
+    <div class="accordion_sample_content">
+        accordion content
     </div>
 </div>
     `,
     tag_html: `
-<header id="accordion-header-value" class="accordion_header">
-<button type="button" aria-expanded="false" aria-controls="accordion-panel-value" class="snb_link collapsed">
-    <span class="title">Components</span>
-</button>
+<header id="header2-t" class="accordion_sample_header">
+    <button type="button" aria-expanded="false" aria-controls="panel2-t">
+        accordion header
+    </button>
 </header>
-<div id="accordion-panel-value" role="region" aria-labelledby="accordion-header-value" class="accordion__panel accordion_connect snb_submenu">
-  <ul>
-    <li><button onclick="ItemName('Accordion', ...accordion)">Accordion</button></li>
-    <li><button onclick="ItemName('Popup', ...popup)">Popup</button></li>
-  </ul>
+<div id="panel2-t" role="region" aria-labelledby="header2-t" class="accordion__panel">
+    <div class="accordion_sample_content">
+        accordion content
+    </div>
 </div>
-    `,
-    tag_css: `
-.accordion__panel{
-    overflow:hidden;
-    height:0;
-    transition:all 0.2s linear
-}
     `,
   },
 ]
