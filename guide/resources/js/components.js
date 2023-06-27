@@ -41,26 +41,29 @@ const EXPANDED_EVENT = {
 // popup
 let POPUP_OPTION = 0;
 const POPUP_MODULE = {
-  bodyFix(option) {  
+  bodyFix(option) {
     const scrollHeight = document.documentElement.scrollTop;
+    const html = document.querySelector('html');
     const body = document.querySelector('body');
-    const wrap = document.querySelector('#wrap');    
-    if(option == 1) {      
-      body.style.overflow = 'hidden';
-      wrap.style.position = 'fixed'; 
-      wrap.style.top = `${-scrollHeight}px`; 
+    const wrap = document.querySelector('#wrap');
+    if(option == 1) {
+        html.style.setProperty('--scroll-behavior', 'auto');
+        body.style.overflow = 'hidden';
+        wrap.style.position = 'fixed';
+        wrap.style.top = `${-scrollHeight}px`;
     } else {
       const topValue = Math.abs( Number(wrap.style.top.replace('px', '')) ); // 처음에 받았던 값
-      body.style.removeProperty('overflow');       
-      wrap.style.removeProperty('top relative');       
-      wrap.style.top = 0; 
+      body.style.removeProperty('overflow');
+      wrap.style.removeProperty('top relative');
+      wrap.style.top = 0;
       wrap.style.position = 'relative';
       window.scrollTo(0, topValue);
+      html.style.setProperty('--scroll-behavior', 'smooth');
     }
   },
-  open(target, option, back) {
+  open(target, option) {
     const _this = document.querySelector(`#mw-${target}`);
-    if(back === true) {
+    if(_this.classList.contains('popup_bodtfix')) {
       POPUP_MODULE.bodyFix(option);
     }
     _this.classList.add('open');
@@ -75,15 +78,15 @@ const POPUP_MODULE = {
     }, 100);
     POPUP_OPTION = option;
   },
-  close(target, option, back) {
+  close(target, option) {
     const _this = document.querySelector(`#mw-${target}`);
-    if(back === true) {
+    if(_this.classList.contains('popup_bodtfix')) {
       POPUP_MODULE.bodyFix(option);
-    }    
+    }
     _this.classList.remove('open');
-    _this.removeAttribute('tabIndex');       
+    _this.removeAttribute('tabIndex');
     document.querySelector(`.focus-${target}`).focus();
-    POPUP_OPTION = option; 
+    POPUP_OPTION = option;
   },
   tooltip(target, option) {
     POPUP_MODULE.open(target, option);
@@ -92,16 +95,16 @@ const POPUP_MODULE = {
       const _target = document.querySelector(`#mw-${target}`);
       const boxHeight = _target.offsetHeight;
       const btnHeight = _btn.offsetHeight;
-      const btnPointY = window.pageYOffset + _btn.getBoundingClientRect().top;      
+      const btnPointY = window.pageYOffset + _btn.getBoundingClientRect().top;
       if(0 <= btnPointY-boxHeight-(btnHeight-5)) {
         // 위
         _target.style.top = `${btnPointY-boxHeight-(btnHeight-5)}px`;
-        _target.classList.add('arrow_btm'); 
+        _target.classList.add('arrow_btm');
       }else{
         // 아래
         _target.style.top = `${btnPointY+(btnHeight*2)}px`;
-        _target.classList.add('arrow_top'); 
-      }      
+        _target.classList.add('arrow_top');
+      }
     }, 0);
   },
   toast(target, option) {

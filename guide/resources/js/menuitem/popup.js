@@ -5,7 +5,7 @@ let popup = [
     tag_text: `
 <ul class="list__type">
 <li>
-  POPUP_MODULE.open('popup1',1,true);
+  POPUP_MODULE.open('popup1',1);
   <ol>
   <li><b>popup1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
   <li><b>1:</b> open, <b>0:</b> close</li>
@@ -17,12 +17,13 @@ let popup = [
 <li>팝업의 내용은 popup_content 클래스 안쪽으로 넣어준다.</li>
 <li>하단에 고정하고 싶은 버튼은 popup_content 다음으로 위치한다.</li>
 <li>팝업 닫기 버튼은 popup_container 안쪽 맨 하단에 위치한다.</li>
+<li>popup_wrap 클래스에 popup_bodtfix 클래스가 스크롤 노출시 body가 고정된다.</li>
 </ul>
     `,
     tag_view:`
 <button class="focus-popup1" onclick="POPUP_MODULE.open('popup1',1)" title="중앙팝업열기">팝업열기</button>
 
-<div id="mw-popup1" role="dialog" class="popup_wrap" data-popup-type="center">
+<div id="mw-popup1" role="dialog" class="popup_wrap popup_bodtfix" data-popup-type="center">
   <div class="popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup1',0)"></div>
   <div class="popup_container">
     <div class="popup_content">

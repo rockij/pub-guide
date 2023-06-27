@@ -206,7 +206,6 @@ const contentSelect = {
             
             codeView.innerHTML = i.tag_view;
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
-            console.log(i.tag_css);
             if(!i.tag_css == '' || !i.tag_css == undefined) {
                 codePanel.appendChild(pre_css);
                 pre_css.innerHTML = i.tag_css;
