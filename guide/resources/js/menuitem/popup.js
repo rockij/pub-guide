@@ -5,25 +5,25 @@ let popup = [
     tag_text: `
 <ul class="list__type">
 <li>
-  POPUP_MODULE.open('popup1',1);
+  POPUP_MODULE.open('popup1',1, 1);
   <ol>
   <li><b>popup1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
   <li><b>1:</b> open, <b>0:</b> close</li>
-  <li><b>true:</b> body를 fixed 시킨다.(스크롤시중 팝업이 열렸을시 상당 이동을 막기위해)</li>
+  <li><b>1:</b> 팝업 노출시 body 고정, open시 값을 넣어줬다면 close시에도 꼭 넣어준다.</li>
   </ol>
 </li>
-<li>팝업을 열고/닫기 시 초점 이동이 되는지 확인한다.</li>
 <li>button의 title은 역할에 맞게 입력한다.</li>
 <li>팝업의 내용은 popup_content 클래스 안쪽으로 넣어준다.</li>
 <li>하단에 고정하고 싶은 버튼은 popup_content 다음으로 위치한다.</li>
 <li>팝업 닫기 버튼은 popup_container 안쪽 맨 하단에 위치한다.</li>
-<li>popup_wrap 클래스에 popup_bodtfix 클래스가 스크롤 노출시 body가 고정된다.</li>
+<li>open할때는 animation이 있지만 close할때는 animation 없음이 기본이다.</li>
+<li>팝업을 열고/닫기 시 초점 이동이 되는지 확인한다.</li>
 </ul>
     `,
     tag_view:`
 <button class="focus-popup1" onclick="POPUP_MODULE.open('popup1',1)" title="중앙팝업열기">팝업열기</button>
 
-<div id="mw-popup1" role="dialog" class="popup_wrap popup_bodtfix" data-popup-type="center">
+<div id="mw-popup1" role="dialog" class="popup_wrap" data-popup-type="center">
   <div class="popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup1',0)"></div>
   <div class="popup_container">
     <div class="popup_content">
@@ -60,7 +60,7 @@ let popup = [
   <div class="popup-close popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup2',1)"></div>
   <div class="popup_container">
     <div class="popup_content">
-      팝업내용2  
+      팝업내용
     </div>
     <button class="" onclick="POPUP_MODULE.open('popup2',1)">확인</button>
     <button class="popup_close" onclick="POPUP_MODULE.close('popup2',0)">팝업닫기</button>
@@ -105,12 +105,54 @@ let popup = [
 [data-popup-type="full"].open .popup_footer{margin-top:auto}`,
   },
   {
+    number: 4,
+    tag_title: 'Double',
+    tag_text: `
+<ul class="list__type">
+<li>기본가이드는 center팝업을 참고한다.</li>
+</ul>
+    `,
+    tag_view:`
+<button class="focus-popup4" onclick="POPUP_MODULE.open('popup4',1,1)">팝업열기</button>
+
+<div id="mw-popup4" role="dialog" class="popup_wrap" data-popup-type="center">
+    <div class="popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup4',1)"></div>
+    <div class="popup_container">
+        <div class="popup_content">
+            팝업내용1
+        </div>
+        <div class="popup_footer">
+            <button class="focus-popup41" onclick="POPUP_MODULE.open('popup41',1)">다음팝업 열기</button>
+        </div>
+        <button class="popup_close" onclick="POPUP_MODULE.close('popup4',0,1)">팝업닫기</button>
+    </div>  
+</div>
+<div id="mw-popup41" role="dialog" class="popup_wrap" data-popup-type="center">
+    <div class="popup_container">
+        <div class="popup_content">
+            팝업내용2
+        </div>
+        <button class="popup_close" onclick="POPUP_MODULE.close('popup41',1)">팝업닫기</button>
+    </div>  
+</div>
+    `,
+    tag_html: ``,
+    tag_css:``,
+  },
+  {
     number: 5,
     tag_title: 'Tooltip',
     tag_text: `
 <ul class="list__type">
-<li>기본가이드는 center팝업을 참고한다.</li>
-<li>버튼 위치에 따라 팝업의 위치가 달라진다.</li>
+<li>
+    POPUP_MODULE.tooltip('toolip1',1)
+    <ol>
+    <li><b>toolip1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
+    <li><b>1:</b> open, <b>0:</b> close</li>
+    </ol>
+</li>
+<li>기본 노출 버튼의 위로 위치한다.</li>
+<li>버튼의 위치가 너무 위라 툴팁이 안보일정도면 아래로 노출된다.</li>
 </ul>
     `,
     tag_view:`
@@ -133,5 +175,57 @@ let popup = [
 .tooltip_container{position:relative;z-index:1;width:100%;padding:20px;border-radius:4px;background-color:#fff}
 .tooltip_wrap.arrow_top::before{top: -8px;}
 .tooltip_wrap.arrow_btm::before{bottom: -8px;}`,
+  },
+  {
+    number: 6,
+    tag_title: 'Toast Bottom',
+    tag_text: `
+<ul class="list__type">
+<li>
+    POPUP_MODULE.toast('toast1',1,2);
+    <ol>
+    <li><b>toast1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
+    <li><b>1:</b> open, <b>0:</b> close</li>
+    <li><b>2:</b> 노출되는 시간 기본 2초</li>
+    </ol>
+</li>
+<li>--bottom 값은 javascript에서 height값을 넣어주기 위해 연동하여 위치값을 조절한다.</li>
+</ul>
+    `,
+    tag_view:`
+<button class="focus-toast1" onclick="POPUP_MODULE.toast('toast1',1,2)">팝업열기</button>
+
+<div id="mw-toast1" role="dialog" class="toast_wrap" data-toast-type="bottom">
+  <div class="toast_content">
+      팝업내용
+    <button class="toast_close" onclick="POPUP_MODULE.close('toast1',0)">팝업닫기</button>
+  </div>
+</div>
+    `,
+    tag_html: ``,
+    tag_css:`.toast_wrap{display:none;position:fixed;left:0;right:0;padding:20px;z-index:30;transition-duration:.3s;opacity:0}
+.toast_content{position:relative;padding:10px;border-radius:12px;background-color:rgba(0,0,0,.5);font-size:12px;color:#fff}
+.toast_wrap.open{display:block}
+.toast_wrap.on{opacity:1}`,
+  },
+  {
+    number: 7,
+    tag_title: 'Toast Center',
+    tag_text: `
+<ul class="list__type">
+<li>기본가이드는 bottom팝업을 참고한다.</li>
+</ul>
+    `,
+    tag_view:`
+<button class="focus-toast2" onclick="POPUP_MODULE.toast('toast2',1,2)">팝업열기</button>
+
+<div id="mw-toast2" role="dialog" class="toast_wrap" data-toast-type="center">
+  <div class="toast_content">
+      팝업내용
+    <button class="toast_close" onclick="POPUP_MODULE.close('toast2',0)">팝업닫기</button>
+  </div>
+</div>
+    `,
+    tag_html: ``,
   },
 ]
