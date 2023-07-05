@@ -106,11 +106,23 @@ video::-webkit-media-controls-start-playback-button{display:none !important}
 
 /** comporenet(작업시 필수 코드) **/
 
+/* buttons */
+a[class*="btn__"]{display:inline-block;text-decoration:none} [class*="btn__s"]{padding:4px 8px;border-radius:4px;font-size:14px;color:#fff;border-width:1px;border-style:solid} [class*="btn__m"]{padding:6px 12px;border-radius:6px;font-size:16px;color:#fff;border-width:1px;border-style:solid} [class*="btn__l"]{padding:8px 16px;border-radius:8px;font-size:20px;color:#fff;border-width:1px;border-style:solid;font-weight:700} [class*="btn__xl"]{padding:10px 18px;border-radius:10px;font-size:24px;color:#fff;border-width:1px;border-style:solid;font-weight:700} .btn__mr{border-radius:16px} .btn__primary{border-color:var(--color-primary);background-color:var(--color-primary)} .btn__secondary{border-color:var(--color-secondary);background-color:var(--color-secondary)} .btn__success{border-color:var(--color-done);background-color:var(--color-done)} .btn__danger{border-color:var(--color-warning);background-color:var(--color-warning)} .btn__info{border-color:var(--color-notice);background-color:var(--color-notice)} .btn__primary_outline{border-color:var(--color-primary);color:var(--color-primary)} .btn__secondary_outline{border-color:var(--color-secondary);color:var(--color-secondary)} .btn__success_outline{border-color:var(--color-done);color:var(--color-done)} .btn__danger_outline{border-color:var(--color-warning);color:var(--color-warning)} .btn__info_outline{border-color:var(--color-notice);color:var(--color-notice)} .btn__text{background-color:transparent;border:0;text-decoration:underline;color:var(--color-primary)} .btn__area{display:flex;margin-top:15px} .btn__area [class*="btn__"]{flex:1} .btn__area [class*="btn__"]:not(:first-child){margin-left:10px}
+
 /* accordion */
 .accordion__panel{
-  overflow:hidden;
-  height:0;
-  transition:all var(--transition-speed) linear
+    --transition-speed:.3s;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--transition-speed);
+    transition: grid-template-rows var(--transition-speed),
+                -ms-grid-rows var(--transition-speed);
+}
+.accordion__panel[aria-hidden=false] {
+    grid-template-rows: 1fr;
+}
+.accordion__panel > div {
+    overflow: hidden;
 }
 
 /* popup */

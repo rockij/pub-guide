@@ -8,10 +8,10 @@ const EXPANDED_EVENT = {
     default(btn) {
         const expandEl = document.querySelector("#" + btn.getAttribute("aria-controls"));
         if (btn.getAttribute('aria-expanded') === 'true') {
-            expandEl.style.height = '0px';
+            expandEl.setAttribute("aria-hidden", true);
             btn.setAttribute("aria-expanded", false);
         } else {
-            expandEl.style.height = `${expandEl.scrollHeight}px`;
+            expandEl.setAttribute("aria-hidden", false);
             btn.setAttribute("aria-expanded", true);
         }
         // btn.addEventListener('click', () => {
@@ -22,7 +22,7 @@ const EXPANDED_EVENT = {
         expandBtns.forEach((expandBtn, index) => {
             const expandElAll = document.querySelector("#" + expandBtn.getAttribute("aria-controls"));
             if(targetIndex != index) {
-                expandElAll.style.height = '0px';
+                expandEl.setAttribute("aria-hidden", true);
                 expandBtn.setAttribute("aria-expanded", false);
             }
         });

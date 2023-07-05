@@ -167,6 +167,7 @@ const contentSelect = {
             const codeHeader = document.createElement('header');
             const codeHeaderBtn = document.createElement('button');
             const codePanel = document.createElement('div');
+            const codePanelInner = document.createElement('div');
 
             content.prepend(pageTitle);
             content.appendChild(cardWrap);
@@ -189,7 +190,8 @@ const contentSelect = {
             codeWrap.appendChild(codeHeader);
             codeHeader.appendChild(codeHeaderBtn);
             codeWrap.appendChild(codePanel);
-            codePanel.appendChild(pre_html);
+            codePanel.appendChild(codePanelInner);
+            codePanelInner.appendChild(pre_html);
             codePanel.id = `codePanel-${i.number}`;
             codePanel.classList.add('accordion__panel');
             codePanel.setAttribute('aria-labelledby',`codeView-${i.number}`);
@@ -207,7 +209,7 @@ const contentSelect = {
             codeView.innerHTML = i.tag_view;
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
             if(!i.tag_css == '' || !i.tag_css == undefined) {
-                codePanel.appendChild(pre_css);
+                codePanelInner.appendChild(pre_css);
                 pre_css.innerHTML = i.tag_css;
             }
             if(i.tag_text == '' || i.tag_text == undefined) {

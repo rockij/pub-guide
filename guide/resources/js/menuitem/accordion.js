@@ -16,10 +16,12 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="panel1" role="region" aria-labelledby="header1" class="accordion__panel">
-    <div class="accordion_sample_content">
-        accordion content
-    </div>
+<div id="panel1" role="region" aria-labelledby="header1" class="accordion__panel" aria-hidden="true">
+    <div>
+        <div class="accordion_sample_content">
+            accordion content
+        </div>
+    <div>
 </div>
     `,
     tag_html: `
@@ -28,9 +30,11 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="panel1-t" role="region" aria-labelledby="header1-t" class="accordion__panel">
-    <div class="accordion_sample_content">
-        accordion content
+<div id="panel1-t" role="region" aria-labelledby="header1-t" class="accordion__panel" aria-hidden="true">
+    <div>
+        <div class="accordion_sample_content">
+            accordion content
+        </div>
     </div>
 </div>
     `,
@@ -57,9 +61,11 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="panel2" role="region" aria-labelledby="header2" class="accordion__panel animation__no">
-    <div class="accordion_sample_content">
-        accordion content
+<div id="panel2" role="region" aria-labelledby="header2" class="accordion__panel animation__no" aria-hidden="true">
+    <div>
+        <div class="accordion_sample_content">
+            accordion content
+        </div>
     </div>
 </div>
     `,
@@ -69,9 +75,11 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="panel2-t" role="region" aria-labelledby="header2-t" class="accordion__panel">
-    <div class="accordion_sample_content">
-        accordion content
+<div id="panel2-t" role="region" aria-labelledby="header2-t" class="accordion__panel" aria-hidden="true">
+    <div>
+        <div class="accordion_sample_content">
+            accordion content
+        </div>
     </div>
 </div>
     `,
