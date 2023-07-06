@@ -222,6 +222,18 @@ const contentSelect = {
         expandButtons.forEach(expandButton => {
             expandButton.addEventListener('click', () => EXPANDED_EVENT.default(expandButton));
         });
+
+        if(dataName === form_field) {
+            FORM_MODULE.otpField('form__otp');
+            FORM_MODULE.textSelectAll('input-select');
+            FORM_MODULE.textCopy('input-copy');
+            FORM_MODULE.labelControl('input-label');
+            FORM_MODULE.inputRemove('input-del');
+            FORM_MODULE.passToggle('pass-toggle');
+            FORM_MODULE.inputMaxlength('input-maxlength');
+            FORM_MODULE.inputEmail('input-email-select');
+            FORM_MODULE.autoResize('textarea-auto-resize'); 
+        }
     },
 
     // project

@@ -4,7 +4,11 @@ let buttons = [
     tag_title: 'Default Buttons',
     tag_text: `
 <ul class="list__type">
-<li></li>
+<li>디자인 가이드에 맞춰 작업</li>
+<li>color를 변수로 관리</li>
+<li>공통 관리로 .btn__ 형태로 클래스 작성</li>
+<li>.btn__m은 기본 형태 크기 폰트 사이즈를 지정한다.</li>
+<li>.btn__primary 는 컬러를 지정한다.</li>
 </ul>
     `,
     tag_view:`
@@ -25,14 +29,22 @@ let buttons = [
 <button type="button" class="btn__m btn__info">Info</button> 
 <button type="button" class="btn__m btn__text">Link</button>
     `,
-    tag_css: ``,
+    tag_css: `
+a[class*="btn__"]{display:inline-block;text-decoration:none}
+[class*="btn__m"]{padding:6px 12px;border-radius:6px;font-size:16px;color:#fff;border-width:1px;border-style:solid}
+.btn__primary{border-color:var(--color-primary);background-color:var(--color-primary)}
+.btn__secondary{border-color:var(--color-secondary);background-color:var(--color-secondary)}
+.btn__success{border-color:var(--color-done);background-color:var(--color-done)}
+.btn__danger{border-color:var(--color-warning);background-color:var(--color-warning)}
+.btn__info{border-color:var(--color-notice);background-color:var(--color-notice)}
+    `,
   },
   {
     number: 2,
     tag_title: 'Rounded Buttons',
     tag_text: `
 <ul class="list__type">
-<li></li>
+<li>round가 있는 형태는 뒤에 r을 붙인다.</li>
 </ul>
     `,
     tag_view:`
@@ -55,11 +67,6 @@ let buttons = [
   {
     number: 3,
     tag_title: 'Icon Buttons',
-    tag_text: `
-<ul class="list__type">
-<li></li>
-</ul>
-    `,
     tag_view:`
 <button type="button" class="btn__m btn__primary"><i class="sp__22 ico__collection"></i></button> 
 <button type="button" class="btn__m btn__secondary"><i></i></button> 
@@ -80,7 +87,7 @@ let buttons = [
     tag_title: 'Outline Buttons',
     tag_text: `
 <ul class="list__type">
-<li></li>
+<li>outline일때 color지정은 색지정 클래스 뒤에 _outline을 붙인다.</li>
 </ul>
     `,
     tag_view:`
@@ -105,7 +112,8 @@ let buttons = [
     tag_title: 'Button Sizes',
     tag_text: `
 <ul class="list__type">
-<li></li>
+<li>.btn__ 뒤에 사이즈별로 구분하여 클래스명을 작성한다.</li>
+<li>.btn__area는 기본인 가로 정렬이며 다중 버튼을 wrap할때 사용한다.</li>
 </ul>
     `,
     tag_view:`
@@ -152,11 +160,6 @@ let buttons = [
   {
     number: 6,
     tag_title: 'Button States',
-    tag_text: `
-<ul class="list__type">
-<li></li>
-</ul>
-    `,
     tag_view:`
 <button type="button" class="btn__m btn__primary" disabled>Disabled</button> 
 <button type="button" class="btn__m btn__primary_outline" disabled>Disabled</button>
