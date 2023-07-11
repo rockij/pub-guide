@@ -1,4 +1,4 @@
-let form_field = [
+let inputs = [
   {
     number: 1,
     tag_title: '기본입력',

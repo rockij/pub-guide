@@ -223,7 +223,8 @@ const contentSelect = {
             expandButton.addEventListener('click', () => EXPANDED_EVENT.default(expandButton));
         });
 
-        if(dataName === form_field) {
+        // input
+        if(dataName === inputs) {
             FORM_MODULE.otpField('form__otp');
             FORM_MODULE.textSelectAll('input-select');
             FORM_MODULE.textCopy('input-copy');
@@ -234,6 +235,18 @@ const contentSelect = {
             FORM_MODULE.inputEmail('input-email-select');
             FORM_MODULE.autoResize('textarea-auto-resize'); 
         }
+
+        // tab
+        if(dataName === tabs) {
+            // 기본 탭 실행
+            const tabDefualts = document.querySelectorAll('.tab__defualt');
+            tabDefualts.forEach(tabDefualt => new TAB_DEFAULT(tabDefualt));
+    
+            // 선택한 탭 bar 이동
+            const tabBarmovs = document.querySelectorAll('.tab__movbar');
+            tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
+        }
+
     },
 
     // project

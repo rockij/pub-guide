@@ -28,7 +28,7 @@ let convention = [
 <h2 id="convention2">2. 기본 공통 규칙</h2>
 <h3>2.1 HTML 코드 규칙</h3>
 <ul class="list__type">
-<li>단일 태그의 마무리는 항상 ‘/>’ 로 해준다. (&lt;br/&gt;)</li>
+<li>단일 태그의 마무리는 항상 ‘/&gt;’ 로 해준다. (&lt;br/&gt;)</li>
 <li>모든 값은 따옴표(“)로 묶어준다.</li>
 <li>팝업은 #wrap 영역 바깥에서 작성한다.</li>
 <li>공통 관련 작업(수정)은 지정한 작업자에 한에서 한다.</li>
@@ -410,7 +410,7 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <td>
 팝업을 실행시키는 용도로만 사용한다.<br>
 ID값을 스크립트 함수의 인자값으로 넣어 실행한다.<br>
-compornents > popup 참고
+compornents &gt; popup 참고
 </td>
 </tr>
 </tbody>
@@ -460,28 +460,19 @@ form__type<br>
 accordion-header
 </td>
 <td>
-script 작업 등 기능적인 요소만을 추가해야 할 경우 단어 사이에 라인을 붙인다.<br/>
+script 작업 등 기능적인 요소만을 추가해야 할 경우 단어 사이에 라인을 붙인다.<br>
 해당 클래스는 변경되면 스크립트 에러가 발생할 수 있어 변경하면 안된다.
 </td>
 </tr>
 <tr>
-<td>종속확장</td>
+<td>확장</td>
 <td>
-list__type_v1<br>
-msg_type_v1
+list__row_box<br>
+msg_row_box
 </td>
 <td>
-기본형 class에 종속되어 여백, 색깔, 행간 등의 몇 가지 속성을 부여하고자 할 때 사용하는 class.
+2뎁스를 기본으로 하고 필요시 1뎁스(타입)를 붙여 작성한다.
 </td>
-</tr>
-<tr>
-<td>독립확장</td>
-<td>
-accrdion_type2<br>
-list__type2<br>
-msg_type<br>
-</td>
-<td>기본형 class의 변형이 타입으로 분류할 만큼 클 경우 사용하는 class.</td>
 </tr>
 </tbody>
 </table>
