@@ -252,8 +252,8 @@ class TAB_BARMOV extends TAB_DEFAULT {
 //     tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
 // });  
 
-// forms
-const FORM_MODULE = {
+// Input
+const INPUT_FIELD = {
     otpField(targetClass){
         const inputs = document.querySelectorAll(`.${targetClass} .input`);
         const inputField = document.querySelector(`.${targetClass} .field`);

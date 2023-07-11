@@ -225,15 +225,15 @@ const contentSelect = {
 
         // input
         if(dataName === inputs) {
-            FORM_MODULE.otpField('form__otp');
-            FORM_MODULE.textSelectAll('input-select');
-            FORM_MODULE.textCopy('input-copy');
-            FORM_MODULE.labelControl('input-label');
-            FORM_MODULE.inputRemove('input-del');
-            FORM_MODULE.passToggle('pass-toggle');
-            FORM_MODULE.inputMaxlength('input-maxlength');
-            FORM_MODULE.inputEmail('input-email-select');
-            FORM_MODULE.autoResize('textarea-auto-resize'); 
+            INPUT_FIELD.otpField('form__otp');
+            INPUT_FIELD.textSelectAll('input-select');
+            INPUT_FIELD.textCopy('input-copy');
+            INPUT_FIELD.labelControl('input-label');
+            INPUT_FIELD.inputRemove('input-del');
+            INPUT_FIELD.passToggle('pass-toggle');
+            INPUT_FIELD.inputMaxlength('input-maxlength');
+            INPUT_FIELD.inputEmail('input-email-select');
+            INPUT_FIELD.autoResize('textarea-auto-resize'); 
         }
 
         // tab
