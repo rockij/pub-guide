@@ -205,7 +205,7 @@ const contentSelect = {
             tagTitle.innerHTML = i.tag_title;
             tagText.innerHTML = i.tag_text;
             pre_html.innerHTML = i.tag_html;
-            
+
             codeView.innerHTML = i.tag_view;
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
             if(!i.tag_css == '' || !i.tag_css == undefined) {
@@ -217,7 +217,7 @@ const contentSelect = {
             }
         }
         EnlighterJS.init('pre', 'code', {});
-        
+
         const expandButtons = document.querySelectorAll('.codeview_header [aria-expanded]');
         expandButtons.forEach(expandButton => {
             expandButton.addEventListener('click', () => EXPANDED_EVENT.default(expandButton));
@@ -225,15 +225,15 @@ const contentSelect = {
 
         // input
         if(dataName === inputs) {
-            INPUT_FIELD.otpField('form__otp');
-            INPUT_FIELD.textSelectAll('input-select');
-            INPUT_FIELD.textCopy('input-copy');
-            INPUT_FIELD.labelControl('input-label');
-            INPUT_FIELD.inputRemove('input-del');
-            INPUT_FIELD.passToggle('pass-toggle');
-            INPUT_FIELD.inputMaxlength('input-maxlength');
-            INPUT_FIELD.inputEmail('input-email-select');
-            INPUT_FIELD.autoResize('textarea-auto-resize'); 
+            INPUT_OPTION.otpField('form__otp');
+            INPUT_OPTION.textSelectAll('input-select');
+            INPUT_OPTION.textCopy('input-copy');
+            INPUT_OPTION.labelControl('input-label');
+            INPUT_OPTION.inputRemove('input-del');
+            INPUT_OPTION.passToggle('pass-toggle');
+            INPUT_OPTION.inputMaxlength('input-maxlength');
+            INPUT_OPTION.inputEmail('input-email-select');
+            INPUT_OPTION.autoResize('textarea-auto-resize');
         }
 
         // tab
@@ -241,7 +241,7 @@ const contentSelect = {
             // 기본 탭 실행
             const tabDefualts = document.querySelectorAll('.tab__defualt');
             tabDefualts.forEach(tabDefualt => new TAB_DEFAULT(tabDefualt));
-    
+
             // 선택한 탭 bar 이동
             const tabBarmovs = document.querySelectorAll('.tab__movbar');
             tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
@@ -313,7 +313,6 @@ const contentSelect = {
         `;
 
         const tbody = document.createElement('tbody');
-
         for (let i of items.data) {
             let tr = document.createElement('tr');
             let td1 = document.createElement('td'); // depth2
@@ -365,6 +364,7 @@ const contentSelect = {
             td5.classList.add('section');
             td5.setAttribute('data-label', '페이지유형');
             td6.classList.add('url');
+            td6.id = i.pageLink;
             td7.classList.add('end');
             td7.setAttribute('data-label', '완료일');
             td8.classList.add('modify');
@@ -380,41 +380,32 @@ const contentSelect = {
         let countIng = 0, countTest = 0, countDone = 0, countModify = 0, countDefer = 0, countTotal = 0;
         const states = document.querySelectorAll('.state');
         states.forEach(state => {
-
             const stateText = state.getAttribute('data-state');
-
             switch (stateText) {
             case '진행':
                 state.classList.add('ing');
                 countIng++;
                 break;
-
             case '검수':
                 state.classList.add('test');
                 countTest++;
                 break;
-
             case '완료':
                 state.classList.add('done');
                 countDone++;
                 break;
-
             case '수정':
                 state.classList.add('modify');
                 countModify++;
                 break;
-
             case '보류':
             case '삭제':
                 state.parentNode.classList.add('defer');
                 countDefer++;
                 break;
-
             default:
                 break;
-
             }
-
         });
 
         // count set
@@ -464,6 +455,23 @@ const contentSelect = {
         previewHandle.addEventListener('click', () => {
             const content = document.querySelector('#content');
             wrap.classList.toggle('previewOpen');
+        });
+
+        // id검색 스크롤 이동
+        const idSrchBox = document.createElement('div');
+        idSrchBox.classList.add('idSearch_box');
+        document.querySelector('.pagetitle').appendChild(idSrchBox);
+        idSrchBox.innerHTML = `
+            <input type="text" class="idSearch_input" placeholder="ID입력 GO(enter) 선택 스크롤 이동">
+            <a class="btn__m btn__secondary idSearch_go">GO</a>
+        `;
+        const idSrchInp = document.querySelector('.idSearch_input');
+        const idSrchGo =  document.querySelector('.idSearch_go');
+        idSrchInp.addEventListener('keyup', (e) => {
+            idSrchGo.setAttribute('href',`#${e.target.value}`);
+            if(e.key == 'Enter') {
+                idSrchGo.click();
+            }
         });
     },
 

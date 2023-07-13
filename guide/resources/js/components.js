@@ -3,6 +3,30 @@
 // setTimeout(function() {
 // }, 0);
 
+// include
+const INCLUDE_OPTION = {
+    bodyFix(option) {
+        const scrollHeight = document.documentElement.scrollTop;
+        const html = document.querySelector('html');
+        const body = document.querySelector('body');
+        const wrap = document.querySelector('#wrap');
+        if(option == 1) {
+            html.style.setProperty('--scroll-behavior', 'auto');
+            body.style.overflow = 'hidden';
+            wrap.style.position = 'fixed';
+            wrap.style.top = `${-scrollHeight}px`;
+        } else {
+            const topValue = Math.abs( Number(wrap.style.top.replace('px', '')) ); // 처음에 받았던 값
+            body.style.removeProperty('overflow');
+            wrap.style.removeProperty('top relative');
+            wrap.style.top = 0;
+            wrap.style.position = 'relative';
+            window.scrollTo(0, topValue);
+            html.style.setProperty('--scroll-behavior', 'smooth');
+        }
+    }
+}
+
 // expanded event
 const EXPANDED_EVENT = {
     default(btn) {
@@ -38,36 +62,12 @@ const EXPANDED_EVENT = {
     }
 };
 
-// include
-const INCLUDE_MODULE = {
-    bodyFix(option) {
-        const scrollHeight = document.documentElement.scrollTop;
-        const html = document.querySelector('html');
-        const body = document.querySelector('body');
-        const wrap = document.querySelector('#wrap');
-        if(option == 1) {
-            html.style.setProperty('--scroll-behavior', 'auto');
-            body.style.overflow = 'hidden';
-            wrap.style.position = 'fixed';
-            wrap.style.top = `${-scrollHeight}px`;
-        } else {
-            const topValue = Math.abs( Number(wrap.style.top.replace('px', '')) ); // 처음에 받았던 값
-            body.style.removeProperty('overflow');
-            wrap.style.removeProperty('top relative');
-            wrap.style.top = 0;
-            wrap.style.position = 'relative';
-            window.scrollTo(0, topValue);
-            html.style.setProperty('--scroll-behavior', 'smooth');
-        }
-    }
-}
-
 // popup
 let POPUP_OPTION = 0;
-const POPUP_MODULE = {
+const POPUP_EVENT = {
     open(target, option, bodyfix) {
         const _this = document.querySelector(`#mw-${target}`);
-        if(bodyfix === 1) INCLUDE_MODULE.bodyFix(option);
+        if(bodyfix === 1) INCLUDE_OPTION.bodyFix(option);
         _this.classList.add('open');
         if(_this.getAttribute('data-popup-type') == 'bottom'){
             // console.log(getComputedStyle(_this).getPropertyValue('--bottom')); css변수값을 가져옴
@@ -82,14 +82,14 @@ const POPUP_MODULE = {
     },
     close(target, option, bodyfix) {
         const _this = document.querySelector(`#mw-${target}`);
-        if(bodyfix === 1) INCLUDE_MODULE.bodyFix(option);
+        if(bodyfix === 1) INCLUDE_OPTION.bodyFix(option);
         _this.classList.remove('open');
         _this.removeAttribute('tabIndex');
         document.querySelector(`.focus-${target}`).focus();
         POPUP_OPTION = option;
     },
     tooltip(target, option) {
-        POPUP_MODULE.open(target, option);
+        POPUP_EVENT.open(target, option);
         setTimeout(function() {
             const _btn = document.querySelector(`.focus-${target}`);
             const _target = document.querySelector(`#mw-${target}`);
@@ -108,7 +108,7 @@ const POPUP_MODULE = {
         }, 0);
     },
     toast(target, option, time) {
-        POPUP_MODULE.open(target, option);
+        POPUP_EVENT.open(target, option);
         const _this = document.querySelector(`#mw-${target}`);
             if(_this.getAttribute('data-toast-type') == 'bottom'){
             const popHeight = _this.clientHeight;
@@ -234,7 +234,7 @@ class TAB_BARMOV extends TAB_DEFAULT {
                 tab.setAttribute('aria-selected', 'true');
                 tab.removeAttribute('tabindex');
                 this.tabpanels[i].classList.remove('is-hidden');
-            } else {
+            } else { 
                 tab.setAttribute('aria-selected', 'false');
                 tab.tabIndex = -1;
                 this.tabpanels[i].classList.add('is-hidden');
@@ -253,7 +253,7 @@ class TAB_BARMOV extends TAB_DEFAULT {
 // });  
 
 // Input
-const INPUT_FIELD = {
+const INPUT_OPTION = {
     otpField(targetClass){
         const inputs = document.querySelectorAll(`.${targetClass} .input`);
         const inputField = document.querySelector(`.${targetClass} .field`);
@@ -301,11 +301,11 @@ const INPUT_FIELD = {
                 submitButton.classList.remove('hide');
                 submitButton.classList.add('show');
                 if (e.key == 'Backspace') {
-                finalInput = finalInput.substring(0, finalInput.length - 1);
-                updateInputConfig(inputField.lastElementChild, false);
-                inputField.lastElementChild.value = '';
-                inputCount -= 1;
-                submitButton.classList.add('hide');
+                    finalInput = finalInput.substring(0, finalInput.length - 1);
+                    updateInputConfig(inputField.lastElementChild, false);
+                    inputField.lastElementChild.value = '';
+                    inputCount -= 1;
+                    submitButton.classList.add('hide');
                 }
             }
         });

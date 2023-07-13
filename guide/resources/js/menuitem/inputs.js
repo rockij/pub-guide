@@ -653,54 +653,6 @@ background-repeat: space no-repeat;
   },
   {
     number: 6,
-    tag_title: '체크박스',
-    tag_view:`
-<div role="group" class="form__group">
-    <div class="form__area_col">
-      <span class="label_name">Checkbox</span>
-      <div class="checkbox_area">
-        <label class="checkbox__ani">      
-          <input type="checkbox" class="blind" />
-          <figure class="v"><i></i></figure>animation
-        </label>
-      </div>    
-    </div>
-    <div class="form__area_col">
-      <span class="label_name">Radio</span>
-      <div class="checkbox_area">
-        <label class="radio__ani">      
-          <input type="radio" class="blind" />
-          <figure class="v"><i></i></figure>animation
-        </label>
-      </div>    
-    </div>  
-</div> 
-    `,
-    tag_html: `
-<div role="group" class="form__group">
-    <div class="form__area_col">
-      <span class="label_name">Checkbox</span>
-      <div class="checkbox_area">
-        <label class="checkbox__ani">      
-          <input type="checkbox" class="blind" />
-          <figure class="v"><i></i></figure>animation
-        </label>
-      </div>    
-    </div>
-    <div class="form__area_col">
-      <span class="label_name">Radio</span>
-      <div class="checkbox_area">
-        <label class="radio__ani">      
-          <input type="radio" class="blind" />
-          <figure class="v"><i></i></figure>animation
-        </label>
-      </div>    
-    </div>  
-</div>  
-    `,
-  },
-  {
-    number: 7,
     tag_title: 'OTP입력',
     tag_view:`
 <div class="form__otp">

@@ -5,7 +5,7 @@ let popup = [
     tag_text: `
 <ul class="list__type">
 <li>
-  POPUP_MODULE.open('popup1',1, 1);
+  POPUP_EVENT.open('popup1',1, 1);
   <ol>
   <li><b>popup1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
   <li><b>1:</b> open, <b>0:</b> close</li>
@@ -21,16 +21,16 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-popup1" onclick="POPUP_MODULE.open('popup1',1)" title="중앙팝업열기">팝업열기</button>
+<button class="focus-popup1" onclick="POPUP_EVENT.open('popup1',1)" title="중앙팝업열기">팝업열기</button>
 
 <div id="mw-popup1" role="dialog" class="popup_wrap" data-popup-type="center">
-  <div class="popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup1',0)"></div>
+  <div class="popup_back" aria-hidden="true" onclick="POPUP_EVENT.close('popup1',0)"></div>
   <div class="popup_container">
     <div class="popup_content">
       팝업내용1      
     </div>
-    <button onclick="POPUP_MODULE.close('popup1',0)">확인</button>
-    <button class="popup_close" onclick="POPUP_MODULE.close('popup1',0)">팝업닫기</button>
+    <button onclick="POPUP_EVENT.close('popup1',0)">확인</button>
+    <button class="popup_close" onclick="POPUP_EVENT.close('popup1',0)">팝업닫기</button>
   </div>  
 </div>
     `,
@@ -54,16 +54,16 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-popup2" onclick="POPUP_MODULE.open('popup2',1)" title="하단팝업열기">팝업열기</button>
+<button class="focus-popup2" onclick="POPUP_EVENT.open('popup2',1)" title="하단팝업열기">팝업열기</button>
 
 <div id="mw-popup2" role="dialog" class="popup_wrap" data-popup-type="bottom">
-  <div class="popup-close popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup2',1)"></div>
+  <div class="popup-close popup_back" aria-hidden="true" onclick="POPUP_EVENT.close('popup2',1)"></div>
   <div class="popup_container">
     <div class="popup_content">
       팝업내용
     </div>
-    <button class="" onclick="POPUP_MODULE.open('popup2',1)">확인</button>
-    <button class="popup_close" onclick="POPUP_MODULE.close('popup2',0)">팝업닫기</button>
+    <button class="" onclick="POPUP_EVENT.open('popup2',1)">확인</button>
+    <button class="popup_close" onclick="POPUP_EVENT.close('popup2',0)">팝업닫기</button>
   </div>  
 </div>
     `,
@@ -81,7 +81,7 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-popup3" onclick="POPUP_MODULE.open('popup3',1)" title="전체팝업열기">팝업열기</button>
+<button class="focus-popup3" onclick="POPUP_EVENT.open('popup3',1)" title="전체팝업열기">팝업열기</button>
 
 <div id="mw-popup3" role="dialog" class="popup_wrap" data-popup-type="full">
   <div class="popup_container">
@@ -89,10 +89,10 @@ let popup = [
       팝업내용
     </div>
     <div class="popup_footer">
-      <button onclick="POPUP_MODULE.close('popup3',0)">취소</button>
-      <button onclick="POPUP_MODULE.close('popup3',0)">확인</button>
+      <button onclick="POPUP_EVENT.close('popup3',0)">취소</button>
+      <button onclick="POPUP_EVENT.close('popup3',0)">확인</button>
     </div>
-    <button class="popup_close" onclick="POPUP_MODULE.close('popup3',0)">팝업닫기</button>
+    <button class="popup_close" onclick="POPUP_EVENT.close('popup3',0)">팝업닫기</button>
   </div>  
 </div>
     `,
@@ -113,18 +113,18 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-popup4" onclick="POPUP_MODULE.open('popup4',1,1)">팝업열기</button>
+<button class="focus-popup4" onclick="POPUP_EVENT.open('popup4',1,1)">팝업열기</button>
 
 <div id="mw-popup4" role="dialog" class="popup_wrap" data-popup-type="center">
-    <div class="popup_back" aria-hidden="true" onclick="POPUP_MODULE.close('popup4',1)"></div>
+    <div class="popup_back" aria-hidden="true" onclick="POPUP_EVENT.close('popup4',1)"></div>
     <div class="popup_container">
         <div class="popup_content">
             팝업내용1
         </div>
         <div class="popup_footer">
-            <button class="focus-popup41" onclick="POPUP_MODULE.open('popup41',1)">다음팝업 열기</button>
+            <button class="focus-popup41" onclick="POPUP_EVENT.open('popup41',1)">다음팝업 열기</button>
         </div>
-        <button class="popup_close" onclick="POPUP_MODULE.close('popup4',0,1)">팝업닫기</button>
+        <button class="popup_close" onclick="POPUP_EVENT.close('popup4',0,1)">팝업닫기</button>
     </div>  
 </div>
 <div id="mw-popup41" role="dialog" class="popup_wrap" data-popup-type="center">
@@ -132,7 +132,7 @@ let popup = [
         <div class="popup_content">
             팝업내용2
         </div>
-        <button class="popup_close" onclick="POPUP_MODULE.close('popup41',1)">팝업닫기</button>
+        <button class="popup_close" onclick="POPUP_EVENT.close('popup41',1)">팝업닫기</button>
     </div>  
 </div>
     `,
@@ -145,7 +145,7 @@ let popup = [
     tag_text: `
 <ul class="list__type">
 <li>
-    POPUP_MODULE.tooltip('toolip1',1)
+    POPUP_EVENT.tooltip('toolip1',1)
     <ol>
     <li><b>toolip1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
     <li><b>1:</b> open, <b>0:</b> close</li>
@@ -156,14 +156,14 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-toolip1" onclick="POPUP_MODULE.tooltip('toolip1',1)">툴팁열기</button>
+<button class="focus-toolip1" onclick="POPUP_EVENT.tooltip('toolip1',1)">툴팁열기</button>
 
 <div id="mw-toolip1" role="dialog" class="tooltip_wrap">
   <div class="tooltip_container">
     <div class="tooltip_content">
       툴팁내용1
     </div>
-    <button class="tooltip_close" onclick="POPUP_MODULE.close('toolip1',0)">툴팁닫기</button>
+    <button class="tooltip_close" onclick="POPUP_EVENT.close('toolip1',0)">툴팁닫기</button>
   </div>  
 </div>
     `,
@@ -182,7 +182,7 @@ let popup = [
     tag_text: `
 <ul class="list__type">
 <li>
-    POPUP_MODULE.toast('toast1',1,2);
+    POPUP_EVENT.toast('toast1',1,2);
     <ol>
     <li><b>toast1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
     <li><b>1:</b> open, <b>0:</b> close</li>
@@ -193,12 +193,12 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-toast1" onclick="POPUP_MODULE.toast('toast1',1,2)">팝업열기</button>
+<button class="focus-toast1" onclick="POPUP_EVENT.toast('toast1',1,2)">팝업열기</button>
 
 <div id="mw-toast1" role="dialog" class="toast_wrap" data-toast-type="bottom">
   <div class="toast_content">
       팝업내용
-    <button class="toast_close" onclick="POPUP_MODULE.close('toast1',0)">팝업닫기</button>
+    <button class="toast_close" onclick="POPUP_EVENT.close('toast1',0)">팝업닫기</button>
   </div>
 </div>
     `,
@@ -217,12 +217,12 @@ let popup = [
 </ul>
     `,
     tag_view:`
-<button class="focus-toast2" onclick="POPUP_MODULE.toast('toast2',1,2)">팝업열기</button>
+<button class="focus-toast2" onclick="POPUP_EVENT.toast('toast2',1,2)">팝업열기</button>
 
 <div id="mw-toast2" role="dialog" class="toast_wrap" data-toast-type="center">
   <div class="toast_content">
       팝업내용
-    <button class="toast_close" onclick="POPUP_MODULE.close('toast2',0)">팝업닫기</button>
+    <button class="toast_close" onclick="POPUP_EVENT.close('toast2',0)">팝업닫기</button>
   </div>
 </div>
     `,
