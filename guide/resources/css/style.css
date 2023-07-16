@@ -921,6 +921,8 @@ table{width:100%}
     .func .top{padding-left:0}
     .func .top:before{left:20px;}
 
+    .idSearch_box{position: static;margin-top: 10px;}
+
     .func{bottom:25px;right:25px}
 
     .table thead, .table tbody{
