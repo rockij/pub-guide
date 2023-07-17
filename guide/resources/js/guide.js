@@ -91,6 +91,9 @@ const contentSelect = {
     contentRemove() {
         document.querySelector('#content').innerHTML = '';
         document.querySelector('.shortcut').innerHTML = '';
+        document.querySelector('.snb').classList.remove('type');
+        document.querySelector('.shortcut').style.display = 'none';
+        document.querySelector('.state_info').style.display = 'none';
     },
 
     // shortcut
@@ -117,8 +120,6 @@ const contentSelect = {
     // convention
     originalTag(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
-        document.querySelector('.shortcut').style.display = 'none';
-        document.querySelector('.state_info').style.display = 'none';
         const items = {
             data: [
                 ...dataName,
@@ -145,7 +146,6 @@ const contentSelect = {
     // components
     componentsName(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
-        document.querySelector('.state_info').style.display = 'none';
         const items = {
             data: [
                 ...dataName,
@@ -252,8 +252,11 @@ const contentSelect = {
     // project
     projectName(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
+        document.querySelector('.shortcut').style.display = 'none';
+        document.querySelector('.state_info').style.display = 'none';
         document.querySelector('.state_info').style.display = '';
         document.querySelector('.shortcut').style.display = '';
+        document.querySelector('.snb').classList.add('type');
         const items = {
             data: [
                 ...dataName,
@@ -286,7 +289,7 @@ const contentSelect = {
 
         const thEnd = document.querySelector('.end');
         thEnd.innerHTML = `
-        완료일
+        <strong>완료일</strong>
         <div class="sort_arrows">
             <button onclick="tableSort.sort(true, 'end', 'table')" class="before" title="지난일"></button>
             <button onclick="tableSort.sort(false, 'end', 'table')" class="after" title="최신일"></button>
@@ -295,7 +298,7 @@ const contentSelect = {
 
         const thModify = document.querySelector('.modify');
         thModify.innerHTML = `
-        수정일
+        <strong>수정일</strong>
         <div class="sort_arrows">
             <button onclick="tableSort.sort(true, 'modify', 'table')" class="before" title="지난일"></button>
             <button onclick="tableSort.sort(false, 'modify', 'table');" class="after" title="최신일"></button>

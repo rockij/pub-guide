@@ -153,7 +153,7 @@ a[class*="btn__"]{display:inline-block;text-decoration:none}
 .tab__defualt [role="tab"],
 .tab__defualt [role="tab"]:focus,
 .tab__defualt [role="tab"]:hover{
-    overflow:visible;position:relative;z-index:2;top:2px;margin:0;margin-top:4px;padding:3px 3px 4px;    
+    overflow:visible;position:relative;z-index:2;top:2px;margin:0;margin-top:4px;padding:3px 3px 4px;
     border:1px solid var(--border);border-bottom:2px solid var(--border);
     border-radius:5px 5px 0 0;background:var(--bg-base);font-weight:700
 }
@@ -206,7 +206,7 @@ border-color:red;
 border-width:3px;
 color:white;
 }
-.page__link ul li a[aria-current=page]:hover, 
+.page__link ul li a[aria-current=page]:hover,
 .page__link ul li a[aria-current=page]:focus{
 background-color:#990000;
 }
@@ -910,10 +910,11 @@ table{width:100%}
         scroll-padding-top:90px;
     }
 
+    .snb.type{top:82px}
     .snb_handle{margin-left:auto;margin-right:15px}
     #content{padding-right:20px;padding-left:20px;margin-left:0;}
     #header{min-height:60px;height:auto;flex-wrap:wrap}
-    .shortcut{height:40px;padding-left:0;flex:none;max-width:100%}
+    .shortcut{height:40px;padding-left:0;flex:none;width:100%}
     .shortcut .go{margin-top:-5px}
 
     .state_info,
@@ -928,10 +929,13 @@ table{width:100%}
     .table thead, .table tbody{
         display:block
     }
-    .table thead{background-color:transparent}
+    .table thead{
+        background-color:transparent;
+        text-align:center;
+        padding-top: 15px;
+    }
     .table thead tr{
         display:block;
-        text-align:center;
     }
     .table th{
         display:inline-block;
@@ -951,6 +955,15 @@ table{width:100%}
     .table th.url,
     .table th.worker,
     .table th.etc{display:none}
+    .table th.end,
+    .table th.modify{position:relative;padding:0;border:0}
+    .table th.end strong,
+    .table th.modify strong{position:absolute;left:50%;top:-20px;font-size: 12px;transform: translateX(-50%);}
+    .table .sort_arrows{display:inline-flex;}
+    .table .sort_arrows button{width:38px;height:38px;font-size:14px}
+    .table th.state{padding:1px 0 2px}
+    .table th.state>span::after{font-size:12px}
+    .table th.state select{padding-right:12px}
     .table tbody tr{
         display:block;background-color:var(--bg-card);
         box-shadow:0px 7px 6px -6px rgba(0,0,0,.28);
@@ -981,10 +994,6 @@ table{width:100%}
     .table td.depth3::after{content:'>';position:absolute;right:-6px}
     .table td.section{border-top:1px solid var(--border)}
     .table td.etc{display:none}
-    .table .sort_arrows{display:inline-flex;}
-    .table .sort_arrows button{width:33px;height:33px;font-size:14px}
-    .table th.state>span::after{font-size:12px}
-    .table th.state select{padding-right:12px}
 
     @supports (break-inside:avoid){
         .section_card_wrap{
