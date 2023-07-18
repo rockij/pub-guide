@@ -15,16 +15,13 @@ let tabs = [
 <div class="tab__defualt">
     <div role="tablist" aria-labelledby="tablist-1">
         <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
-        <span class="focus">Tab Header1</span>
+        <span class="focus">Tab1</span>
         </button>
         <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
-        <span class="focus">Tab Header2</span>
+        <span class="focus">Tab2</span>
         </button>
         <button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3" tabindex="-1">
-        <span class="focus">Tab Header3</span>
-        </button>
-        <button id="tab-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-4" tabindex="-1">
-        <span class="focus">Tab Header4</span>
+        <span class="focus">Tab3</span>
         </button>
     </div>
     <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
@@ -42,28 +39,19 @@ let tabs = [
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
         </p>
     </div>
-    <div id="tabpanel-4" role="tabpanel" aria-labelledby="tab-4" class="is-hidden">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
-        </p>
-    </div>
-    </div>
 </div>
     `,
     tag_html: `
 <div class="tab__defualt">
     <div role="tablist" aria-labelledby="tablist-2">
         <button id="tab2-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel2-1">
-            <span class="focus">Tab Header1</span>
+            <span class="focus">Tab1</span>
         </button>
         <button id="tab2-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-2" tabindex="-1">
-            <span class="focus">Tab Header2</span>
+            <span class="focus">Tab2</span>
         </button>
         <button id="tab2-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-3" tabindex="-1">
-            <span class="focus">Tab Header3</span>
-        </button>
-        <button id="tab2-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-4" tabindex="-1">
-            <span class="focus">Tab Header4</span>
+            <span class="focus">Tab3</span>
         </button>
     </div>
     <div id="tabpanel2-1" role="tabpanel" aria-labelledby="tab2-1">
@@ -74,10 +62,6 @@ let tabs = [
     </div>
     <div id="tabpanel2-3" role="tabpanel" aria-labelledby="tab2-3" class="is-hidden">
         content
-    </div>
-    <div id="tabpanel2-4" role="tabpanel" aria-labelledby="tab2-4" class="is-hidden">
-        content
-    </div>
     </div>
 </div>
     `,
@@ -114,16 +98,13 @@ let tabs = [
 <div class="tab__movbar">
     <div role="tablist" aria-labelledby="tablist-3">
         <button id="tab3-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel3-1" class="is-active" active-color="orange">
-            <span class="focus">Tab Header1</span>
+            <span class="focus">Tab1</span>
         </button>
         <button id="tab3-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel3-2" tabindex="-1" active-color="green">
-            <span class="focus">Tab Header2</span>
+            <span class="focus">Tab2</span>
         </button>
         <button id="tab3-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel3-3" tabindex="-1" active-color="blue">
-            <span class="focus">Tab Header3</span>
-        </button>
-        <button id="tab3-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel3-4" tabindex="-1" active-color="red">
-            <span class="focus">Tab Header4</span>
+            <span class="focus">Tab3</span>
         </button>
         <span class="indicator"></span>
     </div>
@@ -142,28 +123,19 @@ let tabs = [
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
         </p>
     </div>
-    <div id="tabpanel3-4" role="tabpanel" aria-labelledby="tab3-4" class="is-hidden">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
-        </p>
-    </div>
-    </div>
 </div>
     `,
     tag_html: `
 <div class="tab__ movbar">
     <div role="tablist" aria-labelledby="tablist-4">
         <button id="tab4-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel4-1">
-            <span class="focus">Tab Header1</span>
+            <span class="focus">Tab1</span>
         </button>
         <button id="tab4-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-2" tabindex="-1">
-            <span class="focus">Tab Header2</span>
+            <span class="focus">Tab2</span>
         </button>
         <button id="tab4-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-3" tabindex="-1">
-            <span class="focus">Tab Header3</span>
-        </button>
-        <button id="tab4-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-4" tabindex="-1">
-            <span class="focus">Tab Header4</span>
+            <span class="focus">Tab3</span>
         </button>
         <span class="indicator"></span>
     </div>
@@ -175,10 +147,6 @@ let tabs = [
     </div>
     <div id="tabpanel4-3" role="tabpanel" aria-labelledby="tab4-3" class="is-hidden">
         content
-    </div>
-    <div id="tabpanel4-4" role="tabpanel" aria-labelledby="tab4-4" class="is-hidden">
-        content
-    </div>
     </div>
 </div>
     `,
@@ -193,4 +161,110 @@ let tabs = [
 .tab__movbar .indicator{position:absolute;left:0;bottom:0;height:4px;transition-duration:var(--transition-speed);height:5px;z-index:1;border-radius:8px 8px 0 0}
     `,
   },
+  {
+    number: 3,
+    tag_title: 'Loacation',
+    tag_text: `
+<ul class="list__type">
+<li>그룹이란 표시로 role="group" 추가한다.</li>
+<li>aria-label을 이용해 현재 몇단계인지 표시한다.</li>
+</ul>
+    `,
+    tag_view:`
+<div class="path_depth" role="gorup" aria-label="전체 4단계중 1단계">
+<span class="item active">1단계</span>
+<span class="item">2단계</span>
+<span class="item">3단계</span>
+<span class="item">4단계</span>
+</div>
+    `,
+    tag_html: `
+<div class="path_depth" role="gorup" aria-label="전체 4단계중 1단계">
+<span class="item active">1단계</span>
+<span class="item">2단계</span>
+<span class="item">3단계</span>
+<span class="item">4단계</span>
+</div>
+`,
+  },
+  {
+    number: 4,
+    tag_title: 'Paging',
+    tag_text: `
+<ul class="list__type">
+<li>aria-label을 이용해 aria-label="pagination navigation" 넣어준다.</li>
+<li>현재 페이지는 해당하는 링크에 aria-current="page" 넣어준다.</li>
+</ul>
+    `,
+    tag_view:`<nav class="page__link" aria-label="pagination navigation">
+    <ul>
+      <li><a href="/page-2">Previous</a></li>
+      <li><a href="/page-1">1</a></li>
+      <li><a href="/page-2" aria-current="page" class="active">2</a></li>
+      <li><a href="/page-3">3</a></li>
+      <li><a href="/page-4">4</a></li>
+      <li><a href="/page-5">5</a></li>
+      <li><a href="/page-3">Next</a></li>
+    </ul>
+  </nav>`,
+    tag_html: `
+<nav class="page__link" aria-label="pagination navigation">
+    <ul>
+    <li><a href="/page-2">Previous</a></li>
+    <li><a href="/page-1">1</a></li>
+    <li><a href="/page-2" aria-current="page" class="active">2</a></li>
+    <li><a href="/page-3">3</a></li>
+    <li><a href="/page-4">4</a></li>
+    <li><a href="/page-5">5</a></li>
+    <li><a href="/page-3">Next</a></li>
+    </ul>
+</nav>
+    `,
+  },
+  {
+    number: 5,
+    tag_title: 'Tab Draggable Slide',
+    tag_text: `
+<ul class="list__type">
+<li>mouse(touch) 드래그를 가능한 형태의 탭이다.</li>
+<li>양쪽 버튼에는 aria-label을 이용해 방향을 표시한다.</li>
+<li>실행함수: TAB_DRAGSLIDE('tab__drag_slide');</li>
+</ul>
+    `,
+    tag_view:`<div class="tab__drag_slide">
+    <button type="button" id="left" class="icon" aria-label="왼쪽으로"></button>
+    <ul class="tabs-box">
+      <li class="tab">Coding</li>
+      <li class="tab active">JavaScript</li>
+      <li class="tab">Podcasts</li>
+      <li class="tab">Databases</li>
+      <li class="tab">Web Development</li>
+      <li class="tab">Unboxing</li>
+      <li class="tab">History</li>
+      <li class="tab">Programming</li>
+      <li class="tab">Gadgets</li>
+      <li class="tab">Algorithms</li>
+      <li class="tab">Comedy</li>
+      <li class="tab">Gaming</li>
+      <li class="tab">Share Market</li>
+      <li class="tab">Smartphones</li>
+      <li class="tab">Data Structure</li>
+    </ul>
+    <button type="button" id="right" class="icon" aria-label="오른쪽으로"></button>
+  </div>`,
+    tag_html: ``,
+    tag_css: ``,
+  },
+//   {
+//     number: ,
+//     tag_title: '',
+//     tag_text: `
+// <ul class="list__type">
+// <li></li>
+// </ul>
+//     `,
+//     tag_view:``,
+//     tag_html: ``,
+//     tag_css: ``,
+//   },
 ]

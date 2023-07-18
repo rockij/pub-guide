@@ -236,15 +236,18 @@ const contentSelect = {
             INPUT_OPTION.autoResize('textarea-auto-resize');
         }
 
+        // selction
+        if(dataName === selection) {
+            CHECKED_UI.checkBox();
+        }
+
         // tab
         if(dataName === tabs) {
-            // 기본 탭 실행
             const tabDefualts = document.querySelectorAll('.tab__defualt');
             tabDefualts.forEach(tabDefualt => new TAB_DEFAULT(tabDefualt));
-
-            // 선택한 탭 bar 이동
             const tabBarmovs = document.querySelectorAll('.tab__movbar');
             tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
+            TAB_DRAGSLIDE('tab__drag_slide');
         }
 
     },

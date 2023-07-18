@@ -221,7 +221,6 @@ class TAB_BARMOV extends TAB_DEFAULT {
         this.setSelectedTab(event.currentTarget);
     }
     setSelectedTab(currentTab) {
-        console.log(currentTab.offsetWidth);
         const indicators = document.querySelectorAll('.indicator');
         indicators.forEach(indicator => {
             indicator.style.width = `${currentTab.offsetWidth}px`;
@@ -242,6 +241,46 @@ class TAB_BARMOV extends TAB_DEFAULT {
         }
     }
 }  
+
+// tab drag slide
+const TAB_DRAGSLIDE = function(target) {
+    const tabsTarget = document.querySelector(`.${target}`),
+    tabsBox = tabsTarget.querySelector('.tabs-box'),
+    allTabs = tabsBox.querySelectorAll('.tab'),
+    arrowIcons = document.querySelectorAll('.icon');
+    let isDragging = false;
+    // const handleIcons = (scrollVal) => {
+    //     let maxScrollableWidth = tabsBox.scrollWidth - tabsBox.clientWidth;
+    //     arrowIcons[0].style.display = scrollVal <= 0 ? 'none' : 'flex';
+    //     arrowIcons[1].style.display = maxScrollableWidth - scrollVal <= 1 ? 'none' : 'flex';
+    // }
+    arrowIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            // 클릭한 아이콘이 남아 있으면 탭에서 350개 축소상자 스크롤왼쪽 또는 추가
+            let scrollWidth = tabsBox.scrollLeft += icon.id === 'left' ? -340 : 340;
+            handleIcons(scrollWidth);
+        });
+    });
+    allTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabsBox.querySelector('.active').classList.remove('active');
+            tab.classList.add('active');
+        });
+    });
+    const dragging = (e) => {
+        if(!isDragging) return;
+        tabsBox.classList.add('dragging');
+        tabsBox.scrollLeft -= e.movementX;
+        handleIcons(tabsBox.scrollLeft);
+    }
+    const dragStop = () => {
+        isDragging = false;
+        tabsBox.classList.remove('dragging');
+    }
+    tabsBox.addEventListener('mousedown', () => isDragging = true);
+    tabsBox.addEventListener('mousemove', dragging);
+    document.addEventListener('mouseup', dragStop);  
+}
 // // 탭의 경우 페이지 로딩 후에 실행이 되는 경우가 많아 코딩시 페이지에 추가한다.
 // window.addEventListener('load', function () {
 //     // 기본 탭 실행
@@ -410,7 +449,173 @@ const INPUT_OPTION = {
         });
     }
 }
-
 function otpValidate(){
     alert('성공');
+}
+
+// checkbox
+const CHECKED_UI = {
+  
+    checkBox(){
+        const checkBoxes = document.querySelectorAll('[role="checkbox"]');	
+        checkBoxes.forEach(checkBox => {
+        checkBox.tabIndex = 0;		
+        checkBox.addEventListener("click", () => {
+            checkBoxEvent(checkBox);
+        });		
+        checkBox.addEventListener("keydown", e => {
+            if (e.keyCode === 32 ) { // space, enter
+            checkBox.click();
+            e.preventDefault();
+            }
+        });
+        });	
+        function checkBoxEvent(target){
+        if(target.hasAttribute("aria-controls")){
+            const restBoxes = target.getAttribute("aria-controls").split(" ");
+            let checkedBoxes = 0;
+            let allChecked = false;
+            for(let i=0; i < restBoxes.length; i++){
+            const singleBox = document.getElementById(restBoxes[i]);
+            checkedBoxes = singleBox.getAttribute("aria-checked") == "true" ? checkedBoxes = checkedBoxes+1 : checkedBoxes;
+            allChecked = checkedBoxes == restBoxes.length ? "true" : "false";
+            }
+            if(allChecked=== 'true') {
+            for(let i=0; i < restBoxes.length; i++){
+                const singleBox = document.getElementById(restBoxes[i]);
+                singleBox.setAttribute("aria-checked",false);
+            }
+            target.setAttribute("aria-checked", false);
+            }else{
+            for(let i=0; i < restBoxes.length; i++){
+                const singleBox = document.getElementById(restBoxes[i]);
+                singleBox.setAttribute("aria-checked",true);
+            }
+            target.setAttribute("aria-checked", true);
+            }
+        }else{
+            if(target.getAttribute("aria-checked") === 'true') {
+            target.setAttribute("aria-checked", false);
+            }else{
+            target.setAttribute("aria-checked", true);
+            }
+        }
+        }
+    },
+
+    radioBox(){
+        const radioGroups = document.querySelectorAll('[role="radiogroup"]');
+        radioGroups.forEach(radioGroup => {
+        const radioBox = radioGroup.querySelectorAll('[role="radio"]');
+        const firstRadio = radioBox[0];
+        const lastRadio = radioBox[radioBox.length-1];
+        let hasChecked = false;
+        for(let i=0; i < radioBox.length; i++){
+            if(radioBox[i].getAttribute("aria-checked") == "true") {
+            radioBox[i].tabIndex = 0;
+            hasChecked = true;
+            }else {
+            radioBox[i].tabIndex =  -1;
+            }
+            radioBox[i].addEventListener("click", e => {
+            const target = e.currentTarget;
+            radioBox.forEach(radio => {
+                if(radio !== target) {
+                radio.setAttribute("aria-checked", false);
+                radio.tabIndex = -1;
+                }
+            });
+            target.setAttribute("aria-checked", true);
+            target.tabIndex = 0;
+            });
+            radioBox[i].addEventListener("keydown", e => {
+            const target = e.currentTarget;
+            if (e.keyCode === 37 || e.keyCode === 38) { // previous : left,up
+                target.setAttribute("aria-checked", false);
+                target.tabIndex = -1;
+                if(target == firstRadio){
+                lastRadio.setAttribute("aria-checked", true);
+                lastRadio.tabIndex = 0;
+                lastRadio.focus();
+                }else{
+                radioBox[i-1].setAttribute("aria-checked", true);
+                radioBox[i-1].tabIndex = 0;
+                radioBox[i-1].focus();
+                }
+                e.preventDefault();
+            }
+            if (e.keyCode === 39 || e.keyCode === 40) { // next : right,down
+                target.setAttribute("aria-checked", false);
+                target.tabIndex = -1;
+                if(target == lastRadio){
+                firstRadio.setAttribute("aria-checked", true);
+                firstRadio.tabIndex = 0;
+                firstRadio.focus();
+                }else{
+                radioBox[i+1].setAttribute("aria-checked", true);
+                radioBox[i+1].tabIndex = 0;
+                radioBox[i+1].focus();
+                }
+                e.preventDefault();
+            }
+            if (e.keyCode === 13 || e.keyCode === 32) { // select: enter, space
+                if(target.getAttribute("aria-checked") !== 'true') {
+                target.setAttribute("aria-checked", true);
+                }
+                e.preventDefault();
+            }
+            });
+        }
+        if(!hasChecked) radioBox[0].tabIndex = 0; 
+        });
+    },
+
+    }
+
+    // switch
+    const SWITCH_UI = {
+
+    spring(target) {
+        document.addEventListener('touchmove', function(e){}, false);
+        const switchSprings = document.querySelectorAll(`.${target}`);
+        let switchHit = false, hasTouch = false;
+        switchSprings.forEach(switchSpring => {
+        function toggleHit(){ if(!switchHit){ switchHit = true; switchSpring.classList.add("hit"  ); }}
+        function setTouch() { if(!hasTouch) { hasTouch = true;  switchSpring.classList.add("touch"); }}
+        switchSpring.onclick = toggleHit;
+        switchSpring.ontouchstart = function(e){ setTouch(); e.preventDefault(); e.target.click(); }   
+        });
+    },
+
+    rubber(target) {
+        const switchRubbers = document.querySelectorAll(`.${target}`);
+        switchRubbers.forEach(switchRubber => {
+        const checked = switchRubber.querySelector('input');
+        switchRubber.addEventListener("change", () => {
+            if (checked.checked == true) {
+                switchRubber.classList.remove("deactivate");
+                switchRubber.classList.add("activate");
+            } else {
+                switchRubber.classList.remove("activate");
+                switchRubber.classList.add("deactivate");
+            }
+        });
+        });
+    }
+
+}
+
+// stepper
+function stepper(target, btn){
+    const input = document.getElementById(target);
+    let _class = btn.getAttribute('class');
+    let min = input.getAttribute('min');
+    let max = input.getAttribute('max');
+    let step = input.getAttribute('step');
+    let val = input.getAttribute('value');
+    let calcStep = (_class == 'increment') ? (step*1) : (step * -1);
+    let newValue = parseInt(val) + calcStep;
+    if(newValue >= min && newValue <= max){
+        input.setAttribute('value', newValue);
+    }
 }

@@ -601,28 +601,6 @@ background-repeat: space no-repeat;
   },
   {
     number: 4,
-    tag_title: '약관선택',
-    tag_view:`
-<div role="group" class="form__">
-    <label>
-      <input type="checkbox" id="terms-and-conditions" required />
-      개인정보취급방침
-    </label>
-    <a href="javascript:;" target="_blank">개인정보취급방침 약관보기</a>
-</div> 
-    `,
-    tag_html: `
-<div role="group" class="form__">
-    <label>
-      <input type="checkbox" id="terms-and-conditions" required />
-      개인정보취급방침
-    </label>
-    <a href="javascript:;" target="_blank">개인정보취급방침 약관보기</a>
-</div>  
-    `,
-  },
-  {
-    number: 5,
     tag_title: '달력',
     tag_view:`
 <div role="group" class="form__group">
@@ -652,8 +630,15 @@ background-repeat: space no-repeat;
     `,
   },
   {
-    number: 6,
+    number: 5,
     tag_title: 'OTP입력',
+    tag_text: `
+<ul class="list__type">
+<li>한칸입력시 바로 다음칸으로 이동하는 형태로 키보드 이동 가능하다.</li>
+<li>4칸 모두 입력시 완료 버튼이 노출된다.</li>
+<li>실행함수: INPUT_OPTION.otpField('form__otp');</li>
+</ul>
+    `,
     tag_view:`
 <div class="form__otp">
     <div class="field">
