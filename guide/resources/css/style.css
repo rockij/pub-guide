@@ -325,109 +325,33 @@ input.switch__spring:active::before{transition:all .1s ease .05s}
 input.switch__spring:active::before{width:5rem}
 input.switch__spring:active:checked::before{margin-left:-.6rem}
   
-.switch__rubber{
-display:inline-block;
-cursor:pointer;
-padding:0;
-width:7rem;
-height:3.7rem;
-border-radius:3.5rem;
-background:var(--bg-base);
-position:relative;
-}
+.switch__rubber{display:inline-block;position:relative;width:7rem;height:3.7rem;border-radius:3.5rem;background:var(--bg-base);cursor:pointer;}
 .switch__rubber .slider{
-width:6.3rem;
-height:3rem;
-position:absolute;
-left:0.35rem;
-top:0.3rem;
-transition:all 0.3s ease;
-background:#ff7b7b;
-border-radius:50%;
-transform:scaleX(0.4758);
-transform-origin:left center;
+    position:absolute;left:.35rem;top:.3rem;width:6.3rem;height:3rem;border-radius:50%;
+    background-color:var(--color-warning);transition:all var(--transition-speed) ease;
+    transform:scaleX(.4758);transform-origin:left center
 }
-.switch__rubber.activate .slider{
-animation:activate 0.5s ease forwards;
-}
-.switch__rubber.deactivate .slider{
-transform:scaleX(0.4758) translateX(0rem);
-animation:deactivate 0.5s ease forwards;
-}
+.switch__rubber.activate .slider{animation:activate .5s ease forwards}
+.switch__rubber.deactivate .slider{transform:scaleX(.4758) translateX(0);animation:deactivate .5s ease forwards}
 @keyframes activate{
-50%{
-    transform-origin:left center;
-    border-radius:5.8rem;
-    transform:scaleX(1);
-    background:#ff7b7b;
-}
-50.1%{
-    transform-origin:right center;
-}
-100%{
-    transform-origin:right center;
-    transform:scaleX(0.4758) translateX(0rem);
-    background:#82ea9e;
-}
+    50%{transform-origin:left center;border-radius:5.8rem;transform:scaleX(1);background-color:var(--color-warning)}
+    50.1%{transform-origin:right center}
+    100%{transform-origin:right center;transform:scaleX(0.4758) translateX(0);background-color:var(--color-done)}
 }
 @keyframes deactivate{
-0%{
-    transform-origin:right center;
-    border-radius:50%;
-    transform:scaleX(0.4758) translateX(0rem);
-    background:#82ea9e;
-}
-50%{
-    transform:scaleX(1) translateX(0rem);
-    border-radius:5.8rem;
-    transform-origin:right center;
-    background:#82ea9e;
-}
-50.1%{
-    transform-origin:left center;
-}
-100%{
-    transform-origin:left center;
-    transform:scaleX(0.4758);
-    background:#ff7b7b;
-}
+    0%{transform-origin:right center;border-radius:50%;transform:scaleX(.4758) translateX(0);background-color:var(--color-done)}
+    50%{transform:scaleX(1) translateX(0);border-radius:5.8rem;transform-origin:right center;background-color:var(--color-done)}
+    50.1%{transform-origin:left center}
+    100%{transform-origin:left center;transform:scaleX(.4758);background-color:var(--color-warning)}
 }
 
-.input__stepper{
-    display:inline-flex;
-    background-color:#fff;
-    box-shadow:0 20px 30px rgba(0,0,0,.15);
-    border:1px solid var(--border);
-    border-radius:45px;
-}
-.input__stepper input[type="number"]{
-    appearance:textfield;
-    text-align:center;
-    font-size:40px;
-    border:0;
-    background-color:#fff;
-    color:#202030;
-}
+.input__stepper{display:inline-flex;background-color:#fff;box-shadow:0 2rem 3rem rgba(0,0,0,.15);border:1px solid var(--border);border-radius:4.5rem}
+.input__stepper input[type="number"]{appearance:textfield;background-color:#fff;border:0;text-align:center;font-size:4rem;color:var(--color-primary)}
 .input__stepper input::-webkit-outer-spin-button,
-.input__stepper input::-webkit-inner-spin-button{
-    -webkit-appearance:none;
-    margin:0;
-}
-.input__stepper button{
-    color:#3264fe;
-    background-color:#fff;
-    border:0;
-    font-size:40px;
-    cursor:pointer;
-}
-.input__stepper .decrement{
-    padding:15px 5px 15px 25px;
-    border-radius:45px 0 0 45px;
-}
-.input__stepper .increment{
-    padding:15px 25px 15px 5px;
-    border-radius:0 45px 45px 0;
-}
+.input__stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.input__stepper button{background-color:#fff;border:0;font-size:4rem;color:var(--color-positive);cursor:pointer}
+.input__stepper .decrement{padding:1.5rem .5rem 1.5rem 2.5rem;border-radius:4.5rem 0 0 4.5rem}
+.input__stepper .increment{padding:1.5rem 2.5rem 1.5rem .5rem;border-radius:0 4.5rem 4.5rem 0}
 
 /* accordion */
 .accordion__panel{
