@@ -298,19 +298,13 @@ font-size:1.5rem;border-radius:.6rem;background-color:var(--bg-card);appearance:
     100%{padding-left:0;text-indent:0}
 }
 input.switch__spring{
-    appearance:none;user-select:none;
-    -webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;
+    appearance:none;user-select:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;
     position:relative;display:inline-block;width:9rem;height:4.6rem;
-    line-height:4.6rem;border-radius:2.3rem;box-shadow:inset 0 0 0 .2rem #eee;
+    border-radius:2.3rem;box-shadow:inset 0 0 0 .2rem #eee;line-height:4.6rem;font-size:1rem;cursor:pointer;
+    transition:box-shadow .3s ease-in-out, padding .25s ease-in-out;transition-delay:.1s, 0s;
     outline:1px solid transparent !important;background:transparent;
-    font-size:1rem;cursor:pointer;
-    transition:box-shadow .3s ease-in-out, padding .25s ease-in-out;
-    transition-delay:.1s, 0s;
 }
-input.switch__spring:checked{
-    padding-left:4.4em;transition-delay:0s, 0s;
-    box-shadow:inset 0 0 0 2.62857em #00c169 !important;
-}
+input.switch__spring:checked{padding-left:4.4em;transition-delay:0s, 0s;box-shadow:inset 0 0 0 2.62857em #00c169 !important}
 input.switch__spring.hit{animation:slide-off .35s ease both}
 input.switch__spring.hit:checked{animation:slide-on .35s ease both .05s}
 input.switch__spring::before, input.switch__spring::after{content:""}
@@ -325,26 +319,17 @@ input.switch__spring:active::before{transition:all .1s ease .05s}
 input.switch__spring:active::before{width:5rem}
 input.switch__spring:active:checked::before{margin-left:-.6rem}
   
-.switch__rubber{
-display:inline-block;
-cursor:pointer;
-padding:0;
-width:7rem;
-height:3.7rem;
-border-radius:3.5rem;
-background:var(--bg-base);
-position:relative;
-}
+.switch__rubber{position:relative;display:inline-block;width:7rem;height:3.7rem;border-radius:3.5rem;background-color:var(--bg-base);cursor:pointer}
 .switch__rubber .slider{
-width:6.3rem;
-height:3rem;
-position:absolute;
-left:0.35rem;
-top:0.3rem;
-transition:all 0.3s ease;
-background:#ff7b7b;
+    position:absolute;
+    left:.35rem;
+    top:.3rem;
+    width:6.3rem;
+    height:3rem;
+    background-color:var(--color-notice);
+transition:all var(--transition-speed) ease;
 border-radius:50%;
-transform:scaleX(0.4758);
+transform:scaleX(  .4758);
 transform-origin:left center;
 }
 .switch__rubber.activate .slider{
@@ -359,7 +344,7 @@ animation:deactivate 0.5s ease forwards;
     transform-origin:left center;
     border-radius:5.8rem;
     transform:scaleX(1);
-    background:#ff7b7b;
+    background-color:var(--color-notice);
 }
 50.1%{
     transform-origin:right center;
@@ -389,7 +374,7 @@ animation:deactivate 0.5s ease forwards;
 100%{
     transform-origin:left center;
     transform:scaleX(0.4758);
-    background:#ff7b7b;
+    background:var(--color-notice);
 }
 }
 
