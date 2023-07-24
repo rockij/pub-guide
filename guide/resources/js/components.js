@@ -415,15 +415,15 @@ const INPUT_OPTION = {
         });
     },
     inputMaxlength(targetClass) {
-        const limitChecks = document.querySelectorAll(`.${targetClass}`);
-        limitChecks.forEach(limitCheck => {
-            const input = limitCheck.parentElement.parentElement.querySelector('.input');
+        const inputs = document.querySelectorAll(`.${targetClass}`);
+        inputs.forEach(input => {
+            const textCount = input.parentElement.querySelector('.textcount');
             let maxLength = input.getAttribute('maxlength');
             input.addEventListener('keyup', () => {
-                limitCheck.innerText = maxLength - input.value.length;
+                textCount.innerText = maxLength - input.value.length;
             });
             input.addEventListener('focus', () => {
-                limitCheck.innerText = maxLength - input.value.length;
+                textCount.innerText = maxLength - input.value.length;
             });
         });
     },
@@ -439,10 +439,11 @@ const INPUT_OPTION = {
             }
         });
     },
-    autoResize(targetClass) {
+    autoResize(targetClass, minHeight) {
         const textareas = document.querySelectorAll(`.${targetClass}`);
         textareas.forEach(textarea => {
             textarea.addEventListener("keyup", (e) => {
+                textarea.style.height = `${minHeight}px`;
                 let scHeight = e.target.scrollHeight;
                 textarea.style.height = `${scHeight}px`;
             });

@@ -233,7 +233,7 @@ const contentSelect = {
             INPUT_OPTION.passToggle('pass-toggle');
             INPUT_OPTION.inputMaxlength('input-maxlength');
             INPUT_OPTION.inputEmail('input-email-select');
-            INPUT_OPTION.autoResize('textarea-auto-resize');
+            INPUT_OPTION.autoResize('textarea-auto-resize', 83);
         }
 
         // selction

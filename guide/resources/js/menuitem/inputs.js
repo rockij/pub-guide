@@ -26,11 +26,11 @@ let inputs = [
       <span class="label_name">입력수제한</span>
       <div class="input_area">
         <div class="input__box">
-          <input type="text" class="input" id="input-limit" maxlength="16" />
+          <input type="text" class="input input-maxlength" id="input-limit" maxlength="16" />
           <label for="input-limit" class="input-label input_label">입력수제한</label>
           <div class="unit_set">
             <button type="button" class="input-del" title="입력텍스트 삭제">del</button>
-            <span class="input-maxlength">16</span>
+            <span class="textcount">16</span>
           </div>
         </div>
       </div>
@@ -192,11 +192,11 @@ let inputs = [
       <span class="label_name">입력수제한</span>
       <div class="input_area">
         <div class="input__box">
-          <input type="text" class="input" id="input-limit" maxlength="16" />
+          <input type="text" class="input input-maxlength" id="input-limit" maxlength="16" />
           <label for="input-limit" class="input-label input_label">입력수제한</label>
           <div class="unit_set">
             <button type="button" class="input-del" title="입력텍스트 삭제">del</button>
-            <span class="input-maxlength">16</span>
+            <span class="textcount">16</span>
           </div>
         </div>
       </div>
@@ -405,10 +405,10 @@ let inputs = [
         <span class="label_name">Textarea(auto-rsize)</span>
         <div class="input_area">
         <div class="input__box">
-            <textarea id="input-textarea" cols="30" rows="5" class="input textarea-auto-resize" maxlength="100"></textarea>
-            <label for="input-textarea" class="input-label input_label">Textarea</label>
+            <textarea id="input-textarea2" cols="30" rows="5" class="input textarea-auto-resize input-maxlength" maxlength="100"></textarea>
+            <label for="input-textarea2" class="input-label input_label">Textarea</label>
             <div class="unit_set">
-            <span class="input-maxlength">100</span>
+            <span class="textcount">100</span>
             </div>
         </div>
         </div>
@@ -430,10 +430,10 @@ let inputs = [
         <span class="label_name">Textarea(auto-rsize)</span>
         <div class="input_area">
         <div class="input__box">
-            <textarea id="input-textarea" cols="30" rows="5" class="input textarea-auto-resize" maxlength="100"></textarea>
-            <label for="input-textarea" class="input-label input_label">Textarea</label>
+            <textarea id="input-textarea2" cols="30" rows="5" class="input textarea-auto-resize input-maxlength" maxlength="100"></textarea>
+            <label for="input-textarea2" class="input-label input_label">Textarea</label>
             <div class="unit_set">
-            <span class="input-maxlength">100</span>
+            <span class="textcount">100</span>
             </div>
         </div>
         </div>
