@@ -94,47 +94,16 @@ let tabs = [
 <li>필요시 active-color 값에 맞춰 indicator의 색상 값을 바꿀 수 있다.</li>
 </ul>
     `,
-    tag_view:`
-<div class="tab__movbar">
-    <div role="tablist" aria-labelledby="tablist-3">
-        <button id="tab3-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel3-1" class="is-active" active-color="orange">
-            <span class="focus">Tab1</span>
-        </button>
-        <button id="tab3-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel3-2" tabindex="-1" active-color="green">
-            <span class="focus">Tab2</span>
-        </button>
-        <button id="tab3-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel3-3" tabindex="-1" active-color="blue">
-            <span class="focus">Tab3</span>
-        </button>
-        <span class="indicator"></span>
-    </div>
-    <div id="tabpanel3-1" role="tabpanel" aria-labelledby="tab3-1">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
-        </p>
-    </div>
-    <div id="tabpanel3-2" role="tabpanel" aria-labelledby="tab3-2" class="is-hidden">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
-        </p>
-    </div>
-    <div id="tabpanel3-3" role="tabpanel" aria-labelledby="tab3-3" class="is-hidden">
-        <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores optio dignissimos molestiae accusamus officia error nesciunt voluptatem repudiandae illo, quia deserunt vitae eaque praesentium doloribus. Dolorem debitis consectetur aperiam repellat.
-        </p>
-    </div>
-</div>
-    `,
     tag_html: `
-<div class="tab__ movbar">
+<div class="tab__movbar">
     <div role="tablist" aria-labelledby="tablist-4">
-        <button id="tab4-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel4-1">
+        <button id="tab4-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel4-1" active-color="orange">
             <span class="focus">Tab1</span>
         </button>
-        <button id="tab4-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-2" tabindex="-1">
+        <button id="tab4-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-2" active-color="orange">
             <span class="focus">Tab2</span>
         </button>
-        <button id="tab4-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-3" tabindex="-1">
+        <button id="tab4-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-3" active-color="orange">
             <span class="focus">Tab3</span>
         </button>
         <span class="indicator"></span>
@@ -170,14 +139,6 @@ let tabs = [
 <li>aria-label을 이용해 현재 몇단계인지 표시한다.</li>
 </ul>
     `,
-    tag_view:`
-<div class="path_depth" role="gorup" aria-label="전체 4단계중 1단계">
-<span class="item active">1단계</span>
-<span class="item">2단계</span>
-<span class="item">3단계</span>
-<span class="item">4단계</span>
-</div>
-    `,
     tag_html: `
 <div class="path_depth" role="gorup" aria-label="전체 4단계중 1단계">
 <span class="item active">1단계</span>
@@ -196,17 +157,6 @@ let tabs = [
 <li>현재 페이지는 해당하는 링크에 aria-current="page" 넣어준다.</li>
 </ul>
     `,
-    tag_view:`<nav class="page__link" aria-label="pagination navigation">
-    <ul>
-      <li><a href="/page-2">Previous</a></li>
-      <li><a href="/page-1">1</a></li>
-      <li><a href="/page-2" aria-current="page" class="active">2</a></li>
-      <li><a href="/page-3">3</a></li>
-      <li><a href="/page-4">4</a></li>
-      <li><a href="/page-5">5</a></li>
-      <li><a href="/page-3">Next</a></li>
-    </ul>
-  </nav>`,
     tag_html: `
 <nav class="page__link" aria-label="pagination navigation">
     <ul>
@@ -231,7 +181,7 @@ let tabs = [
 <li>실행함수: TAB_DRAGSLIDE('tab__drag_slide');</li>
 </ul>
     `,
-    tag_view:`<div class="tab__drag_slide">
+    tag_html:`<div class="tab__drag_slide">
     <button type="button" id="left" class="icon" aria-label="왼쪽으로"></button>
     <ul class="tabs-box">
       <li class="tab">Coding</li>
@@ -252,7 +202,6 @@ let tabs = [
     </ul>
     <button type="button" id="right" class="icon" aria-label="오른쪽으로"></button>
   </div>`,
-    tag_html: ``,
     tag_css: ``,
   },
 //   {

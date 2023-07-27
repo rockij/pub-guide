@@ -1,4 +1,4 @@
-let name = [
+let layout = [
   {
     number: 1,
     tag_title: 'Default Buttons',

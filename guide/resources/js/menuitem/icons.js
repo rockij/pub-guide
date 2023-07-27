@@ -11,14 +11,7 @@ let icons = [
 <li>.badge__primary 는 컬러를 지정한다.</li>
 </ul>
     `,
-    tag_view:`
-<span class="badge__m badge__primary">Primary</span>
-<span class="badge__m badge__secondary">Secondary</span>
-<span class="badge__m badge__success">Success</span>
-<span class="badge__m badge__danger">Danger</span>
-<span class="badge__m badge__info">Info</span>
-    `,
-    tag_html: `
+    tag_html:`
 <span class="badge__m badge__primary">Primary</span>
 <span class="badge__m badge__secondary">Secondary</span>
 <span class="badge__m badge__success">Success</span>
@@ -44,20 +37,13 @@ let icons = [
 <li>round가 있는 형태는 뒤에 r을 붙인다.</li>
 </ul>
     `,
-    tag_view:`
+    tag_html:`
 <span class="badge__mr badge__primary">Primary</span>
 <span class="badge__mr badge__secondary">Secondary</span>
 <span class="badge__mr badge__success">Success</span>
 <span class="badge__mr badge__danger">Danger</span>
 <span class="badge__mr badge__info">Info</span>
-    `,
-    tag_html: `
-<span class="badge__mr badge__primary">Primary</span>
-<span class="badge__mr badge__secondary">Secondary</span>
-<span class="badge__mr badge__success">Success</span>
-<span class="badge__mr badge__danger">Danger</span>
-<span class="badge__mr badge__info">Info</span>
-    `,
+    `
   },
   {
     number: 3,
@@ -67,29 +53,19 @@ let icons = [
 <li>텍스트로만 된 badge는 컬러 클래스 뒤에 _text을 붙여 작성한다.</li>
 </ul>
     `,
-    tag_view:`
+    tag_html:`
 <span class="badge__m badge__primary_text">Primary</span>
 <span class="badge__m badge__secondary_text">Secondary</span>
 <span class="badge__m badge__success_text">Success</span>
 <span class="badge__m badge__danger_text">Danger</span>
 <span class="badge__m badge__info_text">Info</span>
-    `,
-    tag_html: `
-<span class="badge__m badge__primary_text">Primary</span>
-<span class="badge__m badge__secondary_text">Secondary</span>
-<span class="badge__m badge__success_text">Success</span>
-<span class="badge__m badge__danger_text">Danger</span>
-<span class="badge__m badge__info_text">Info</span>
-    `,
+    `
   },
   {
     number: 4,
     tag_title: 'Icon Badges',
-    tag_view:`
+    tag_html:`
 <span class="badge__m badge__primary"><i class="sp__20 icon__star"></i>Primary</span> 
-    `,
-    tag_html: `
-<span class="badge__m badge__primary"><i class="sp__20 icon__star"></i>Primary</span> 
-    `,
+    `
   }
 ]

@@ -8,24 +8,15 @@ let selection = [
 <li>체크시에 모션이 필요하면 _ani을 붙이다.</li>
 </ul>
     `,
-    tag_view:`<label class="checkbox__draw">      
+    tag_html:`<label class="checkbox__draw">      
     <input type="checkbox" class="blind" />
     <figure class="v"><i></i></figure>선택</label>
   <label class="checkbox__draw_ani">      
     <input type="checkbox" class="blind" />
     <figure class="v"><i></i></figure>선택(motion)
 </label>`,
-    tag_html: `
-<label class="checkbox__draw">      
-    <input type="checkbox" class="blind" />
-    <figure class="v"><i></i></figure>선택</label>
-<label class="checkbox__draw_ani">      
-    <input type="checkbox" class="blind" />
-    <figure class="v"><i></i></figure>선택(motion)
-</label>
-    `,
     tag_css: `
-    `,
+    `
   },
   {
     number: 2,
@@ -37,7 +28,7 @@ let selection = [
 <li>실행함수: CHECKED_UI.checkBox();</li>
 </ul>
     `,
-    tag_view:`
+    tag_html:`
 <strong id="group_chk_lb01">그룹이름</strong>
 <ul role="group" aria-labelledby="group_chk_lb01">
     <li role="none">
@@ -51,21 +42,13 @@ let selection = [
     <li role="none"><span role="checkbox" aria-checked="false" class="checkbox__draw"><figure class="v"><i></i></figure>선택3</span></li>
 </ul>
     `,
-    tag_html: `
-<strong id="group_chk_lb01">그룹이름</strong>
-<ul role="group" aria-labelledby="group_chk_lb01">
-    <li role="none"><span role="checkbox" aria-checked="true" class="checkbox__draw"><figure class="v"><i></i></figure>선택1</span></li>
-    <li role="none"><span role="checkbox" aria-checked="false" class="checkbox__draw"><figure class="v"><i></i></figure>선택2</span></li>
-    <li role="none"><span role="checkbox" aria-checked="false" class="checkbox__draw"><figure class="v"><i></i></figure>선택3</span></li>
-</ul>
-    `,
     tag_css: `
-    `,
+    `
   },
   {
     number: 3   ,
     tag_title: '약관선택',
-    tag_view:`
+    tag_html:`
 <div role="group" class="form__">
     <label>
       <input type="checkbox" id="terms-and-conditions" required />
@@ -73,16 +56,7 @@ let selection = [
     </label>
     <a href="javascript:;" target="_blank">개인정보취급방침 약관보기</a>
 </div> 
-    `,
-    tag_html: `
-<div role="group" class="form__">
-    <label>
-      <input type="checkbox" id="terms-and-conditions" required />
-      개인정보취급방침
-    </label>
-    <a href="javascript:;" target="_blank">개인정보취급방침 약관보기</a>
-</div>  
-    `,
+    `
   },
 //   {
 //     number: ,
@@ -92,11 +66,9 @@ let selection = [
 // <li></li>
 // </ul>
 //     `,
-//     tag_view:`
-//     `,
 //     tag_html: `
 //     `,
 //     tag_css: `
-//     `,
+//     `
 //   },
 ]

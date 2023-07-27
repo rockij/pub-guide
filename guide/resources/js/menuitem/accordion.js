@@ -10,7 +10,7 @@ let accordion = [
 <li>panel에 accordion__panel 클래스는 반드시 있어야한다.</li>
 </ul>
     `,
-    tag_view:`
+    tag_html:`
 <header id="header1" class="accordion_sample_header">
     <button type="button" aria-expanded="false" aria-controls="panel1">
         accordion header
@@ -24,27 +24,13 @@ let accordion = [
     <div>
 </div>
     `,
-    tag_html: `
-<header id="header1-t" class="accordion_sample_header">
-    <button type="button" aria-expanded="false" aria-controls="panel1-t">
-        accordion header
-    </button>
-</header>
-<div id="panel1-t" role="region" aria-labelledby="header1-t" class="accordion__panel" aria-hidden="true">
-    <div>
-        <div class="accordion_sample_content">
-            accordion content
-        </div>
-    </div>
-</div>
-    `,
     tag_css: `
 .accordion__panel{
     overflow:hidden;
     height:0;
     transition:all 0.2s linear
 }
-    `,
+    `
   },
   {
     number: 2,
@@ -55,7 +41,7 @@ let accordion = [
 <li>panel 클래스에 animation__no 클래스를 추가한다.</li>
 </ul>
     `,
-    tag_view:`
+    tag_html:`
 <header id="header2" class="accordion_sample_header">
     <button type="button" aria-expanded="false" aria-controls="panel2">
         accordion header
@@ -68,20 +54,6 @@ let accordion = [
         </div>
     </div>
 </div>
-    `,
-    tag_html: `
-<header id="header2-t" class="accordion_sample_header">
-    <button type="button" aria-expanded="false" aria-controls="panel2-t">
-        accordion header
-    </button>
-</header>
-<div id="panel2-t" role="region" aria-labelledby="header2-t" class="accordion__panel" aria-hidden="true">
-    <div>
-        <div class="accordion_sample_content">
-            accordion content
-        </div>
-    </div>
-</div>
-    `,
+    `
   },
 ]
