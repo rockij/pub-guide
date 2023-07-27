@@ -268,11 +268,13 @@ const contentSelect = {
             const tabDefualts = document.querySelectorAll('.tab__defualt');
             tabDefualts.forEach((tabDefualt) => new TAB_DEFAULT(tabDefualt));
             const tabBarmovs = document.querySelectorAll('.tab__movbar');
-            tabBarmovs.forEach((tabBarmov) => {
-                new TAB_BARMOV(tabBarmov);
-                tabBarmov.querySelector('button').getAttribute('aria-selected','true').click();
-            });
+            tabBarmovs.forEach((tabBarmov) => new TAB_BARMOV(tabBarmov));
             TAB_DRAGSLIDE('tab__drag_slide');
+        }
+        
+        // layout
+        if (dataName === layout) {
+            CALENDAR_CUSTOM.init();
         }
     },
 

@@ -11,16 +11,16 @@ let tabs = [
 <li>role="tabpanel"에 활성화가 안되어 있는 tabpanel class="is-hidden" 추가한다.</li>
 </ul>
     `,
-    tag_view:`
+    tag_html:`
 <div class="tab__defualt">
     <div role="tablist" aria-labelledby="tablist-1">
-        <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+        <button id="tab-1" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-1">
         <span class="focus">Tab1</span>
         </button>
         <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
         <span class="focus">Tab2</span>
         </button>
-        <button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3" tabindex="-1">
+        <button id="tab-3" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-3" tabindex="-1">
         <span class="focus">Tab3</span>
         </button>
     </div>
@@ -41,30 +41,6 @@ let tabs = [
     </div>
 </div>
     `,
-    tag_html: `
-<div class="tab__defualt">
-    <div role="tablist" aria-labelledby="tablist-2">
-        <button id="tab2-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel2-1">
-            <span class="focus">Tab1</span>
-        </button>
-        <button id="tab2-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-2" tabindex="-1">
-            <span class="focus">Tab2</span>
-        </button>
-        <button id="tab2-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel2-3" tabindex="-1">
-            <span class="focus">Tab3</span>
-        </button>
-    </div>
-    <div id="tabpanel2-1" role="tabpanel" aria-labelledby="tab2-1">
-        content
-    </div>
-    <div id="tabpanel2-2" role="tabpanel" aria-labelledby="tab2-2" class="is-hidden">
-        content
-    </div>
-    <div id="tabpanel2-3" role="tabpanel" aria-labelledby="tab2-3" class="is-hidden">
-        content
-    </div>
-</div>
-    `,
     tag_css: `
 [role="tabpanel"].is-hidden{display:none}
 .tab__defualt [role="tab"],
@@ -81,7 +57,7 @@ let tabs = [
 .tab__defualt [role="tab"]:focus span.focus,
 .tab__defualt [role="tab"]:active span.focus{padding:2px 4px;border:2px solid rgb(36 116 214);border-radius:3px}
 .tab__defualt [role="tabpanel"]{padding:5px;border:2px solid var(--border);border-radius:0 5px 5px;background:var(--bg-base);min-height:10em;overflow:auto}
-    `,
+    `
   },
   {
     number: 2,
@@ -97,11 +73,11 @@ let tabs = [
     tag_html: `
 <div class="tab__movbar">
     <div role="tablist" aria-labelledby="tablist-4">
-        <button id="tab4-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel4-1" active-color="orange">
+        <button id="tab4-1" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-1" active-color="orange">
             <span class="focus">Tab1</span>
         </button>
-        <button id="tab4-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-2" active-color="orange">
-            <span class="focus">Tab2</span>
+        <button id="tab4-2" type="button" role="tab" aria-selected="true" aria-controls="tabpanel4-2" active-color="orange">
+            <span class="focus">Tab22222</span>
         </button>
         <button id="tab4-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel4-3" active-color="orange">
             <span class="focus">Tab3</span>

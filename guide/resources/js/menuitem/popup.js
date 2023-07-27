@@ -5,11 +5,17 @@ let popup = [
     tag_text: `
 <ul class="list__type">
 <li>
-  POPUP_EVENT.open('popup1', 1, 1);
+  POPUP_EVENT.open('popup1', 1, 'bgf');
   <ol>
   <li><b>popup1:</b> id값 버튼의 focus-뒤의 값과 일치한다.</li>
   <li><b>1:</b> open, <b>0:</b> close</li>
-  <li><b>1:</b> 팝업 노출시 body 고정, open시 값을 넣어줬다면 close시에도 꼭 넣어준다.</li>
+  <li><b>bgf:</b> 팝업 노출시 body를 고정시키는 옵션, open시 값을 넣어줬다면 close시에도 꼭 넣어준다.</li>
+  </ol>
+</li>
+<li>
+  POPUP_EVENT.close('popup1', 'popup1', 0, 'bgf');
+  <ol>
+  <li>두번째 옵셥값은 버튼에 focus를 정하는 값이다.</li>
   </ol>
 </li>
 <li>button의 title은 역할에 맞게 입력한다.</li>
@@ -113,7 +119,7 @@ let popup = [
 <button class="focus-popup4" onclick="POPUP_EVENT.open('popup4',1,'bgf')">팝업열기</button>
 
 <div id="mw-popup4" role="dialog" class="popup_wrap" data-popup-type="center">
-    <div class="popup_back" aria-hidden="true" onclick="POPUP_EVENT.close('popup4','popup4',0)"></div>
+    <div class="popup_back" aria-hidden="true" onclick="POPUP_EVENT.close('popup4','popup4',0,'bgf')"></div>
     <div class="popup_container">
         <div class="popup_content">
             팝업내용1
@@ -121,7 +127,7 @@ let popup = [
         <div class="popup_footer">
             <button class="focus-popup41" onclick="POPUP_EVENT.open('popup41',1)">다음팝업 열기</button>
         </div>
-        <button class="popup_close" onclick="POPUP_EVENT.close('popup4','popup4',0)">팝업닫기</button>
+        <button class="popup_close" onclick="POPUP_EVENT.close('popup4','popup4',0,'bgf')">팝업닫기</button>
     </div>  
 </div>
 <div id="mw-popup41" role="dialog" class="popup_wrap" data-popup-type="center">
@@ -129,7 +135,7 @@ let popup = [
         <div class="popup_content">
             팝업내용2
         </div>
-        <button class="popup_close" onclick="POPUP_EVENT.close('popup41','popup41',1)">팝업닫기</button>
+        <button class="popup_close" onclick="POPUP_EVENT.close('popup41','popup41',1,'bgf')">팝업닫기</button>
     </div>  
 </div>
     `,
@@ -219,7 +225,6 @@ let popup = [
     <button class="toast_close" onclick="POPUP_EVENT.close('toast2','toast2',0)">팝업닫기</button>
   </div>
 </div>
-    `,
-    tag_html: ``,
+    `
   },
 ]

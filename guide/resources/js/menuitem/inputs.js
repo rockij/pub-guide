@@ -364,7 +364,7 @@ background-repeat: space no-repeat;
     },
     {
         number: 5,
-        tag_title: '달력(Custome)',
+        tag_title: '달력(Custom)',
         tag_html: `
 <div role="group" class="form__group">
     <div class="form__area_col">
@@ -372,7 +372,7 @@ background-repeat: space no-repeat;
       <div class="input_area">
         <div class="input__box">
             <input type="text" value="2023.7.23" readonly />
-            <button class="focus-calendar1" onclick="CALENDAR_CUSTOME.init('popup', 'calendar', 'calendar1', 'open')">달력</button>
+            <button class="focus-calendar1" onclick="CALENDAR_CUSTOM.init('popup', 'calendar', 'calendar1', 'open')">달력</button>
         </div>
       </div>
     </div>
@@ -387,9 +387,9 @@ background-repeat: space no-repeat;
         <h3 id="monthAndYear" aria-live="assertive"></h3>
 
         <div class="button-container-calendar" role="navigation" aria-labelledby="monthAndYear">
-            <button id="todays" onclick="CALENDAR_CUSTOME.todays()" title="오늘 이동">Today</button>
-            <button id="previous" onclick="CALENDAR_CUSTOME.previous()" title="이전달 이동">&#8249;</button>
-            <button id="next" onclick="CALENDAR_CUSTOME.next()" title="다음달 이동">&#8250;</button>
+            <button id="todays" onclick="CALENDAR_CUSTOM.todays()" title="오늘 이동">Today</button>
+            <button id="previous" onclick="" title="이전달 이동">&#8249;</button>
+            <button id="next" onclick="CALENDAR_CUSTOM.next()" title="다음달 이동">&#8250;</button>
         </div>
 
         <table class="table-calendar" id="calendar" data-lang="ko" role="grid" aria-labelledby="current-year">
@@ -399,7 +399,7 @@ background-repeat: space no-repeat;
 
         <div class="footer-container-calendar">
              <label for="month">Jump To: </label>
-             <select id="month" onchange="CALENDAR_CUSTOME.jump()">
+             <select id="month" onchange="CALENDAR_CUSTOM.jump()">
                  <option value=0>Jan</option>
                  <option value=1>Feb</option>
                  <option value=2>Mar</option>
@@ -413,7 +413,7 @@ background-repeat: space no-repeat;
                  <option value=10>Nov</option>
                  <option value=11>Dec</option>
              </select>
-            <select id="year" onchange="CALENDAR_CUSTOME.jump()" title="select start date month/year"></select>
+            <select id="year" onchange="CALENDAR_CUSTOM.jump()" title="select start date month/year"></select>
             <span id="dayValue"></span>
         </div>
 
