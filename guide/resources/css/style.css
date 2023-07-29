@@ -357,101 +357,24 @@ input.switch__spring:active:checked::before{margin-left:-.6rem}
     transition:grid-template-rows var(--transition-speed),
                 -ms-grid-rows var(--transition-speed);
 }
-.accordion__panel[aria-hidden=false]{
-    grid-template-rows:1fr;
-}
-.accordion__panel > div{
-    overflow:hidden;
-}
+.accordion__panel[aria-hidden=false]{grid-template-rows:1fr}
+.accordion__panel > div{overflow:hidden}
 
 /* calendar */
-.container-calendar {
-    background: #ffffff;
-    padding: 15px;
-    max-width: 475px;
-    margin: 0 auto;
-    overflow: auto;
-}
-
-.button-container-calendar button {
-    cursor: pointer;
-    display: inline-block;
-    zoom: 1;
-    background: #00a2b7;
-    color: #fff;
-    border: 1px solid #0aa2b5;
-    border-radius: 4px;
-    padding: 5px 10px;
-}
-
-.table-calendar {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-.table-calendar td, .table-calendar th {
-    padding: 5px;
-    border: 1px solid #e2e2e2;
-    text-align: center;
-    vertical-align: top;
-}
-
-.date-picker.today {
-    font-weight: bold;
-    outline: 1px dashed #00BCD4;
-}
-
-.date-picker.selected button {
-    border-bottom: 2px solid currentColor;
-}
-
-/* sunday */
-.date-picker:nth-child(1) {
-  color: red;
-}
-
-/* friday */
-.date-picker:nth-child(6) {
-  color: green;
-}
-
-#monthAndYear {
-    text-align: center;
-    margin-top: 0;
-}
-
-.button-container-calendar {
-    position: relative;
-    margin-bottom: 1em;
-    overflow: hidden;
-    clear: both;
-}
-
-#previous {
-    float: left;
-    margin-right: 10px;
-}
-
-#next {
-    float: right;
-}
-
-.footer-container-calendar {
-    margin-top: 1em;
-    border-top: 1px solid #dadada;
-    padding: 10px 0;
-}
-
-.footer-container-calendar select {
-    cursor: pointer;
-    display: inline-block;
-    zoom: 1;
-    background: #ffffff;
-    color: #585858;
-    border: 1px solid #bfc5c5;
-    border-radius: 3px;
-    padding: 5px 1em;
-}
+.container-calendar {background-color: var(--bg-card);padding:1.5rem;max-width:47.5rem}
+.button-container-calendar button {display: inline-block;background-color: var(--color-positive);color: #fff;border: 1px solid #0aa2b5;border-radius:.4rem;padding:.5rem 1rem}
+.table-calendar{border-collapse: collapse;width: 100%}
+.table-calendar td, .table-calendar th {padding:.5rem;border: 1px solid #e2e2e2;text-align: center;vertical-align: top}
+.date-picker.today{font-weight:700;outline: 1px dashed var(--color-positive)}
+.date-picker.selected button {border-bottom: 2px solid currentColor}
+.date-picker:nth-child(1){color:var(--color-warning)} /* sunday */
+.date-picker:nth-child(6){color:var(--color-done)} /* friday */
+#monthAndYear{text-align: center;margin-top: 0}
+.button-container-calendar{position: relative;margin-bottom: 1rem;overflow: hidden;clear: both}
+#previous {float: left;margin-right: 1rem}
+#next {float: right}
+.footer-container-calendar {margin-top: 1rem;border-top: 1px solid var(--border);padding: 1rem 0}
+.footer-container-calendar select{display: inline-block;background: var(--bg-card);color:var(--color-secondary);border: 1px solid #bfc5c5;border-radius:.3rem;padding:.5rem 1rem}
 
 /* popup */
 @keyframes popup-ani{
@@ -518,68 +441,15 @@ table{width:100%}
 .state_info .count-modi{color:var(--color-positive);}
 .state_info .count-defer{color:var(--color-warning);}
 
-.progress{position:relative;width:100%;height:5px}
-.progress_total{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    font-size:12px;
-    background-color:#dcd8d1;
-}
-.progress_total-text{
-    position:absolute;
-    right:0;
-    top:3px;
-    color:#666156;
-    font-weight:700;
-    font-size:11px;
-}
-.progress_total-count{
-    color:#000;
-    font-weight:700;
-    font-size:14px;
-    font-family:consolas;
-}
-.progress_done{
-    position:absolute;
-    top:0;
-    left:0;
-    height:100%;
-    background-color:var(--color-done);
-}
-.progress_done-percent{
-    position:absolute;
-    right:0;
-    bottom:3px;
-    color:#000;
-    font-weight:700;
-    font-size:14px;
-    font-family:consolas;
-    white-space:nowrap;
-    transform:translateX(50%);
-}
-.progress.half .progress_done-percent{
-    transform:translateX(0);
-}
-.progress_defer{
-    position:absolute;
-    top:7px;
-    left:0;
-    height:2px;
-    background-color:#f95a37;
-}
-.shortcut{
-    overflow-x:auto;
-    overflow-y:hidden;
-    flex:1 1 0;
-    height:50px;
-    padding:0 20px;
-    display:flex;
-    align-items:center;
-    white-space:nowrap;
-}
+.progress{position:relative;width:100%;height:.5rem}
+.progress_total{position:absolute;top:0;left:0;width:100%;height:100%;font-size:1.2rem;background-color:var(--bg-base)}
+.progress_total-text{position:absolute;right:0;top:.3rem;color:var(--color-secondary);font-weight:700;font-size:1.1rem}
+.progress_total-count{color:var(--color-primary);font-weight:700;font-size:1.4rem;font-family:consolas}
+.progress_done{position:absolute;top:0;left:0;height:100%;background-color:var(--color-done)}
+.progress_done-percent{position:absolute;right:0;bottom:.3rem;font-family:consolas;font-weight:700;font-size:1.4rem;white-space:nowrap;color:var(--color-primary);transform:translateX(50%)}
+.progress.half .progress_done-percent{transform:translateX(0)}
+.progress_defer{position:absolute;top:.7rem;left:0;height:.2rem;background-color:var(--color-notice)}
+.shortcut{overflow-x:auto;overflow-y:hidden;flex:1 1 0;height:5rem;padding:0 2rem;display:flex;align-items:center;white-space:nowrap}
 .shortcut .go{
     display:inline-block;
     padding:3px 15px;
