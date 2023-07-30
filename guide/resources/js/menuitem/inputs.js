@@ -387,9 +387,9 @@ background-repeat: space no-repeat;
         <h3 id="monthAndYear" aria-live="assertive"></h3>
 
         <div class="button-container-calendar" role="navigation" aria-labelledby="monthAndYear">
-            <button id="todays" onclick="CALENDAR_CUSTOM.todays()" title="오늘 이동">Today</button>
-            <button id="previous" onclick="" title="이전달 이동">&#8249;</button>
-            <button id="next" onclick="CALENDAR_CUSTOM.next()" title="다음달 이동">&#8250;</button>
+            <button id="todays" title="오늘 이동">Today</button>
+            <button id="previous" title="이전달 이동">&#8249;</button>
+            <button id="next" title="다음달 이동">&#8250;</button>
         </div>
 
         <table class="table-calendar" id="calendar" data-lang="ko" role="grid" aria-labelledby="current-year">
@@ -399,7 +399,7 @@ background-repeat: space no-repeat;
 
         <div class="footer-container-calendar">
              <label for="month">Jump To: </label>
-             <select id="month" onchange="CALENDAR_CUSTOM.jump()">
+             <select id="month" class="jump">
                  <option value=0>Jan</option>
                  <option value=1>Feb</option>
                  <option value=2>Mar</option>
@@ -413,7 +413,7 @@ background-repeat: space no-repeat;
                  <option value=10>Nov</option>
                  <option value=11>Dec</option>
              </select>
-            <select id="year" onchange="CALENDAR_CUSTOM.jump()" title="select start date month/year"></select>
+            <select id="year" class="jump" title="select start date month/year"></select>
             <span id="dayValue"></span>
         </div>
 

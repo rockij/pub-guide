@@ -728,14 +728,6 @@ const CALENDAR_CUSTOM = {
                 POPUP_EVENT.close(popupTarget, buttonTarget, 0, 'bgf');
                 document.querySelector(`.focus-${buttonTarget}`).focus();
             }
-            let dayPopupTarget = popupTarget;
-            let dayButtonTarget = buttonTarget;
-            let CalendarType = calendarType;
-
-            document.querySelector('#previous').addEventListener('click', (e) => {
-                console.log(dayPopupTarget);
-            });
-
         } else {
             CALENDAR_CUSTOM.showCalendar(
                 currentMonth,
@@ -744,6 +736,28 @@ const CALENDAR_CUSTOM = {
                 buttonTarget
             );
         }
+        // 이전달
+        document.querySelector('#previous').addEventListener('click', (e) => {
+            CALENDAR_CUSTOM.previous(calendarType, popupTarget, buttonTarget);
+        });
+
+        // 다음달
+        document.querySelector('#next').addEventListener('click', (e) => {
+            CALENDAR_CUSTOM.next(calendarType, popupTarget, buttonTarget);
+        });
+
+        // 다음달
+        document.querySelector('#todays').addEventListener('click', (e) => {
+            CALENDAR_CUSTOM.todays(calendarType, popupTarget, buttonTarget);
+        });
+
+        // 바로이동
+        const dayJumps = document.querySelectorAll('.jump');
+        dayJumps.forEach(dayJump => {
+            dayJump.addEventListener('click', (e) => {
+                CALENDAR_CUSTOM.jump(calendarType, popupTarget, buttonTarget);
+            });
+        });
     },
 
     generate_year_range(start, end) {
@@ -759,38 +773,23 @@ const CALENDAR_CUSTOM = {
         currentMonth = (currentMonth + 1) % 12;
         console.log('currentYear-' + currentYear);
         console.log('currentMonth-' + currentMonth);
-        if (CalendarType == 'popup') {
-            CALENDAR_CUSTOM.showCalendar(
-                currentMonth,
-                currentYear,
-                dayPopupTarget,
-                dayButtonTarget
-            );
-        } else {
-            CALENDAR_CUSTOM.showCalendar(currentMonth, currentYear);
-        }
-    },
-
-    previous(CalendarType, dayPopupTarget, dayButtonTarget) {
-        currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-        console.log(dayPopupTarget);
         CALENDAR_CUSTOM.showCalendar(
             currentMonth,
             currentYear,
             dayPopupTarget,
             dayButtonTarget
         );
-        // if (CalendarType == 'popup') {
-        //     CALENDAR_CUSTOM.showCalendar(
-        //         currentMonth,
-        //         currentYear,
-        //         dayPopupTarget,
-        //         dayButtonTarget
-        //         );
-        //     } else {
-            
-        // }
+    },
+
+    previous(CalendarType, dayPopupTarget, dayButtonTarget) {
+        currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+        CALENDAR_CUSTOM.showCalendar(
+            currentMonth,
+            currentYear,
+            dayPopupTarget,
+            dayButtonTarget
+        );
     },
 
     jump(CalendarType, dayPopupTarget, dayButtonTarget) {
@@ -798,31 +797,23 @@ const CALENDAR_CUSTOM = {
         let selectMonth = document.getElementById('month');
         currentYear = parseInt(selectYear.value);
         currentMonth = parseInt(selectMonth.value);
-        if (CalendarType == 'popup') {
-            CALENDAR_CUSTOM.showCalendar(
-                currentMonth,
-                currentYear,
-                dayPopupTarget,
-                dayButtonTarget
-            );
-        } else {
-            CALENDAR_CUSTOM.showCalendar(currentMonth, currentYear);
-        }
+        CALENDAR_CUSTOM.showCalendar(
+            currentMonth,
+            currentYear,
+            dayPopupTarget,
+            dayButtonTarget
+        );
     },
 
     todays(CalendarType, dayPopupTarget, dayButtonTarget) {
         currentYear = parseInt(today.getFullYear());
         currentMonth = parseInt(today.getMonth());
-        if (CalendarType == 'popup') {
-            CALENDAR_CUSTOM.showCalendar(
-                currentMonth,
-                currentYear,
-                dayPopupTarget,
-                dayButtonTarget
-            );
-        } else {
-            CALENDAR_CUSTOM.showCalendar(currentMonth, currentYear);
-        }
+        CALENDAR_CUSTOM.showCalendar(
+            currentMonth,
+            currentYear,
+            dayPopupTarget,
+            dayButtonTarget
+        );
     },
 
     daySelect(year, month, date, dayPopupTarget, dayButtonTarget) {
@@ -964,13 +955,7 @@ const CALENDAR_CUSTOM = {
                             cell.className = 'date-picker today';
                         }
                     } else {
-                        // cell.innerHTML = `<button aria-label="${year}년${
-                        //     month + 1
-                        // }월${date}일" onclick="CALENDAR_CUSTOM.daySelect(${year}, ${
-                        //     month + 1
-                        // }, ${date})"> ${date} </button>`;
-
-                        cell.innerHTML = `<button aria-label="${year}년${month + 1}월${date}일" onclick="CALENDAR_CUSTOM.daySelect(${year}, ${month + 1}, ${date}, '${popupTarget}', '${buttonTarget}')"> ${date} </button>`;
+                        cell.innerHTML = `<button aria-label="${year}년${month + 1}월${date}일" onclick="CALENDAR_CUSTOM.daySelect(${year}, ${month + 1}, ${date})"> ${date} </button>`;
                         
                         if (
                             date === today.getDate() &&

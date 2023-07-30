@@ -38,7 +38,7 @@ let accordion = [
     tag_text: `
 <ul class="list__type">
 <li>기본셋팅은 Default Accordion 참고한다.</li>
-<li>panel 클래스에 animation__no 클래스를 추가한다.</li>
+<li>panel 클래스에 no_anim 클래스를 추가한다.</li>
 </ul>
     `,
     tag_html:`
@@ -47,7 +47,7 @@ let accordion = [
         accordion header
     </button>
 </header>
-<div id="panel2" role="region" aria-labelledby="header2" class="accordion__panel animation__no" aria-hidden="true">
+<div id="panel2" role="region" aria-labelledby="header2" class="accordion__panel no_anim" aria-hidden="true">
     <div>
         <div class="accordion_sample_content">
             accordion content

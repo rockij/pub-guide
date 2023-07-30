@@ -13,9 +13,9 @@ let layout = [
     <h3 id="monthAndYear" aria-live="assertive"></h3>
 
     <div class="button-container-calendar" role="navigation" aria-labelledby="monthAndYear">
-        <button id="todays" onclick="CALENDAR_CUSTOM.todays()" title="오늘 이동">Today</button>
-        <button id="previous" onclick="CALENDAR_CUSTOM.previous()" title="이전달 이동">&#8249;</button>
-        <button id="next" onclick="CALENDAR_CUSTOM.next()" title="다음달 이동">&#8250;</button>
+        <button id="todays" title="오늘 이동">Today</button>
+        <button id="previous" title="이전달 이동">&#8249;</button>
+        <button id="next" title="다음달 이동">&#8250;</button>
     </div>
 
     <table class="table-calendar" id="calendar" data-lang="ko" role="grid" aria-labelledby="current-year">
