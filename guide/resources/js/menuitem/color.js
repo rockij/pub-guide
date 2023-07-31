@@ -94,8 +94,8 @@ let color = [
             <span class="text"><strong>button/icon</strong>#26282c<br/>#eff2f7</span>
           </div>
           <div class="color_set">
-            <span class="color" style="background-color:var(--line-disable)" data-theme="Light"></span>
-            <span class="color" style="background-color:var(--line-disable-dark)" data-theme="Dark"></span>
+            <span class="color" style="background-color:var(--color-disable)" data-theme="Light"></span>
+            <span class="color" style="background-color:var(--color-disable-dark)" data-theme="Dark"></span>
             <span class="text"><strong>Diabled</strong>#dde1e4<br/>#3d4046</span>
           </div>
         </div>      

@@ -261,6 +261,9 @@ const contentSelect = {
         // selction
         if (dataName === selection) {
             CHECKED_UI.checkBox();
+            CHECKED_UI.radioBox();
+            SWITCH_UI.spring('switch__spring');
+            SWITCH_UI.rubber('switch__rubber');
         }
 
         // tab
@@ -270,6 +273,12 @@ const contentSelect = {
             const tabBarmovs = document.querySelectorAll('.tab__movbar');
             tabBarmovs.forEach((tabBarmov) => new TAB_BARMOV(tabBarmov));
             TAB_DRAGSLIDE('tab__drag_slide');
+        }
+        
+        // list
+        if (dataName === list) {
+            LIST_LIBRARY.dragDrop('list__drag');
+            LIST_LIBRARY.loadMore('list__more', 1, 10, 50);
         }
         
         // layout

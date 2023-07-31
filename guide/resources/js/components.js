@@ -25,7 +25,7 @@ const INCLUDE_OPTION = {
             html.style.setProperty('--scroll-behavior', 'smooth');
         }
     },
-};
+}
 
 // expanded event
 const EXPANDED_EVENT = {
@@ -64,7 +64,7 @@ const EXPANDED_EVENT = {
             });
         });
     },
-};
+}
 
 // popup
 let POPUP_OPTION = 0;
@@ -133,7 +133,7 @@ const POPUP_EVENT = {
             _this.querySelector('.toast_close').click();
         }, time * 1000 + closeDelay);
     },
-};
+}
 
 // tab
 class TAB_DEFAULT {
@@ -313,7 +313,7 @@ const TAB_DRAGSLIDE = function (target) {
 //     tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
 // });
 
-// Input
+// input
 const INPUT_OPTION = {
     otpField(targetClass) {
         const inputs = document.querySelectorAll(`.${targetClass} .input`);
@@ -500,7 +500,7 @@ const INPUT_OPTION = {
             });
         });
     },
-};
+}
 
 function otpValidate() {
     alert('성공');
@@ -631,7 +631,7 @@ const CHECKED_UI = {
             if (!hasChecked) radioBox[0].tabIndex = 0;
         });
     },
-};
+}
 
 // switch
 const SWITCH_UI = {
@@ -677,7 +677,7 @@ const SWITCH_UI = {
             });
         });
     },
-};
+}
 
 // stepper
 function stepper(target, btn) {
@@ -694,20 +694,128 @@ function stepper(target, btn) {
     }
 }
 
-// 달력(custome)
+// list
+const LIST_LIBRARY = {
+    dragDrop(target) {
+        let currentElement = '';
+        let list = document.querySelector(`.${target}`);
+        let initialX = 0, initialY = 0;
+        const isTouchDevice = () => {
+            try {
+                //TouchEvent를 생성하려고 합니다(데스크톱에서 실패하고 오류가 발생할 수 있음)
+                document.createEvent('TouchEvent');
+                return true;
+            } catch (e) {
+                return false;
+            }
+        };
+        // 지정된 값으로 요소 인덱스를 반환
+        const getPosition = (value) => {
+            let elementIndex;
+            let listItems = document.querySelectorAll('.item');
+            listItems.forEach((element, index) => {
+                let elementValue = element.getAttribute('data-value');
+                if (value == elementValue) elementIndex = index;
+            });
+            return elementIndex;
+        };
+
+        // Drag and drop functions
+        function dragStart(e) {
+            initialX = isTouchDevice() ? e.touches[0].clientX : e.clientX;
+            initialY = isTouchDevice() ? e.touches[0].clientY : e.clientY;
+            currentElement = e.target;
+        }
+
+        function dragOver(e) { e.preventDefault() }
+        
+        const drop = (e) => {
+            e.preventDefault();
+            let newX = isTouchDevice() ? e.touches[0].clientX : e.clientX;
+            let newY = isTouchDevice() ? e.touches[0].clientY : e.clientY;
+            // targetElement(선택한 요소를 삭제하는 위치)를 설정. 마우스 위치를 기준으로
+            let targetElement = document.elementFromPoint(newX, newY);
+            let currentValue = currentElement.getAttribute('data-value');
+            let targetValue = targetElement.getAttribute('data-value');
+            // get index of current and target based on value
+            let [currentPosition, targetPosition] = [
+                getPosition(currentValue),
+                getPosition(targetValue),
+            ];
+            initialX = newX;
+            initialY = newY;
+            try {
+                // 'afterend'는 대상 요소 뒤에 요소를 삽입하고 'before begin'은 대상 요소 앞에 삽입
+                if (currentPosition < targetPosition) {
+                    targetElement.insertAdjacentElement('afterend', currentElement);
+                } else {
+                    targetElement.insertAdjacentElement('beforebegin', currentElement);
+                }
+            } catch (err) {}
+        };    
+        let listItems = document.querySelectorAll('.item');
+        listItems.forEach(element => {
+            element.draggable = true;
+            element.addEventListener("dragstart", dragStart, false);
+            element.addEventListener("dragover", dragOver, false);
+            element.addEventListener("drop", drop, false);
+            element.addEventListener("touchstart", dragStart, false);
+            element.addEventListener("touchmove", drop, false);
+        });    
+    },
+
+    loadMore(target, startValue, moreCount, totalCount) {
+      const listTarget = document.querySelector(`.${target}`);
+      const moreList = listTarget.querySelector(`.${target}_list`);
+      const moreButton = listTarget.querySelector(".btn_more");
+      const countElem = listTarget.querySelector(".list_count");
+      const totalElem = listTarget.querySelector(".list_total");
+    
+      const listLimit = totalCount; // 보여지는 총 건수
+      const listIncrease = moreCount; // more 선택시 추가되는 건수
+      const pageCount = Math.ceil(listLimit / listIncrease);
+      let currentPage = startValue; // 시작 지점
+    
+      totalElem.innerHTML = listLimit;
+    
+      const addLists = (pageIndex) => {      
+        currentPage = pageIndex;
+        if (pageCount === currentPage) {
+          moreButton.classList.add("disabled");
+          moreButton.setAttribute("disabled", true);
+        }
+        const startRange = (pageIndex - 1) * listIncrease;
+        const endRange = pageIndex * listIncrease > listLimit ? listLimit : pageIndex * listIncrease;  
+        countElem.innerHTML = endRange;
+        for (let i = startRange + 1; i <= endRange; i++) { // 추가되는 리스트 태그
+          const list = document.createElement("div");
+          list.className = "item";
+          list.innerHTML = i;
+          moreList.appendChild(list);
+        }
+      };
+      addLists(currentPage);
+      moreButton.addEventListener("click", () => {
+        addLists(currentPage + 1);
+      });
+      moreList.addEventListener("scroll", (e) => { // 스크롤 맨 아래시 자동추가
+        const a = e.currentTarget;
+        if (Math.ceil(a.scrollTop) + a.clientHeight >= a.scrollHeight) {
+          moreButton.click();
+        }
+      });
+    }
+}  
+
+// calendar(custom)
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
 const CALENDAR_CUSTOM = {
-
     init(calendarType, popupTarget, buttonTarget, handle) {
         if (calendarType == 'popup') {
-            const popupBack = document.querySelector(
-                `#mw-${popupTarget} .popup_back`
-            );
-            const popupClose = document.querySelector(
-                `#mw-${popupTarget} .popup_close`
-            );
+            const popupBack = document.querySelector(`#mw-${popupTarget} .popup_back`);
+            const popupClose = document.querySelector(`#mw-${popupTarget} .popup_close`);
             popupBack.setAttribute(
                 'onclick',
                 `CALENDAR_CUSTOM.init('popup', '${popupTarget}', '${buttonTarget}', 'close')`
@@ -736,25 +844,26 @@ const CALENDAR_CUSTOM = {
                 buttonTarget
             );
         }
+
         // 이전달
-        document.querySelector('#previous').addEventListener('click', (e) => {
+        document.querySelector('#previous').addEventListener('click', () => {
             CALENDAR_CUSTOM.previous(calendarType, popupTarget, buttonTarget);
         });
 
         // 다음달
-        document.querySelector('#next').addEventListener('click', (e) => {
+        document.querySelector('#next').addEventListener('click', () => {
             CALENDAR_CUSTOM.next(calendarType, popupTarget, buttonTarget);
         });
 
         // 다음달
-        document.querySelector('#todays').addEventListener('click', (e) => {
+        document.querySelector('#todays').addEventListener('click', () => {
             CALENDAR_CUSTOM.todays(calendarType, popupTarget, buttonTarget);
         });
 
         // 바로이동
         const dayJumps = document.querySelectorAll('.jump');
         dayJumps.forEach(dayJump => {
-            dayJump.addEventListener('click', (e) => {
+            dayJump.addEventListener('click', () => {
                 CALENDAR_CUSTOM.jump(calendarType, popupTarget, buttonTarget);
             });
         });
@@ -840,14 +949,12 @@ const CALENDAR_CUSTOM = {
         if (dayPopupTarget) {
             POPUP_EVENT.close(dayPopupTarget, dayButtonTarget, 0, 'bgf');
             const buttonTarget = document.querySelector(`.focus-${dayButtonTarget}`);
-            console.log(dayButtonTarget);
-
             const inputBox = buttonTarget.previousElementSibling;
             inputBox.value = `${year}.${month}.${date}`;
         }
     },
 
-    showCalendar(month, year, popupTarget, buttonTarget, calendarType) {
+    showCalendar(month, year, popupTarget, buttonTarget) {
         let selectYear = document.getElementById('year');
         let selectMonth = document.getElementById('month');
         const createYear = CALENDAR_CUSTOM.generate_year_range(1970, 2023);
@@ -978,4 +1085,4 @@ const CALENDAR_CUSTOM = {
     daysInMonth(iMonth, iYear) {
         return 32 - new Date(iYear, iMonth, 32).getDate();
     },
-};
+}

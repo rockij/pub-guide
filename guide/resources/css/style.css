@@ -3,7 +3,7 @@
 :root{
     --color-primary:#333;
     --color-secondary:#555;
-    
+
     --color-secondary2:#aeaeae;
     --color-warning:#ff200c;
     --color-warning-dark:#ff5436;
@@ -33,8 +33,8 @@
     --line-primary-dark:#eff2f7;
     --line-button:#26282c;
     --line-button-dark:#eff2f7;
-    --line-disable:#dde1e4;
-    --line-disable-dark:#3d4046;
+    --color-disable:#dde1e4;
+    --color-disable-dark:#3d4046;
 
     --border:#d9d9d9;
 
@@ -243,7 +243,7 @@ font-size:1.5rem;border-radius:.6rem;background-color:var(--bg-card);appearance:
 .form__otp #submit{margin:1rem auto 0;padding:1rem;background-color:var(--color-notice);color:var(--color-primary)}
 .form__otp .show{display:block}
 .form__otp .hide{display:none}
-.form__otp .input:disabled{color:var(--line-disable)}
+.form__otp .input:disabled{color:var(--color-disable)}
 .form__otp .input:focus{border:3px solid var(--color-notice)}
 
 /* selection */
@@ -281,7 +281,7 @@ font-size:1.5rem;border-radius:.6rem;background-color:var(--bg-card);appearance:
 [class*="radio__draw"][aria-checked="true"] i.o,
 [class*="radio__draw"] input:checked + i.o{box-shadow:inset 0 0 0 2rem var(--color-positive)}
 .radio__draw_ani i.o{transition:box-shadow var(--transition-speed)}
-  
+
 @keyframes slide-on{
     0%{padding-left:0}
     60%{padding-left:4.8rem}
@@ -308,7 +308,7 @@ input.switch__spring::before{display:inline-block;height:4.2rem;width:4.2rem;mar
 input.switch__spring:active::before{transition:all .1s ease .05s}
 input.switch__spring:active::before{width:5rem}
 input.switch__spring:active:checked::before{margin-left:-.6rem}
-  
+
 .switch__rubber{display:inline-block;position:relative;width:7rem;height:3.7rem;border-radius:3.5rem;background:var(--bg-base);cursor:pointer}
 .switch__rubber .slider{position:absolute;left:.35rem;top:.3rem;width:6.3rem;height:3rem;border-radius:50%;background-color:var(--color-warning);transition:all var(--transition-speed) ease;transform:scaleX(.4758);transform-origin:left center}
 .switch__rubber.activate .slider{animation:activate .5s ease forwards}
@@ -332,6 +332,38 @@ input.switch__spring:active:checked::before{margin-left:-.6rem}
 .input__stepper button{background-color:#fff;border:0;font-size:4rem;color:var(--color-positive);cursor:pointer}
 .input__stepper .decrement{padding:1.5rem .5rem 1.5rem 2.5rem;border-radius:4.5rem 0 0 4.5rem}
 .input__stepper .increment{padding:1.5rem 2.5rem 1.5rem .5rem;border-radius:0 4.5rem 4.5rem 0}
+
+/* list */
+.list__basic > li{position:relative;padding-left:1rem}
+.list__basic > li:not(:first-child){margin-top:0.6rem}
+.list__basic > li::before{content:'*';position:absolute;left:0;top:.2rem}
+.list__basic ol{margin-left:.4rem;counter-reset:my-counter}
+.list__basic ol li{counter-increment:my-counter}
+.list__basic ol li::before{content:counter(my-counter)'. '}
+
+[class*="list__row"] .lnkbx{padding:1.6rem 1rem;display:flex;align-items:center;font-weight:700}
+[class*="list__row"] .lnkbx .rtset{margin-left:auto;display:flex;align-items:center}
+[class*="list__row"] button.lnkbx{width:100%}
+[class*="list__row"] .arr::after{content:'';border-width:1px 1px 0 0;border-style:solid;border-color:var(--color-primary);width:.8rem;height:.8rem;transform:rotate(45deg)}
+[class*="list__row"] .lnkbx.arr::after{margin-left:auto}
+[class*="list__row"] .icon__star{width:2rem;height:2rem;border:1px solid;margin-right:.4rem}
+[class*="list__row"] .lnkbx .stxt{display:block;font-weight:400}
+.list__row_line > li:not(:first-child){border-top:1px solid #eee}
+.list__row_box > li{border-radius:.6rem;border:1px solid #eee}
+.list__row_box > li:not(:first-child){margin-top:1.5rem}
+
+[class*="list__bside"] .lnkbx{padding:.8rem 1rem;display:flex;justify-content:space-between}
+/* [class*="list__bside"] .col{flex:1} */
+
+.list__drag{position:relative}
+.list__drag .item{padding:.8rem 0;border-radius:.2rem;margin:1rem auto;border:1px solid var(--color-primary);text-align:center}
+.list__drag .item:hover{background-color:var(--bg-base);border-color:var(--color-positive);color:var(--color-positive);cursor:move}
+
+.list__more_list{display:flex;flex-wrap:wrap;overflow:auto;height:50rem;}
+.list__more_list .item{height:10rem;width:calc((100% / 2) - 16px);display:flex;align-items:center;justify-content:center;margin:.8rem;border-radius:.3rem;background-color:var(--bg-base);transition:all var(--transition-speed) ease-in-out}
+.list__more_actions{display:flex;justify-content:space-between;align-items:center;margin:.8rem;padding:1.6rem 0}
+.list__more_actions .btn_more{width:calc((100% / 3) - 8px);padding:1.6rem;background-color:var(--bg-base);transition:all var(--transition-speed) ease-in-out;border-radius:0.3rem;font-size:0.75rem;text-transform:uppercase;letter-spacing:.15rem}
+.list__more_actions .btn_more[disabled]{background-color:var(--color-disable) !important;cursor:auto}
 
 /* accordion */
 .accordion__panel{
@@ -533,7 +565,7 @@ input.switch__spring:active:checked::before{margin-left:-.6rem}
 .accordion_sample_content{padding:1.6rem 2rem;border-bottom:1px solid #ebeef4;font-size:1.4rem}
 
 .list__type > li{position:relative;padding-left:1rem}
-.list__type > li:not(:first-child){margin-top:.6rem}
+.list__type > li:not(:first-child){margin-top:.2rem}
 .list__type > li::before{content:'*';position:absolute;left:0;top:.2rem}
 .list__type ol{margin-left:.4rem;counter-reset:my-counter}
 .list__type ol li{counter-increment:my-counter}
