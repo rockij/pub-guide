@@ -91,7 +91,7 @@ let list = [
 <ul class="list__type">
 <li>class="item" 이름은 변경하지 않는다.</li>
 <li>data-value의 값은 리스트의 순서대로 입력한다.</li>
-<li>실행함수: LIST_LIBRARY.dragDrop('list__drag');</li>
+<li>실행: LIST_LIBRARY.dragDrop('list__drag');</li>
 </ul>
     `,
     tag_html: `
@@ -113,7 +113,7 @@ let list = [
 <ul class="list__type">
 <li>리스트를 맽으로 내리거나 more 버튼을 누르면 숨겨진 리스트 더보기</li>
 <li>
-    실행함수: LIST_LIBRARY.loadMore('list__more', 1, 10, 50);
+    실행: LIST_LIBRARY.loadMore('list__more', 1, 10, 50);
     <ol>
     <li><b>list__more:</b> 실행시키려는 영역의 class명을 넣는다.</li>
     <li><b>1:</b> 리스트가 보여지는 시작 지점</li>

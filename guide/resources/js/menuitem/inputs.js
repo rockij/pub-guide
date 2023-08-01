@@ -22,48 +22,7 @@ let inputs = [
         </div>
       </div>
     </div>
-    <div class="form__area_col">
-      <span class="label_name">입력수제한</span>
-      <div class="input_area">
-        <div class="input__box input__label input__maxlength input__del">
-          <input type="text" class="input" id="input-limit" maxlength="16" />
-          <label for="input-limit" class="input_label">입력수제한</label>
-          <div class="unit_set">
-            <button type="button" class="btn_del" title="입력텍스트 삭제">del</button>
-            <span class="textcount">16</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form__area_col">
-      <span class="label_name">Text(error)</span>
-      <div class="input_area">
-        <div class="input__box input__label">
-          <input type="text" class="input" id="input-text-error" aria-describedby="error-msg" />
-          <label for="input-text-error" class="input_label">Text(error)</label>
-        </div>
-        <p id="error-msg" class="input__msg_error">에러메세지</p>
-      </div>
-    </div>
-    <div class="form__area_col">
-      <span class="label_name">readonly</span>
-      <div class="input_area">
-        <div class="input__box input__label">
-          <input type="text" class="input" id="input-text3" readonly />
-          <label for="input-text3" class="input_label">readonly</label>
-        </div>
-        <span class="blind" id="error-msg">Sumner is super awesome</span>
-      </div>
-    </div>
-    <div class="form__area_col">
-      <span class="label_name">disabled</span>
-      <div class="input_area">
-        <div class="input__box input__label">
-          <input type="text" class="input" id="input-text3" disabled />
-          <label for="input-text3" class="input_label">disabled</label>
-        </div>
-      </div>
-    </div>
+    
     <div class="form__area_col">
       <span class="label_name">focus-within(x)</span>
       <div class="input_area">
@@ -218,6 +177,83 @@ let inputs = [
     },
     {
         number: 2,
+        tag_title: '입력수제한',
+        tag_text: `
+<ul class="list__type">
+<li>input__box 라인에 input__maxlength 추가</li>
+<li>maxlength의 값의 크기에 따라 입력 수 제한</li>
+<li>입력시 class="textcount"의 숫자가 감소</li>
+<li>실행: INPUT_OPTION.inputMaxlength('input__maxlength');</li>
+</ul>
+    `,
+        tag_html: `
+<div class="input__box input__label input__maxlength">
+    <input type="text" class="input" id="input-limit" maxlength="16" />
+    <label for="input-limit" class="input_label">입력수제한</label>
+    <div class="unit_set">
+        <span class="textcount">16</span>
+    </div>
+</div>
+        `,
+    },
+    {
+        number: 3,
+        tag_title: '에러메세지 표시',
+        tag_text: `
+<ul class="list__type">
+<li>aria-describedby의 값과 에러 문구를 나타내는 태그의 id값을 일치</li>
+</ul>
+    `,
+        tag_html: `
+<div class="input__box input__label">
+    <input type="text" class="input" id="input-text-error" aria-describedby="error-msg" />
+    <label for="input-text-error" class="input_label">Text(error)</label>
+</div>
+<p id="error-msg" class="input__msg_error">에러메세지</p>
+        `,
+    },
+    {
+        number: 4,
+        tag_title: 'Readonly 표시',
+        tag_text: `
+<ul class="list__type">
+<li>readonly 옵션으로 추가됐을 경우</li>
+</ul>
+    `,
+        tag_html: `
+<div class="input__box input__label">
+    <input type="text" class="input" id="input-text3" readonly />
+    <label for="input-text3" class="input_label">readonly</label>
+</div>
+        `,
+    },
+    {
+        number: 5,
+        tag_title: 'Disabled 표시',
+        tag_text: `
+<ul class="list__type">
+<li>disabled 옵션으로 추가됐을 경우</li>
+</ul>
+    `,
+        tag_html: `
+<div class="input__box input__label">
+    <input type="text" class="input" id="input-text3" disabled />
+    <label for="input-text3" class="input_label">disabled</label>
+</div>
+        `,
+    },
+//     {
+//         number: ,
+//         tag_title: '',
+//         tag_text: `
+// <ul class="list__type">
+// <li></li>
+// </ul>
+//     `,
+//         tag_html: ``,
+//     },
+    {
+        number: 3,
         tag_title: 'Textarea',
         tag_text: `
 <ul class="list__type">
@@ -252,7 +288,7 @@ let inputs = [
     `,
     },
     {
-        number: 3,
+        number: 4,
         tag_title: '다중입력',
         tag_text: `
 <ul class="list__type">
@@ -346,7 +382,7 @@ background-repeat: space no-repeat;
     `,
     },
     {
-        number: 4,
+        number: 5,
         tag_title: '달력(Native)',
         tag_html: `
 <div role="group" class="form__group">
@@ -363,7 +399,7 @@ background-repeat: space no-repeat;
     `
     },
     {
-        number: 5,
+        number: 6,
         tag_title: '달력(Custom)',
         tag_html: `
 <div role="group" class="form__group">
@@ -432,7 +468,7 @@ background-repeat: space no-repeat;
 <ul class="list__type">
 <li>한칸입력시 바로 다음칸으로 이동하는 형태로 키보드 이동 가능하다.</li>
 <li>4칸 모두 입력시 완료 버튼이 노출된다.</li>
-<li>실행함수: INPUT_OPTION.otpField('form__otp');</li>
+<li>실행: INPUT_OPTION.otpField('form__otp');</li>
 </ul>
     `,
         tag_html: `
@@ -446,5 +482,5 @@ background-repeat: space no-repeat;
     <button class="hide" id="submit" onclick="otpValidate()">Submit</button>
 </div>  
     `,
-    },
+    }
 ];

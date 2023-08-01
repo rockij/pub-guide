@@ -4,11 +4,16 @@ let tabs = [
     tag_title: 'Tab Default',
     tag_text: `
 <ul class="list__type">
-<li>타이틀이 있다면 id="tablist-1" 지정한 후 tablist에 aria-labelledby와 연결해준다.</li>
-<li>role="tab"의 id값과 tabpanel의 aria-labelledby와 연결해준다.</li>
-<li>role="tabpanel"에 id값과 role="tab"의 aria-controls와 연결해준다.</li>
-<li>role="tab"의 focus가 안되어 있는 탭은 tabindex="-1" 이다.</li>
-<li>role="tabpanel"에 활성화가 안되어 있는 tabpanel class="is-hidden" 추가한다.</li>
+<li>타이틀이 있다면 id="tablist-1" 지정한 후 tablist에 aria-labelledby와 연결</li>
+<li>role="tab"의 id값과 tabpanel의 aria-labelledby와 연결</li>
+<li>role="tabpanel"에 id값과 role="tab"의 aria-controls와 연결</li>
+<li>role="tab"의 focus가 안되어 있는 탭은 tabindex="-1"</li>
+<li>role="tabpanel"에 활성화가 안되어 있는 tabpanel class="is-hidden" 추가</li>
+<li>
+    실행<br/>
+    const tabDefualts = document.querySelectorAll('.tab__defualt');<br/>
+    tabDefualts.forEach((tabDefualt) => new TAB_DEFAULT(tabDefualt));
+</li>
 </ul>
     `,
     tag_html:`
@@ -64,10 +69,15 @@ let tabs = [
     tag_title: 'Tab Bar Animation',
     tag_text: `
 <ul class="list__type">
-<li>기본가이드는 Tab Default를 참고한다.</li>
-<li>Tab 선택시 하단 bar가 선택한 탭으로 이동한다.</li>
+<li>기본가이드는 Tab Default를 참고</li>
+<li>Tab 선택시 하단 bar가 선택한 탭으로 이동</li>
 <li>indicator의 길이는 탭의 길이에 따라 가변적이다.</li>
 <li>필요시 active-color 값에 맞춰 indicator의 색상 값을 바꿀 수 있다.</li>
+<li>
+    실행<br/>
+    const tabBarmovs = document.querySelectorAll('.tab__movbar');<br/>
+    tabBarmovs.forEach((tabBarmov) => new TAB_BARMOV(tabBarmov));
+</li>
 </ul>
     `,
     tag_html: `
@@ -152,14 +162,14 @@ let tabs = [
     tag_title: 'Tab Draggable Slide',
     tag_text: `
 <ul class="list__type">
-<li>mouse(touch) 드래그를 가능한 형태의 탭이다.</li>
-<li>양쪽 버튼에는 aria-label을 이용해 방향을 표시한다.</li>
-<li>실행함수: TAB_DRAGSLIDE('tab__drag_slide');</li>
+<li>mouse(touch) 드래그를 가능한 형태의 탭</li>
+<li>양쪽 버튼에는 aria-label을 이용해 방향을 표시</li>
+<li>실행: TAB_DRAGSLIDE('tab__drag_slide');</li>
 </ul>
     `,
     tag_html:`<div class="tab__drag_slide">
     <button type="button" id="left" class="icon" aria-label="왼쪽으로"></button>
-    <ul class="tabs-box">
+    <ul class="tablist">
       <li class="tab">Coding</li>
       <li class="tab active">JavaScript</li>
       <li class="tab">Podcasts</li>
@@ -178,7 +188,19 @@ let tabs = [
     </ul>
     <button type="button" id="right" class="icon" aria-label="오른쪽으로"></button>
   </div>`,
-    tag_css: ``,
+    tag_css: `.tab__drag_slide{--button-size:4.4rem;padding:1rem var(--button-size);position:relative;overflow-x:hidden;max-width:100rem}
+    .tab__drag_slide .icon{position:absolute;top:0;height:100%;width:var(--button-size);display:flex;align-items:center;justify-content:center}
+    .tab__drag_slide .icon:first-child{left:0}
+    .tab__drag_slide .icon:last-child{right:0}
+    .tab__drag_slide .icon:first-child::before{content:'◀'}
+    .tab__drag_slide .icon:last-child::before{content:'▶'}
+    .tab__drag_slide .tablist{display:flex;gap:1rem;overflow-x:hidden;scroll-behavior:smooth}
+    .tab__drag_slide .tablist.dragging{scroll-behavior:auto;cursor:grab}
+    .tab__drag_slide .tablist .tab{cursor:pointer;font-size:1.18rem;white-space:nowrap;background-color:var(--bg-base);padding:1rem 1.5rem;border-radius:3rem;
+    border:1px solid var(--border)}
+    .tab__drag_slide .tablist.dragging .tab{user-select:none;pointer-events:none}
+    .tab__drag_slide .tablist .tab.active{color:#fff;background:var(--color-positive);border-color:transparent}
+    `,
   },
 //   {
 //     number: ,

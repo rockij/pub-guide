@@ -25,7 +25,7 @@ let selection = [
 <ul class="list__type">
 <li>그룹 체크박스에 타이틀이 있다면 id = aria-labelledby 로 연결해준다.</li>
 <li>태그 작성시 소스보기를 참고하여 role, aria- 관련 태그는 가이드에 맞춰 작성한다.</li>
-<li>실행함수: CHECKED_UI.checkBox();</li>
+<li>실행: CHECKED_UI.checkBox();</li>
 </ul>
     `,
     tag_html:`
@@ -52,7 +52,7 @@ let selection = [
 <ul class="list__type">
 <li>기본 작성 가이드는 Checkbox Custom를 참고한다.</li>
 <li>체크박스의 id값을 aria-controls에 모두 넣어준다.</li>
-<li>실행함수: CHECKED_UI.checkBox();</li>
+<li>실행: CHECKED_UI.checkBox();</li>
 </ul>
     `,
     tag_html:`
@@ -109,7 +109,7 @@ let selection = [
 <ul class="list__type">
 <li>그룹 체크박스에 타이틀이 있다면 id = aria-labelledby 로 연결해준다.</li>
 <li>태그 작성시 소스보기를 참고하여 role, aria- 관련 태그는 가이드에 맞춰 작성한다.</li>
-<li>실행함수: CHECKED_UI.radioBox();</li>
+<li>실행: CHECKED_UI.radioBox();</li>
 </ul>
     `,
     tag_html: `

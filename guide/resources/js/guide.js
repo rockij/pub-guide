@@ -214,10 +214,7 @@ const contentSelect = {
             codeHeader.id = `codeView-${i.number}`;
             codeHeader.classList.add('codeview_header');
             codeHeaderBtn.innerText = '소스보기';
-            codeHeaderBtn.setAttribute(
-                'aria-controls',
-                `codePanel-${i.number}`
-            );
+            codeHeaderBtn.setAttribute('aria-controls', `codePanel-${i.number}`);
             codeHeaderBtn.setAttribute('aria-expanded', false);
             cardTitle.innerHTML = dataTitle;
             tagTitle.innerHTML = i.tag_title;
