@@ -140,6 +140,27 @@ let list = [
     tag_css: `
     `
   },
+  {
+    number: 7,
+    tag_title: 'Selectbox',
+    tag_text: `
+<ul class="list__type">
+<li>기본적인 selectbox</li>
+</ul>
+    `,
+    tag_html: `
+<div class="input__box">
+    <select id="floatingSelect" aria-label="무슨 기능을 하는지 설명">
+        <option selected="">Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
+    `,
+    tag_css: `
+    `
+  },
 //   {
 //     number: ,
 //     tag_title: '',

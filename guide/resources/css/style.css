@@ -88,6 +88,7 @@ pre{font-family:monospace, monospace;font-size:1em;white-space:pre-wrap}
 video::-webkit-media-controls-start-playback-button{display:none !important}
 .blind,.u_skip{position:absolute;clip:rect(0 0 0 0);width:1px;height:1px;margin:-1px;overflow:hidden}
 .hidden, [hidden]{display:none}
+.notouch{user-select:none;pointer-events:none}
 .no_anim{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 .tac{text-align:center !important}
 /* :focus{outline:2px solid red} */
@@ -235,16 +236,17 @@ border:1px solid var(--border)}
 .form__group .form__area_row:not(:first-of-type),
 .form__group .field__multi_columns:not(:first-of-type){margin-top:15px}
 
-.form__otp .field{width:100%;display:flex;justify-content:space-around}
-.form__otp .input{height:3rem;width:3rem;border:2px solid #dad9df;text-align:center;
+.input__otp .field{--size:4rem;display:inline-flex;justify-content:space-around}
+.input__otp .input{height:var(--size);width:var(--size);border:2px solid #dad9df;text-align:center;
 font-size:1.5rem;border-radius:.6rem;background-color:var(--bg-card);appearance:textfield}
-.form__otp input[type="number"]::-webkit-outer-spin-button,
-.form__otp input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.form__otp #submit{margin:1rem auto 0;padding:1rem;background-color:var(--color-notice);color:var(--color-primary)}
-.form__otp .show{display:block}
-.form__otp .hide{display:none}
-.form__otp .input:disabled{color:var(--color-disable)}
-.form__otp .input:focus{border:3px solid var(--color-notice)}
+.input__otp .input:not(:first-child){margin-left:1.5rem}
+.input__otp input[type="number"]::-webkit-outer-spin-button,
+.input__otp input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.input__otp #submit{margin:1rem auto 0;padding:1rem;background-color:var(--color-notice);color:var(--color-primary)}
+.input__otp .show{display:block}
+.input__otp .hide{display:none}
+.input__otp .input:disabled{color:var(--color-disable)}
+.input__otp .input:focus{border:3px solid var(--color-notice)}
 
 /* selection */
 @keyframes dothabottomcheck{

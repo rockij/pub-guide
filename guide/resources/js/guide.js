@@ -245,9 +245,9 @@ const contentSelect = {
         // input
         if (dataName === inputs) {
             INPUT_OPTION.otpField('input__otp');
+            INPUT_OPTION.labelControl('input__label');
             INPUT_OPTION.textSelectAll('input__select');
             INPUT_OPTION.textCopy('input__copy');
-            INPUT_OPTION.labelControl('input__label');
             INPUT_OPTION.inputRemove('input__del');
             INPUT_OPTION.passToggle('input__pw_toggle');
             INPUT_OPTION.inputMaxlength('input__maxlength');

@@ -319,8 +319,7 @@ const INPUT_OPTION = {
         const inputs = document.querySelectorAll(`.${targetClass} .input`);
         const inputField = document.querySelector(`.${targetClass} .field`);
         const submitButton = document.getElementById('submit');
-        let inputCount = 0,
-            finalInput = '';
+        let inputCount = 0, finalInput = '';
         const updateInputConfig = (element, disabledStatus) => {
             element.disabled = disabledStatus;
             if (!disabledStatus) {
@@ -338,10 +337,7 @@ const INPUT_OPTION = {
                     if (inputCount <= 3 && e.key != 'Backspace') {
                         finalInput += value;
                         if (inputCount < 3) {
-                            updateInputConfig(
-                                e.target.nextElementSibling,
-                                false
-                            );
+                            updateInputConfig(e.target.nextElementSibling, false);
                         }
                     }
                     inputCount += 1;
@@ -387,7 +383,7 @@ const INPUT_OPTION = {
 
     textCopy(targetClass) {
         const inputBoxs = document.querySelectorAll(`.${targetClass}`);
-        inputBoxs.forEach((inputBox) => {
+        inputBoxs.forEach(inputBox => {
             const input = inputBox.querySelector('.input');
             const copyBtn = inputBox.querySelector('.btn_copy');
             copyBtn.addEventListener('click', () => {
@@ -405,15 +401,17 @@ const INPUT_OPTION = {
 
     labelControl(targetClass) {
         const inputBoxs = document.querySelectorAll(`.${targetClass}`);
-        inputBoxs.forEach((inputBox) => {
+        inputBoxs.forEach(inputBox => {
             const input = inputBox.querySelector('.input');
-            input.addEventListener('keyup', () => {
+            function valueCheck() {
                 if (input.value.length > 0) {
                     input.classList.add('focus');
                 } else {
                     input.classList.remove('focus');
                 }
-            });
+            }
+            input.addEventListener('keyup', valueCheck);
+            window.addEventListener('load', valueCheck);
         });
     },
 
@@ -809,8 +807,10 @@ const LIST_LIBRARY = {
 
 // calendar(custom)
 let today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
+let selectMonth = today.getMonth();
+let selectYear = today.getFullYear();
+const currentYear = today.getFullYear();
+const currentMonth = today.getMonth();
 const CALENDAR_CUSTOM = {
     init(calendarType, popupTarget, buttonTarget, handle) {
         if (calendarType == 'popup') {
@@ -824,10 +824,10 @@ const CALENDAR_CUSTOM = {
                 'onclick',
                 `CALENDAR_CUSTOM.init('popup', '${popupTarget}', '${buttonTarget}', 'close')`
             );
-            if (handle == 'open') {
+            if (handle === 1) {
                 CALENDAR_CUSTOM.showCalendar(
-                    currentMonth,
-                    currentYear,
+                    selectMonth,
+                    selectYear,
                     popupTarget,
                     buttonTarget
                 );
@@ -838,8 +838,8 @@ const CALENDAR_CUSTOM = {
             }
         } else {
             CALENDAR_CUSTOM.showCalendar(
-                currentMonth,
-                currentYear,
+                selectMonth,
+                selectYear,
                 popupTarget,
                 buttonTarget
             );
@@ -878,24 +878,28 @@ const CALENDAR_CUSTOM = {
     },
 
     next(dayPopupTarget, dayButtonTarget) {
-        currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-        currentMonth = (currentMonth + 1) % 12;
-        console.log('currentYear-' + currentYear);
-        console.log('currentMonth-' + currentMonth);
+        selectYear = selectMonth === 11 ? selectYear + 1 : selectYear;
+        selectMonth = (selectMonth + 1) % 12;
+        console.log('selectYear-' + selectYear);
+        console.log('selectMonth-' + selectMonth);
+        if(selectMonth === currentMonth) {
+            document.querySelector('#next').classList.add('notouch');
+        }
         CALENDAR_CUSTOM.showCalendar(
-            currentMonth,
-            currentYear,
+            selectMonth,
+            selectYear,
             dayPopupTarget,
             dayButtonTarget
         );
     },
 
     previous(dayPopupTarget, dayButtonTarget) {
-        currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+        document.querySelector('#next').classList.remove('notouch');
+        selectYear = selectMonth === 0 ? selectYear - 1 : selectYear;
+        selectMonth = selectMonth === 0 ? 11 : selectMonth - 1;
         CALENDAR_CUSTOM.showCalendar(
-            currentMonth,
-            currentYear,
+            selectMonth,
+            selectYear,
             dayPopupTarget,
             dayButtonTarget
         );
@@ -904,22 +908,22 @@ const CALENDAR_CUSTOM = {
     jump(dayPopupTarget, dayButtonTarget) {
         let selectYear = document.getElementById('year');
         let selectMonth = document.getElementById('month');
-        currentYear = parseInt(selectYear.value);
-        currentMonth = parseInt(selectMonth.value);
+        selectYear = parseInt(selectYear.value);
+        selectMonth = parseInt(selectMonth.value);
         CALENDAR_CUSTOM.showCalendar(
-            currentMonth,
-            currentYear,
+            selectMonth,
+            selectYear,
             dayPopupTarget,
             dayButtonTarget
         );
     },
 
     todays(dayPopupTarget, dayButtonTarget) {
-        currentYear = parseInt(today.getFullYear());
-        currentMonth = parseInt(today.getMonth());
+        selectYear = parseInt(today.getFullYear());
+        selectMonth = parseInt(today.getMonth());
         CALENDAR_CUSTOM.showCalendar(
-            currentMonth,
-            currentYear,
+            selectMonth,
+            selectYear,
             dayPopupTarget,
             dayButtonTarget
         );
@@ -957,7 +961,7 @@ const CALENDAR_CUSTOM = {
     showCalendar(month, year, popupTarget, buttonTarget) {
         let selectYear = document.getElementById('year');
         let selectMonth = document.getElementById('month');
-        const createYear = CALENDAR_CUSTOM.generate_year_range(1970, 2023);
+        const createYear = CALENDAR_CUSTOM.generate_year_range(1950, currentYear);
         document.getElementById('year').innerHTML = createYear;
         let calendar = document.getElementById('calendar');
         let lang = calendar.getAttribute('data-lang');
@@ -1063,7 +1067,6 @@ const CALENDAR_CUSTOM = {
                         }
                     } else {
                         cell.innerHTML = `<button aria-label="${year}년${month + 1}월${date}일" onclick="CALENDAR_CUSTOM.daySelect(${year}, ${month + 1}, ${date})"> ${date} </button>`;
-                        
                         if (
                             date === today.getDate() &&
                             year === today.getFullYear() &&
@@ -1079,6 +1082,9 @@ const CALENDAR_CUSTOM = {
                 }
             }
             tbl.appendChild(row);
+        }
+        if(selectMonth.value == currentMonth) {
+            document.querySelector('#next').classList.add('notouch');
         }
     },
 
