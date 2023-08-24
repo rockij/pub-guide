@@ -205,8 +205,7 @@ const contentSelect = {
             codeWrap.appendChild(codeHeader);
             codeHeader.appendChild(codeHeaderBtn);
             codeWrap.appendChild(codePanel);
-            codePanel.appendChild(codePanelInner);
-            codePanelInner.appendChild(pre_html);
+            codePanel.appendChild(codePanelInner);            
             codePanel.id = `codePanel-${i.number}`;
             codePanel.classList.add('accordion__panel');
             codePanel.setAttribute('aria-labelledby', `codeView-${i.number}`);
@@ -219,10 +218,12 @@ const contentSelect = {
             cardTitle.innerHTML = dataTitle;
             tagTitle.innerHTML = i.tag_title;
             tagText.innerHTML = i.tag_text;
-            pre_html.innerHTML = i.tag_html;
-
-            codeView.innerHTML = i.tag_html;
             breadCrumb.innerHTML = `Home / ${snbName} / <span class="active">${dataTitle}</span>`;
+            if(!i.tag_html == '' || !i.tag_html == undefined) {
+                codePanelInner.appendChild(pre_html);
+                pre_html.innerHTML = i.tag_html;
+                codeView.innerHTML = i.tag_html;
+            }
             if (!i.tag_css == '' || !i.tag_css == undefined) {
                 codePanelInner.appendChild(pre_css);
                 pre_css.innerHTML = i.tag_css;
@@ -241,6 +242,11 @@ const contentSelect = {
                 EXPANDED_EVENT.default(expandButton)
             );
         });
+
+        // button
+        if (dataName === buttons) {
+            BUTTON_OPTION.ripple('btn__ripple');
+        }
 
         // input
         if (dataName === inputs) {

@@ -113,4 +113,19 @@ a[class*="btn__"]{display:inline-block;text-decoration:none}
 <button type="button" class="btn__m btn__primary_outline" disabled>Disabled</button>
     `
   },
+  {
+    number: 7,
+    tag_title: 'Ripple Effect',
+    tag_html:`
+<a href="javascript:;" class="btn__ripple">Button</a>
+    `,
+    tag_css:`
+@keyframes ripple {
+    0% {width:0;height:0;opacity:.5}
+    100% {width:500px;height:500px;opacity:0}
+}
+.btn__ripple{overflow:hidden;position:relative;display:inline-block;padding:1.2rem 3.6rem;color:#fff;font-size:1.8rem;border-radius:4rem;background:linear-gradient(90deg, #0162c8, #55e7fc)}
+.btn__ripple span{position:absolute;background:#fff;transform:translate(-50%, -50%);pointer-events:none;border-radius:50%;animation:ripple 1s linear infinite}
+    `,
+  },
 ]

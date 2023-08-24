@@ -66,6 +66,26 @@ const EXPANDED_EVENT = {
     },
 }
 
+// button
+const BUTTON_OPTION = {
+    ripple(btn) {
+        const buttons = document.querySelectorAll(`.${btn}`);
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                let ripples = document.createElement('span');
+                ripples.style.left = `${x}px`;
+                ripples.style.top = `${y}px`;
+                this.appendChild(ripples);
+                setTimeout(() => {
+                ripples.remove();
+                }, 1000);
+            });
+        });
+    }
+}
+
 // popup
 let POPUP_OPTION = 0;
 const POPUP_EVENT = {
@@ -726,7 +746,7 @@ const LIST_LIBRARY = {
         }
 
         function dragOver(e) { e.preventDefault() }
-        
+
         const drop = (e) => {
             e.preventDefault();
             let newX = isTouchDevice() ? e.touches[0].clientX : e.clientX;
@@ -750,7 +770,7 @@ const LIST_LIBRARY = {
                     targetElement.insertAdjacentElement('beforebegin', currentElement);
                 }
             } catch (err) {}
-        };    
+        };
         let listItems = document.querySelectorAll('.item');
         listItems.forEach(element => {
             element.draggable = true;
@@ -759,7 +779,7 @@ const LIST_LIBRARY = {
             element.addEventListener("drop", drop, false);
             element.addEventListener("touchstart", dragStart, false);
             element.addEventListener("touchmove", drop, false);
-        });    
+        });
     },
 
     loadMore(target, startValue, moreCount, totalCount) {
@@ -768,22 +788,22 @@ const LIST_LIBRARY = {
       const moreButton = listTarget.querySelector(".btn_more");
       const countElem = listTarget.querySelector(".list_count");
       const totalElem = listTarget.querySelector(".list_total");
-    
+
       const listLimit = totalCount; // 보여지는 총 건수
       const listIncrease = moreCount; // more 선택시 추가되는 건수
       const pageCount = Math.ceil(listLimit / listIncrease);
       let currentPage = startValue; // 시작 지점
-    
+
       totalElem.innerHTML = listLimit;
-    
-      const addLists = (pageIndex) => {      
+
+      const addLists = (pageIndex) => {
         currentPage = pageIndex;
         if (pageCount === currentPage) {
           moreButton.classList.add("disabled");
           moreButton.setAttribute("disabled", true);
         }
         const startRange = (pageIndex - 1) * listIncrease;
-        const endRange = pageIndex * listIncrease > listLimit ? listLimit : pageIndex * listIncrease;  
+        const endRange = pageIndex * listIncrease > listLimit ? listLimit : pageIndex * listIncrease;
         countElem.innerHTML = endRange;
         for (let i = startRange + 1; i <= endRange; i++) { // 추가되는 리스트 태그
           const list = document.createElement("div");
@@ -803,7 +823,7 @@ const LIST_LIBRARY = {
         }
       });
     }
-}  
+}
 
 // calendar(custom)
 let today = new Date();

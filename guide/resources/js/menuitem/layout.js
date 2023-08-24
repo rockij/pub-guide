@@ -46,4 +46,35 @@ let layout = [
     tag_css: `
     `
   },
+  {
+    number: 2,
+    tag_title: 'Footer Fix',
+    tag_text: `
+<ul class="list__type">
+<li>컨텐츠 길이가 짧을 경우 하단 고정</li>
+<li>컨텐츠 길이가 길어 스크롤이 생길시 아래로 내려감</li>
+</ul>
+<br/>
+<a href="pages/layout_footer_fix.html" target="_blank">페이지보기</a>
+    `,
+    tag_css: `
+footer {
+    position: sticky;
+    top: 100vh;
+}
+    `
+  },
+//   {
+//     number: 1,
+//     tag_title: 'Default Buttons',
+//     tag_text: `
+// <ul class="list__type">
+// <li></li>
+// </ul>
+//     `,
+//     tag_html: `
+//     `,
+//     tag_css: `
+//     `
+//   },
 ]
