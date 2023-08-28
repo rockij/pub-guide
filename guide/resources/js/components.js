@@ -72,14 +72,15 @@ const BUTTON_OPTION = {
         const buttons = document.querySelectorAll(`.${btn}`);
         buttons.forEach(btn => {
             btn.addEventListener('click', function(e) {
-                let x = e.clientX - e.target.offsetLeft;
-                let y = e.clientY - e.target.offsetTop;
+                let x = e.pageX - e.target.offsetLeft;
+                let y = e.pageY - e.target.offsetTop;
+                console.log(e.pageY);
                 let ripples = document.createElement('span');
                 ripples.style.left = `${x}px`;
                 ripples.style.top = `${y}px`;
                 this.appendChild(ripples);
                 setTimeout(() => {
-                ripples.remove();
+                    ripples.remove();
                 }, 1000);
             });
         });

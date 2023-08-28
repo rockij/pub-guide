@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Language" content="ko-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>모바일 뷰포트까지 덮기</title>
+<style>
+body {
+  background-color: #333;
+}
+
+.module {
+  height: 100vh; /* vh를 사용자 지정 속성을 지원하지 않는 브라우저의 예비로 사용 */
+  height: calc(var(--vh, 1vh) * 100);
+  margin: 0 auto;
+  max-width: 30%;
+}
+
+.module__item {
+  align-items: center;
+  display: flex;
+  height: 20%;
+  justify-content: center;
+}
+
+.module__item:nth-child(odd) {
+  background-color: #fff;
+  color: #F73859;
+}
+
+.module__item:nth-child(even) {
+  background-color: #F73859;
+  color: #F1D08A;
+}
+</style>
+</head>
+<body>
+
+<div class="module">
+    <div class="module__item">20%</div>
+    <div class="module__item">40%</div>
+    <div class="module__item">60%</div>
+    <div class="module__item">80%</div>
+    <div class="module__item">100%</div>
+</div>
+
+<script>
+// 먼저 뷰포트 높이를 구하고 1%를 곱하여 vh 단위의 값을 구합니다.
+let vh = window.innerHeight * 0.01;
+// 그런 다음 --vh 사용자 지정 속성의 값을 문서의 루트로 설정합니다.
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// 우리는 크기 조정 이벤트를 듣는다.
+window.addEventListener('resize', () => {
+  // 우리는 이전과 같은 스크립트를 실행합니다.
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+</script>
+
+</body>
+</html>       

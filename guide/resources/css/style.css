@@ -123,7 +123,7 @@ a[class*="btn__"]{display:inline-block;text-decoration:none}
     100% {width:500px;height:500px;opacity:0}
 }
 .btn__ripple{overflow:hidden;position:relative;display:inline-block;padding:1.2rem 3.6rem;color:#fff;font-size:1.8rem;border-radius:4rem;background:linear-gradient(90deg, #0162c8, #55e7fc)}
-.btn__ripple span{position:absolute;background:#fff;transform:translate(-50%, -50%);pointer-events:none;border-radius:50%;animation:ripple 1s linear infinite}
+.btn__ripple span{position:absolute;background-color:#fff;transform:translate(-50%, -50%);pointer-events:none;border-radius:50%;animation:ripple 1s linear infinite}
 
 /* badges */
 [class*="badge__"]{display:inline-block}

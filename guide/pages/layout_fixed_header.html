@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Language" content="ko-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<link href="../resources/css/font-poppins.css" rel="stylesheet">
+<link href="../resources/css/font-anonymous.css" rel="stylesheet">
+<link href="../resources/css/font-montserrat.css" rel="stylesheet">
+<link href="../resources/css/font-courierprime.css" rel="stylesheet">
+<link href="../resources/css/font-oleoscript.css" rel="stylesheet">
+<link href="../resources/css/font-opensans.css" rel="stylesheet">
+<link href="../resources/css/font-raleway.css" rel="stylesheet">
+<link href="../resources/css/font-roboto.css" rel="stylesheet">
+<link href="../resources/css/font-quicksand.css" rel="stylesheet">
+<link rel="stylesheet" href="../resources/css/reset.min.css">
+<title></title>
+<style>
+header {
+  background: purple;
+  padding: 1rem;
+  color: white;
+}
+body.header-not-at-top header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body.header-not-at-top {
+  padding-top: 44px;
+}
+
+#top-of-site-pixel-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 100px;
+  left: 0;
+}
+
+body {
+  font-family: system-ui;
+  line-height: 1.4;
+  font-size: 125%;
+  margin: 0;
+  padding: 10px;
+}
+
+main {
+  max-width: 500px;
+  margin: 20px auto;
+}
+</style>
+</head>
+<body>
+
+<header>
+    Header
+</header>
+
+<main>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio adipisci iure quibusdam assumenda beatae
+        repellendus similique commodi numquam laudantium, obcaecati voluptatem praesentium quod blanditiis neque
+        animi velit dolorem itaque at?</p>
+    <p>Rerum dignissimos placeat commodi exercitationem accusantium. Iusto quos sed delectus! Itaque, ad? Hic
+        nesciunt doloribus quidem magni impedit quae tempora commodi ipsum nulla mollitia, dignissimos iusto.
+        Quisquam officia voluptatem deserunt.</p>
+    <p>Esse mollitia dolorem blanditiis quo omnis dolor? Eaque fugit velit voluptatibus quibusdam nihil et? Iusto
+        asperiores sit, natus officiis sapiente tempora, doloribus odit unde, eaque voluptatum veritatis aspernatur
+        quae provident?</p>
+    <p>Beatae asperiores nostrum qui natus aliquid expedita animi ad omnis illum blanditiis maiores molestias odio
+        repudiandae eos magni quia, quod deleniti perspiciatis porro vitae? Quisquam debitis in doloribus maiores
+        illo?</p>
+    <p>Tempora perferendis in exercitationem neque ipsum veritatis veniam molestiae odit omnis culpa. At neque nihil
+        alias iure in dolore error eaque, accusantium est, assumenda, unde ullam ut cupiditate quidem officia!</p>
+    <p>Libero veniam itaque, doloremque, soluta molestiae illo atque rerum eligendi facilis est labore eveniet
+        possimus mollitia deleniti quaerat fuga at, harum similique dicta quos. Necessitatibus, quas sequi.
+        Laboriosam, maxime eius.</p>
+    <p>Optio minus placeat aperiam, accusantium doloribus ducimus mollitia architecto, earum explicabo labore rem
+        voluptatem, error vero pariatur veritatis? Quidem impedit nobis doloribus possimus? Ex, nesciunt modi iure
+        maxime fugiat provident!</p>
+    <p>Est eum praesentium maiores cupiditate necessitatibus dicta tenetur perspiciatis porro culpa numquam
+        voluptatibus quaerat itaque aperiam, repudiandae tempore asperiores velit delectus impedit? Facere eos nemo
+        exercitationem necessitatibus inventore reprehenderit illo?</p>
+    <p>Obcaecati ex recusandae sint, debitis enim laudantium harum repudiandae eveniet at minima voluptas nobis
+        excepturi optio quam possimus, quod modi voluptatum necessitatibus impedit! Fugiat officia fugit quasi illo
+        cupiditate consequuntur.</p>
+    <p>Dolor corporis culpa ullam sapiente! Excepturi asperiores totam fuga incidunt ea, adipisci possimus dolor
+        quas accusantium atque quos! Qui consectetur maiores earum deleniti pariatur minus quas sed adipisci ratione
+        molestias?</p>
+</main>
+
+<div id="top-of-site-pixel-anchor"></div>
+
+<script>
+if (
+  "IntersectionObserver" in window &&
+  "IntersectionObserverEntry" in window &&
+  "intersectionRatio" in window.IntersectionObserverEntry.prototype
+) {
+let observer = new IntersectionObserver(entries => {
+  if (entries[0].boundingClientRect.y < 0) {
+    document.body.classList.add("header-not-at-top");
+  } else {
+    document.body.classList.remove("header-not-at-top");
+  }
+});
+observer.observe(document.querySelector("#top-of-site-pixel-anchor"));
+}
+
+</script>
+
+</body>
+</html>       
