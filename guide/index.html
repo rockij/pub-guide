@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Language" content="ko-KR" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>Coding Guide</title>
+<title>WORK GUIDE</title>
 
 <link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 <div id="wrap">
 
   <header id="header">
-    <a href="index.html" class="logo">CODING GUIDE</a>
+    <a href="index.html" class="logo">WORK GUIDE</a>
     <button type="button" class="snb_handle" title="사이드메뉴선택">
       <span class="icon"><i></i><i></i><i></i><i></i></span>
     </button>
@@ -69,6 +69,9 @@
 
     <ul>
       <li class="snb_item">
+        <button onclick="contentSelect.originalTag('Profile','Profile', profile)" class="snb_link snb-link">Profile</button>
+      </li>
+      <li class="snb_item">
         <button onclick="contentSelect.originalTag('Convention','Convention', convention)" class="snb_link snb-link">Convention</button>
       </li>
       <li class="snb_item">
@@ -91,6 +94,7 @@
                 <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)" class="snb-link">Layout</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)" class="snb-link">Popup</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Slide', slide)" class="snb-link">Slide</button></li>
+                <li><button onclick="contentSelect.componentsName('Components', 'Chart', chart)" class="snb-link">Chart</button></li>
                 </ul>
             </div>
         </div>
@@ -129,6 +133,7 @@
 </div>
 
 <script src="resources/js/guide.js"></script>
+<script src="resources/js/menuitem/profile.js"></script>
 <script src="resources/js/menuitem/convention.js"></script>
 <script src="resources/js/menuitem/color.js"></script>
 <script src="resources/js/menuitem/buttons.js"></script>
@@ -140,17 +145,20 @@
 <script src="resources/js/menuitem/list.js"></script>
 <script src="resources/js/menuitem/layout.js"></script>
 <script src="resources/js/menuitem/popup.js"></script>
+<script src="resources/js/menuitem/chart.js"></script>
 <script src="resources/js/menuitem/project.js"></script>
 <script src="resources/js/menuitem/project2.js"></script>
 <script type="text/javascript">
+contentSelect.originalTag('Profile','Profile', profile);
 // contentSelect.originalTag('Convention','Convention', convention);
 // contentSelect.projectName('Project', 'Members', project);
 // contentSelect.componentsName('Components', 'Accordion', accordion);
 // contentSelect.componentsName('Components', 'Buttons', buttons);
 // contentSelect.componentsName('Components', 'tab', tabs);
-contentSelect.componentsName('Components', 'Layout', layout);
+// contentSelect.componentsName('Components', 'Layout', layout);
 // contentSelect.componentsName('Components', 'Input', inputs);
 // contentSelect.componentsName('Components', 'Selection', selection);
+// contentSelect.componentsName('Components', 'Chart', chart);
 // contentSelect.componentsName('Components', 'List', list);
 // contentSelect.componentsName('Components', 'Popup', popup);
 // contentSelect.originalTag('Components','Color', color);

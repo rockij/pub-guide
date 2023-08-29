@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Language" content="ko-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Custom Scroll Bar</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+}
+section{
+    padding:50px;
+    background: #000;
+}
+section h2{
+    font-size: 2.5em;
+    color: #fff;
+}
+section p{
+    font-size: 1.5em;
+    color: #fff;
+}
+::-webkit-scrollbar{
+    width: 0;
+}
+#scrollPath{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100px;
+    background: rgba(255,255,255,.05);
+}
+#progressbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animate 5s linear infinite;
+}
+@keyframes animate{
+    0%, 100%{
+        filter: hue-rotate(0deg)
+    }
+    50%{
+        filter: hue-rotate(360deg)
+    }
+}
+#progressbar::before{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(10px)
+}
+#progressbar::after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px)
+}
+</style>
+</head>
+<body>
+
+<div id="progressbar"></div>
+<div id="scrollPath"></div>
+<section>
+    <h2>Creative Scroll Progress Bar</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex animi suscipit unde quia placeat autem ipsum nemo? Tempore iusto necessitatibus itaque quasi maiores, est ipsam aperiam ullam doloremque numquam distinctio in. Recusandae ipsum quo, amet sit illo dolore esse fugit sapiente dicta exercitationem incidunt officia harum totam quibusdam nemo commodi voluptas veniam cumque dolores ipsa soluta! Odit facere ea optio, nam voluptas nulla aspernatur. Provident possimus quae quis ipsum voluptas perspiciatis aperiam quo. Accusamus ab, distinctio nisi dignissimos, debitis aliquam commodi eaque ipsa quam animi totam praesentium sed consectetur. Accusamus voluptas dolorum accusantium quidem quasi doloribus nesciunt nulla libero, quo magnam magni officiis ratione, ex deleniti at debitis voluptatibus ipsam atque vel voluptate fuga impedit nisi architecto tempore! Sunt corporis quo pariatur minus distinctio, dolore eligendi nihil ex sapiente dolores nobis laborum minima accusamus facilis velit officiis aperiam doloribus adipisci nemo exercitationem. Sit fuga earum doloribus, rem provident perspiciatis similique voluptates sunt dolore praesentium veritatis repellendus magnam incidunt velit quasi laudantium commodi exercitationem porro soluta vitae dolorem blanditiis, sapiente dolores doloremque! Voluptatibus, fugit ipsum ad dicta tenetur accusamus assumenda atque nobis laudantium dignissimos quasi voluptas at exercitationem provident reiciendis mollitia porro fugiat. Commodi impedit accusantium recusandae placeat. Vero blanditiis aspernatur asperiores maxime! Suscipit, maxime, ratione at commodi deleniti alias velit vero, vel perferendis sit possimus sint dolorem est ipsum expedita dicta quidem! Mollitia quidem blanditiis reiciendis ipsam odio eius recusandae animi pariatur eos totam architecto veniam, voluptatibus, beatae, facilis necessitatibus. Architecto eius magnam atque incidunt repellendus veniam unde repudiandae voluptate! Cum distinctio voluptate consequatur repellat aperiam! Eveniet, ducimus suscipit sit dolor nam tempora autem, assumenda voluptate obcaecati officiis reprehenderit, in impedit delectus architecto doloribus nulla modi voluptas accusamus aperiam eius esse vero? Impedit nesciunt quaerat sunt aspernatur ipsam perferendis consequatur placeat quia numquam fugiat, expedita, soluta laboriosam maxime quibusdam incidunt autem at aliquid. Rem itaque quo repellat ipsa omnis? Fuga, beatae? Soluta, aliquid esse, atque eveniet rem ad ducimus dignissimos officiis cupiditate, nulla assumenda distinctio corrupti! Dicta quis culpa expedita eligendi rem. Illum totam laboriosam dolor error ab laudantium excepturi adipisci veritatis quod, amet perferendis tenetur! Repellat itaque totam nulla labore veritatis. Id eveniet rem placeat optio maxime, animi vel vero. Optio est sint asperiores doloribus perspiciatis eveniet explicabo rerum. Nihil rerum ad fugiat eaque quod laudantium, dolorem recusandae voluptatem ipsum optio eos perferendis ducimus quis cumque iure mollitia sed quam molestias eum dolorum officiis vero porro incidunt. Tempora omnis, inventore eligendi nostrum molestias dicta esse odio. Sed, voluptatum quod nemo quos eius consequatur facere sint voluptatem? Laudantium, suscipit, perferendis labore delectus id odio deleniti minima adipisci nobis consequatur, architecto magni necessitatibus. Dolorum odio officia saepe fuga facere aspernatur commodi recusandae. Autem, et. Molestiae inventore officiis non, maxime, fugit in culpa consectetur eligendi nobis magnam soluta dolor sit porro temporibus neque vero tempore aliquam, placeat eius minima blanditiis odio dolore est? Atque quis officiis, itaque quae corporis quisquam nisi nesciunt fuga assumenda. Ipsa possimus excepturi cum, nobis placeat reprehenderit ipsum non nulla minima veritatis voluptate exercitationem eligendi voluptatum voluptatibus corporis vitae assumenda architecto nisi porro. Dicta consequatur architecto temporibus tenetur sunt dolorum dolore fuga optio illo, atque officiis? Quas doloribus reprehenderit adipisci. Modi laboriosam, provident assumenda nam esse explicabo totam nisi dolorum voluptas amet quis quia iste sapiente et, qui maiores, cupiditate soluta alias doloribus saepe ex unde? Praesentium facere, nostrum, temporibus vitae fugiat voluptatum ipsam commodi, doloribus ipsa ratione repellendus autem placeat qui tenetur alias enim consectetur quia rem eius? Dolorum eaque aut numquam cumque quas molestiae? Repudiandae, consequatur labore ratione magnam repellat cum officia nobis nisi accusamus, debitis deleniti necessitatibus obcaecati voluptates iste. Nihil itaque temporibus sit tempore eius autem porro error quod, eaque consectetur aspernatur, hic tempora animi et cupiditate odio! Quisquam est harum aspernatur nemo doloremque, aliquid expedita eveniet? Aut nulla sit culpa cum, dolorum perspiciatis cupiditate magni a maxime officia similique cumque adipisci consectetur nihil sequi aliquid totam eum numquam obcaecati, fugit non! Laudantium, dolorum libero voluptatibus magni, quos, velit dolore quo est labore placeat fugiat expedita pariatur exercitationem nobis error aperiam non nulla quod. Maiores magni aperiam earum commodi dicta placeat, atque delectus. Blanditiis rerum eos, a, ratione nobis minus assumenda, incidunt molestiae aut eaque quo similique commodi nisi sit. Ipsum sunt perferendis dolorem ex suscipit eum doloremque excepturi quam at, quos voluptatum vitae, nemo hic error similique illo eligendi praesentium nulla ipsa aliquid! Enim, architecto officiis unde veniam, libero autem veritatis similique laudantium perferendis doloribus hic animi, fugit magni cum id atque voluptate possimus in voluptatum doloremque aliquid numquam amet placeat. Asperiores inventore doloremque vel beatae iure enim quibusdam unde, dolore libero id quis odit sequi repudiandae dolores consequuntur neque? Corporis, hic! Labore quod laborum praesentium debitis magnam enim. Error doloremque hic quasi ipsa officiis, eaque velit nihil nulla officia rerum autem amet id beatae magni sapiente debitis quisquam iste non voluptatum at incidunt aperiam nesciunt vel iusto? Iusto sequi veniam omnis numquam, corporis dicta eius quis amet iure ea! Quo aliquid a voluptates laboriosam! Praesentium maiores fuga adipisci iusto et nisi. Nostrum, assumenda minima laudantium ducimus, expedita aliquid repellat mollitia reprehenderit provident quis numquam aperiam sunt rerum perspiciatis aliquam veritatis eius magnam nulla quibusdam, laborum obcaecati ex soluta sint non. Cum, velit ducimus? Sint nihil, neque, ducimus dolorem obcaecati ipsam eius, assumenda odio dolores cum nesciunt atque. Adipisci inventore corporis hic officia ullam, ipsam voluptatibus eos, non quas ipsa impedit itaque veniam voluptate consequatur fugiat? Similique optio id earum doloremque enim commodi, quam dolores a voluptate ratione quia provident doloribus natus dolor maxime ab iusto et dignissimos nesciunt nihil! Distinctio reiciendis quam quae, sint asperiores labore ea saepe eligendi sed, quo iusto laborum dolor atque iure fuga adipisci expedita corrupti aliquam. Pariatur maiores omnis ut! Impedit quae ducimus, dolorum quo tempore maiores qui aperiam mollitia quaerat delectus saepe enim, doloribus adipisci in incidunt officiis sit eos expedita nulla? Aspernatur eligendi ratione, ex quam pariatur ipsam earum inventore animi! Pariatur id nostrum corporis officiis doloribus vero placeat ipsum, fugit molestiae commodi modi quaerat tempore a soluta ex amet corrupti est rerum alias natus.</p>
+</section>
+
+<script>
+let progress = document.getElementById('progressbar');
+let totalHeight = document.body.scrollHeight - window.innerHeight;
+window.onscroll = function(){
+    let progressHeight = (window.pageYOffset / totalHeight) * 100;
+    progress.style.height = progressHeight + "%";
+}
+</script>
+
+</body>
+</html>       

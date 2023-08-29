@@ -43,8 +43,6 @@ let layout = [
         <span id="dayValue"></span>
     </div>
     `,
-    tag_css: `
-    `
   },
   {
     number: 2,
@@ -57,15 +55,9 @@ let layout = [
 <br/>
 <a href="pages/layout_footer_fix.html" target="_blank">페이지보기</a>
     `,
-    tag_css: `
-footer {
-    position: sticky;
-    top: 100vh;
-}
-    `
   },
   {
-    number: 2,
+    number: 3,
     tag_title: 'Inner Full Width',
     tag_text: `
 <ul class="list__type">
@@ -75,60 +67,74 @@ footer {
 <br/>
 <a href="pages/layout_inner_full_width.html" target="_blank">페이지보기</a>
     `,
-    tag_html: `
-<div class="container">
-    <div class="box">
-    </div>
-</div>
-    `,
-    tag_css: `
-.box {
-    box-shadow: 0 0 0 100vmax var(--bg-color);
-    clip-path: inset(0 -100vmax);
-}
-.box {
-    position: relative;
-    width: 100vw;
-    left: calc(-50vw + 50%);
-}
-    `
   },
   {
-    number: 3,
-    tag_title: 'Mobile Unit Height FUll',
+    number: 4,
+    tag_title: 'Mobile Unit Height Full',
     tag_text: `
 <ul class="list__type">
 <li>모바일에서 전체화면을 고정시킬 떄 사용</li>
 <li>툴바사이즈까지 포함해서 세로 길이는 잡아서 스크롤이 안생김</li>
-<li>css custom property의 값을 js에서 연결하여 페이지가 resize시마다 체크하여 변화되는 사이즈에 대응한다.(js는 페이지에서 확인)</li>
+<li>css custom property의 값을 js에서 연결하여 페이지가 resize시마다 체크하여 변화되는 사이즈에 대응한다.(js는 페이지확인)</li>
 </ul>
 <br/>
 <a href="pages/layout_mobile_fullheight.html" target="_blank">페이지보기</a>
     `,
-    tag_html: `
-<div class="module"></div>
-    `,
-    tag_css: `
-.module {
-    height: calc(var(--vh, 1vh) * 100);
-}
-    `
   },
   {
-    number: 4,
+    number: 5,
     tag_title: 'Fixed Header',
     tag_text: `
 <ul class="list__type">
 <li>어느 위치를 지나면 헤더가 다시 나타나는 구조</li>
-<li>IntersectionObserver js를 이용하며 소스는 페이지에서 확인</li>
+<li>IntersectionObserver(js) 로 작업했으며 소스는 페이지확인</li>
 </ul>
 <br/>
 <a href="pages/layout_fixed_header.html" target="_blank">페이지보기</a>
     `,
-    tag_html: `
-<header>Header</header>
-<main>content</main>
-<div id="top-of-site-pixel-anchor">target</div>
+  },
+  {
+    number: 6,
+    tag_title: 'Scroll Header Show & Hide',
+    tag_text: `
+<ul class="list__type">
+<li>헤더가 스크롤시 내리면 숨기고 올리면 보여지는 형태</li>
+</ul>
+<br/>
+<a href="pages/layout_scroll_header_handle.html" target="_blank">페이지보기</a>
+    `,
+  },
+  {
+    number: 7,
+    tag_title: 'Custom Scroll Bar',
+    tag_text: `
+<ul class="list__type">
+<li>스크롤바 디자인 입히기</li>
+</ul>
+<br/>
+<a href="pages/layout_scroll_progress_bar.html" target="_blank">페이지보기</a>
+    `,
+  },
+  {
+    number: 8,
+    tag_title: 'List Horizon Scroll (Grid)',
+    tag_text: `
+<ul class="list__type">
+<li>Gird를 이용해 필요한 영역에 가로 스크롤 만들기</li>
+</ul>
+<br/>
+<a href="pages/layout_horizontal_scroller.html" target="_blank">페이지보기</a>
+    `,
+  },
+  {
+    number: 9,
+    tag_title: 'Marquee Wall',
+    tag_text: `
+<ul class="list__type">
+<li>가로, 세로로 무한으로 흐르는 레이아웃</li>
+</ul>
+<br/>
+<a href="pages/layout_marquee_wall.html" target="_blank">페이지보기</a>
     `,
   },
 //   {

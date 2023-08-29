@@ -231,6 +231,10 @@ const contentSelect = {
             if (i.tag_text == '' || i.tag_text == undefined) {
                 tagText.style.display = 'none';
             }
+            console.log(i.tag_html);
+            if(i.tag_html == undefined && i.tag_css == undefined ) {
+                codeWrap.style.display = 'none';
+            }
         }
         EnlighterJS.init('pre', 'code', {});
 
