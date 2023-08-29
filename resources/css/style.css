@@ -607,7 +607,7 @@ input.switch__spring:active:checked::before{margin-left:-.6rem}
     .section_card_wrap{display:block;columns:3;break-inside:avoid}
     .section_card_wrap .section_card{break-inside:avoid;margin-bottom:1.5rem}
 }
-.section_convention h2{margin-bottom:2rem;font-size:2rem}
+.section_convention h2{margin-bottom:2rem;font-size:2rem;color:var(--color-primary)}
 .section_convention h2:not(:first-of-type){margin-top:3rem}
 .section_convention h3{margin:2rem 0 1rem;font-size:1.6rem}
 .section_convention h4{margin:1rem 0;font-size:1.4rem}
