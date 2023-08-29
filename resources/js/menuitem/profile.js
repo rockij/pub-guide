@@ -20,7 +20,7 @@ let profile = [
 <li>클라이언트: 국민은행</li>
 <li>역할: PL</li>
 <li>사용언어: vuejs, javscript</li>
-<li>작업환경: vscode, git</li>
+<li>작업환경: vscode, git, node</li>
 </ul>
 
 <h3>1.2 KB리브메이트 마이데이터 고도화</h3>
