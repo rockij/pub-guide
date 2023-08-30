@@ -10,7 +10,7 @@ let profile = [
 <li>진행기간: 2023.02 ~ 2023.07</li>
 <li>클라이언트: 국민카드</li>
 <li>역할: PL</li>
-<li>사용언어: html, css, javscript</li>
+<li>사용언어: html, css, javascript</li>
 <li>작업환경: vscode, git, 이클립스</li>
 </ul>
 
@@ -19,7 +19,7 @@ let profile = [
 <li>진행기간: 2022.03 ~ 2023.02</li>
 <li>클라이언트: 국민은행</li>
 <li>역할: PL</li>
-<li>사용언어: vuejs, javscript</li>
+<li>사용언어: vuejs, javascript</li>
 <li>작업환경: vscode, git, node</li>
 </ul>
 
@@ -28,7 +28,7 @@ let profile = [
 <li>진행기간: 2021.04 ~ 2021.12</li>
 <li>클라이언트: 국민카드</li>
 <li>역할: PL</li>
-<li>사용언어: html, css, javscript</li>
+<li>사용언어: html, css, javascript</li>
 <li>작업환경: vscode, 이클립스</li>
 </ul>
 
@@ -37,7 +37,7 @@ let profile = [
 <li>진행기간: 2021.02 ~ 2021.03</li>
 <li>클라이언트: 국민은행</li>
 <li>역할: PA</li>
-<li>사용언어: html, css, javscript</li>
+<li>사용언어: html, css, javascript</li>
 <li>작업환경: vscode</li>
 </ul>
 
