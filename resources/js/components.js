@@ -74,7 +74,6 @@ const BUTTON_OPTION = {
             btn.addEventListener('click', function(e) {
                 let x = e.pageX - e.target.offsetLeft;
                 let y = e.pageY - e.target.offsetTop;
-                console.log(e.pageY);
                 let ripples = document.createElement('span');
                 ripples.style.left = `${x}px`;
                 ripples.style.top = `${y}px`;
@@ -333,6 +332,26 @@ const TAB_DRAGSLIDE = function (target) {
 //     const tabBarmovs = document.querySelectorAll('.tab__movbar');
 //     tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
 // });
+
+// paging
+const PAGING = {
+    gooey(target) {
+        const buttons = document.querySelectorAll(`.${target} button`);
+        const select = document.querySelector(`.${target} .select`);
+        buttons.forEach(button => {
+            button.addEventListener("pointerenter", mouseEnter);
+        });
+        function mouseEnter(e){
+            const target = e.currentTarget;            
+            let leftValue = getComputedStyle(document.querySelector('.page__link2')).getPropertyValue("--horizon-padding");
+            gsap.to(select, {
+                duration: 1.5,
+                x: target.offsetLeft - (leftValue+5),
+                ease: Elastic.easeOut.config(0.4,0.3)
+            })
+        }
+    }
+}
 
 // input
 const INPUT_OPTION = {

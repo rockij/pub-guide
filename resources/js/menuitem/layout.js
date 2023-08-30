@@ -75,7 +75,7 @@ let layout = [
 <ul class="list__type">
 <li>모바일에서 전체화면을 고정시킬 떄 사용</li>
 <li>툴바사이즈까지 포함해서 세로 길이는 잡아서 스크롤이 안생김</li>
-<li>css custom property의 값을 js에서 연결하여 페이지가 resize시마다 체크하여 변화되는 사이즈에 대응한다.(js는 페이지확인)</li>
+<li>css custom property의 값을 js에서 연결하여 페이지가 resize시마다 체크하여 변화되는 사이즈 대응</li>
 </ul>
 <br/>
 <a href="pages/layout_mobile_fullheight.html" target="_blank">페이지보기</a>
@@ -87,7 +87,6 @@ let layout = [
     tag_text: `
 <ul class="list__type">
 <li>어느 위치를 지나면 헤더가 다시 나타나는 구조</li>
-<li>IntersectionObserver(js) 로 작업했으며 소스는 페이지확인</li>
 </ul>
 <br/>
 <a href="pages/layout_fixed_header.html" target="_blank">페이지보기</a>

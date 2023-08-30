@@ -5,10 +5,11 @@
 <meta http-equiv="Content-Language" content="ko-KR" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<title>WORK GUIDE</title>
+<title>PORTFOLIO</title>
 
 <link href="resources/css/enlighterjs.min.css" rel="stylesheet">
 <link href="resources/css/style.css" rel="stylesheet">
+<script src="https://rockij.github.io/blog/resources/js/gsap.min.js"></script>
 <script src="resources/js/enlighterjs.min.js"></script>
 <script src="resources/js/components.js"></script>
 
@@ -21,7 +22,7 @@
 <div id="wrap">
 
   <header id="header">
-    <a href="index.html" class="logo">WORK GUIDE</a>
+    <a href="index.html" class="logo">PORTFOLIO</a>
     <button type="button" class="snb_handle" title="사이드메뉴선택">
       <span class="icon"><i></i><i></i><i></i><i></i></span>
     </button>
@@ -93,7 +94,7 @@
                 <li><button onclick="contentSelect.componentsName('Components', 'List', list)" class="snb-link">List</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)" class="snb-link">Layout</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)" class="snb-link">Popup</button></li>
-                <li><button onclick="contentSelect.componentsName('Components', 'Slide', slide)" class="snb-link">Slide</button></li>
+                <!-- <li><button onclick="contentSelect.componentsName('Components', 'Slide', slide)" class="snb-link">Slide</button></li> -->
                 <li><button onclick="contentSelect.componentsName('Components', 'Chart', chart)" class="snb-link">Chart</button></li>
                 </ul>
             </div>
@@ -149,11 +150,11 @@
 <script src="resources/js/menuitem/project.js"></script>
 <script src="resources/js/menuitem/project2.js"></script>
 <script type="text/javascript">
-contentSelect.originalTag('Profile','Profile', profile);
+// contentSelect.originalTag('Profile','Profile', profile);
 // contentSelect.originalTag('Convention','Convention', convention);
 // contentSelect.projectName('Project', 'Members', project);
 // contentSelect.componentsName('Components', 'Accordion', accordion);
-// contentSelect.componentsName('Components', 'Buttons', buttons);
+contentSelect.componentsName('Components', 'Buttons', buttons);
 // contentSelect.componentsName('Components', 'tab', tabs);
 // contentSelect.componentsName('Components', 'Layout', layout);
 // contentSelect.componentsName('Components', 'Input', inputs);

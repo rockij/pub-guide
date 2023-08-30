@@ -231,7 +231,6 @@ const contentSelect = {
             if (i.tag_text == '' || i.tag_text == undefined) {
                 tagText.style.display = 'none';
             }
-            console.log(i.tag_html);
             if(i.tag_html == undefined && i.tag_css == undefined ) {
                 codeWrap.style.display = 'none';
             }
@@ -280,6 +279,7 @@ const contentSelect = {
             const tabBarmovs = document.querySelectorAll('.tab__movbar');
             tabBarmovs.forEach((tabBarmov) => new TAB_BARMOV(tabBarmov));
             TAB_DRAGSLIDE('tab__drag_slide');
+            PAGING.gooey('page__link2');
         }
         
         // list

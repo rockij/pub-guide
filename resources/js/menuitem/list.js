@@ -161,6 +161,54 @@ let list = [
     tag_css: `
     `
   },
+  {
+    number: 8,
+    tag_title: 'Tree',
+    tag_text: `
+<ul class="list__type">
+<li></li>
+</ul>
+    `,
+    tag_html: `
+<ul class="list__tree">
+    <li>
+        <details open>
+            <summary>Giant planets</summary>
+            <ul>
+                <li>
+                    <details>
+                        <summary>Gas giants</summary>
+                        <ul>
+                            <li>Jupiter</li>
+                            <li>
+                            <details>
+                                <summary>Gas giants</summary>
+                                <ul>
+                                <li>Jupiter</li>
+                                <li>Saturn</li>
+                                </ul>
+                            </details>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>Ice giants</summary>
+                        <ul>
+                            <li>Uranus</li>
+                            <li>Neptune</li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </details>
+    </li>
+</ul>
+    `,
+    tag_css: `
+    `
+  },
 //   {
 //     number: ,
 //     tag_title: '',

@@ -202,6 +202,45 @@ let tabs = [
     .tab__drag_slide .tablist .tab.active{color:#fff;background:var(--color-positive);border-color:transparent}
     `,
   },
+  {
+    number: 6,
+    tag_title: 'Pagination Gooey',
+    tag_text: `
+<ul class="list__type">
+<li>버튼 hover시 끈적이는 느낌으로 앵커 이동</li>
+</ul>
+    `,
+    tag_html: `
+<div class="page__link2">
+    <ul class="dots">
+        <li class="select"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+        <li class="dot"></li>
+    </ul>
+    <ul class="buttons">
+        <li class="button"><button>1</button></li>
+        <li class="button"><button>2</button></li>
+        <li class="button"><button>3</button></li>
+        <li class="button"><button>4</button></li>
+        <li class="button"><button>5</button></li>
+    </ul>
+</div>
+    `,
+    tag_css: `
+.page__link2{--vertical-padding:.5rem;--horizon-padding:1;--size:4rem;--bgcolor:#000}
+.page__link2 ul{padding:var(--vertical-padding) calc( var(--horizon-padding) * 1rem );font-size:0}
+.page__link2 li{display:inline-block;margin:.5rem;width:var(--size);height:var(--size);border-radius:50%}
+.page__link2 .dots{position:absolute;z-index:1;background-color:#fff;filter:blur(5px) contrast(10)}
+.page__link2 .dots .select{position: absolute;left:calc( var(--horizon-padding) * 1rem );top:var(--vertical-padding);width:var(--size);height:var(--size);
+background-color:var(--bgcolor)}
+.page__link2 .dots .dot{background-color:#000}
+.page__link2 .buttons{position:relative;z-index:2}
+.page__link2 .buttons button{width:100%;height:100%;font-size:1.4rem;font-weight:700;cursor: pointer;color:#fff}
+    `,
+  },
 //   {
 //     number: ,
 //     tag_title: '',
@@ -210,7 +249,6 @@ let tabs = [
 // <li></li>
 // </ul>
 //     `,
-//     tag_view:``,
 //     tag_html: ``,
 //     tag_css: ``,
 //   },
