@@ -43,10 +43,10 @@ let profile = [
 
 <h2>2. 경력/보유 스킬</h2>
 
-<h3>2.1 경력</h3>
+<h3>2.2 경력</h3>
 13년차(정직원 경력 11년 6개월)
 
-<h3>2.2 보유 스킬</h3>
+<h3>2.1 보유 스킬</h3>
 <ul class="list__type">
 <li>html, css: 고급</li>
 <li>javascript: 고급</li>
