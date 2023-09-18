@@ -1,12 +1,12 @@
 let profile = [
     {
       tag_html: `
-<div class="section_convention">
+<div class="section-convention">
 
 <h2>1. 참여 프로젝트</h2>
 
 <h3>1.4 KB Pay 자산 고도화</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>진행기간: 2023.02 ~ 2023.07</li>
 <li>클라이언트: 국민카드</li>
 <li>역할: PL</li>
@@ -15,7 +15,7 @@ let profile = [
 </ul>
 
 <h3>1.3 KB Wallet 서비스 구축 1차,2차</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>진행기간: 2022.03 ~ 2023.02</li>
 <li>클라이언트: 국민은행</li>
 <li>역할: PL</li>
@@ -24,7 +24,7 @@ let profile = [
 </ul>
 
 <h3>1.2 KB리브메이트 마이데이터 고도화</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>진행기간: 2021.04 ~ 2021.12</li>
 <li>클라이언트: 국민카드</li>
 <li>역할: PL</li>
@@ -33,7 +33,7 @@ let profile = [
 </ul>
 
 <h3>1.1 KB스타 CMS 리뉴얼</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>진행기간: 2021.02 ~ 2021.03</li>
 <li>클라이언트: 국민은행</li>
 <li>역할: PA</li>
@@ -47,7 +47,7 @@ let profile = [
 13년차(정직원 경력 11년 6개월)
 
 <h3>2.1 보유 스킬</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>html, css: 고급</li>
 <li>javascript: 고급</li>
 <li>vuejs: 중급</li>

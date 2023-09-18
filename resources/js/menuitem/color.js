@@ -1,7 +1,7 @@
 let color = [
   {
     tag_html: `
-    <div class="section_convention color_palette">
+    <div class="section-convention color-palette">
     <dl>
       <dt>Primary Color</dt>
       <dd>

@@ -96,7 +96,7 @@ const POPUP_EVENT = {
         if (_this.getAttribute('data-popup-type') == 'bottom') {
             // console.log(getComputedStyle(_this).getPropertyValue('--bottom')); css변수값을 가져옴
             const popHeight =
-                _this.querySelector('.popup_container').clientHeight;
+                _this.querySelector('.popup-container').clientHeight;
             _this.style.setProperty('--bottom', `${popHeight}px`);
         }
         setTimeout(function () {
@@ -127,11 +127,11 @@ const POPUP_EVENT = {
                 _target.style.top = `${
                     btnPointY - boxHeight - (btnHeight - 5)
                 }px`;
-                _target.classList.add('arrow_btm');
+                _target.classList.add('arrow-btm');
             } else {
                 // 아래
                 _target.style.top = `${btnPointY + btnHeight * 2}px`;
-                _target.classList.add('arrow_top');
+                _target.classList.add('arrow-top');
             }
         }, 0);
     },
@@ -283,56 +283,6 @@ class TAB_BARMOV extends TAB_DEFAULT {
     }
 }
 
-// tab drag slide
-const TAB_DRAGSLIDE = function (target) {
-    const tabsTarget = document.querySelector(`.${target}`),
-        tabsBox = tabsTarget.querySelector('.tablist'),
-        allTabs = tabsBox.querySelectorAll('.tab'),
-        arrowIcons = document.querySelectorAll('.icon');
-    let isDragging = false;
-    const handleIcons = (scrollVal) => {
-        let maxScrollableWidth = tabsBox.scrollWidth - tabsBox.clientWidth;
-        arrowIcons[0].style.display = scrollVal <= 0 ? 'none' : 'flex';
-        arrowIcons[1].style.display = maxScrollableWidth - scrollVal <= 1 ? 'none' : 'flex';
-    }
-    arrowIcons.forEach((icon) => {
-        icon.addEventListener('click', () => {
-            // 클릭한 아이콘이 남아 있으면 탭에서 350개 축소상자 스크롤왼쪽 또는 추가
-            let scrollWidth = (tabsBox.scrollLeft +=
-                icon.id === 'left' ? -340 : 340);
-            handleIcons(scrollWidth);
-        });
-    });
-    allTabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-            tabsBox.querySelector('.active').classList.remove('active');
-            tab.classList.add('active');
-        });
-    });
-    const dragging = (e) => {
-        if (!isDragging) return;
-        tabsBox.classList.add('dragging');
-        tabsBox.scrollLeft -= e.movementX;
-        handleIcons(tabsBox.scrollLeft);
-    };
-    const dragStop = () => {
-        isDragging = false;
-        tabsBox.classList.remove('dragging');
-    };
-    tabsBox.addEventListener('mousedown', () => (isDragging = true));
-    tabsBox.addEventListener('mousemove', dragging);
-    document.addEventListener('mouseup', dragStop);
-};
-// // 탭의 경우 페이지 로딩 후에 실행이 되는 경우가 많아 코딩시 페이지에 추가한다.
-// window.addEventListener('load', function () {
-//     // 기본 탭 실행
-//     const tabDefualts = document.querySelectorAll('.tab__defualt');
-//     tabDefualts.forEach(tabDefualt => new TAB_DEFAULT(tabDefualt));
-//     // 선택한 탭 bar 이동
-//     const tabBarmovs = document.querySelectorAll('.tab__movbar');
-//     tabBarmovs.forEach(tabBarmov => new TAB_BARMOV(tabBarmov));
-// });
-
 // paging
 const PAGING = {
     gooey(target) {
@@ -343,7 +293,7 @@ const PAGING = {
         });
         function mouseEnter(e){
             const target = e.currentTarget;            
-            let leftValue = getComputedStyle(document.querySelector('.page__link2')).getPropertyValue("--horizon-padding");
+            let leftValue = getComputedStyle(document.querySelector('.page--link2')).getPropertyValue("--horizon-padding");
             gsap.to(select, {
                 duration: 1.5,
                 x: target.offsetLeft - (leftValue+5),
@@ -459,7 +409,7 @@ const INPUT_OPTION = {
         const inputBoxs = document.querySelectorAll(`.${targetClass}`);
         inputBoxs.forEach((inputBox) => {
             const input = inputBox.querySelector('.input');
-            const inpDel = inputBox.querySelector('.btn_del');
+            const inpDel = inputBox.querySelector('.btn-del');
             inpDel.addEventListener('click', () => {
                 input.value = '';
                 input.classList.remove('focus');
@@ -854,8 +804,8 @@ const currentMonth = today.getMonth();
 const CALENDAR_CUSTOM = {
     init(calendarType, popupTarget, buttonTarget, handle) {
         if (calendarType == 'popup') {
-            const popupBack = document.querySelector(`#mw-${popupTarget} .popup_back`);
-            const popupClose = document.querySelector(`#mw-${popupTarget} .popup_close`);
+            const popupBack = document.querySelector(`#mw-${popupTarget} .popup-back`);
+            const popupClose = document.querySelector(`#mw-${popupTarget} .popup-close`);
             popupBack.setAttribute(
                 'onclick',
                 `CALENDAR_CUSTOM.init('popup', '${popupTarget}', '${buttonTarget}', 'close')`

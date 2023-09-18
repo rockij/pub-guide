@@ -66,7 +66,7 @@ body {
   );
 }
 
-.marquee__group {
+.marquee--group {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -77,7 +77,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee__group {
+  .marquee--group {
     animation-play-state: paused;
   }
 }
@@ -87,15 +87,15 @@ body {
 }
 
 .marquee--vertical,
-.marquee--vertical .marquee__group {
+.marquee--vertical .marquee--group {
   flex-direction: column;
 }
 
-.marquee--vertical .marquee__group {
+.marquee--vertical .marquee--group {
   animation-name: scroll-y;
 }
 
-.marquee--reverse .marquee__group {
+.marquee--reverse .marquee--group {
   animation-direction: reverse;
   animation-delay: -3s;
 }
@@ -224,7 +224,7 @@ body {
   
   <article class="wrapper wrapper--vertical">
     <div class="marquee marquee--vertical">
-      <div class="marquee__group">
+      <div class="marquee--group">
         <svg>
           <use xlink:href="#mcdonalds" />
         </svg>
@@ -251,7 +251,7 @@ body {
         </svg>
       </div>
   
-      <div aria-hidden="true" class="marquee__group">
+      <div aria-hidden="true" class="marquee--group">
         <svg>
           <use xlink:href="#mcdonalds" />
         </svg>
@@ -280,7 +280,7 @@ body {
     </div>
   
     <div class="marquee marquee--reverse marquee--vertical">
-      <div class="marquee__group">
+      <div class="marquee--group">
         <svg>
           <use xlink:href="#hulu" />
         </svg>
@@ -307,7 +307,7 @@ body {
         </svg>
       </div>
   
-      <div aria-hidden="true" class="marquee__group">
+      <div aria-hidden="true" class="marquee--group">
         <svg>
           <use xlink:href="#hulu" />
         </svg>

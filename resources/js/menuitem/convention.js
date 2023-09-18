@@ -1,7 +1,7 @@
 let convention = [
     {
       tag_html: `
-<div class="section_convention">
+<div class="section-convention">
 <h2>1. 개요</h2>
 <h3>1.1 코딩 컨벤션 필요성</h3>
 마크업 개발은 프런트-엔드 페이지의 기본 골격을 형성하기 때문에 디자인, 브라우저, 스크립트, 성능, 접근성
@@ -27,7 +27,7 @@ let convention = [
 
 <h2 id="convention2">2. 기본 공통 규칙</h2>
 <h3>2.1 HTML 코드 규칙</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>단일 태그의 마무리는 항상 ‘/&gt;’ 로 해준다. (&lt;br/&gt;)</li>
 <li>모든 값은 따옴표(“)로 묶어준다.</li>
 <li>팝업은 #wrap 영역 바깥에서 작성한다.</li>
@@ -36,14 +36,14 @@ let convention = [
 
 
 <h3>2.2 들여쓰기 규칙</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>들여쓰기를 하면 코드의 가독성이 높아지고 전체 HTML 구조를 쉽게 파악할 수 있다.</li>
 <li>마크업의 중첩이 깊어질 때마다 자식 요소는 1탭 들여 쓰고, 1탭의 크기는 공백 4칸으로 설정한다.</li>
 <li>문서 내에서 반드시 탭을 이용하여 들여쓰기를 하며, 탭을 대신하여 공백으로 띄어 들여쓰지 않는다.</li>
 </ul>
 
 <h3>2.3 빈 줄</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>빈 줄을 사용하려면 의미 있는 객체를 구분하기 위하여 코드 그룹 간 1줄씩 빈 줄을 만드는 것은 허용한다.</li>
 <li>빈 줄의 간격은 1줄을 초과하지 않는다.</li>
 </ul>
@@ -51,11 +51,11 @@ let convention = [
 
 <h3>2.4 주석</h3>
 <h4>A. 기본 형식</h4>
-<ul class="list__type">
+<ul class="list--type">
 <li>HTML 주석의 시작과 종료는 아래와 같이 표기하며, 기본 형식에 맞게 작성한다.<br>시작주석 &lt;!-- 주석내용 --&gt; ... 종료주석 &lt;!-- 주석내용 --&gt;</li>
 <li>주석 기호와 주석 내용 사이에는 반드시 공백 한 칸이 있어야 한다.</li>
 <li>시작과 종료 주석의 주석 내용은 동일해야 한다.</li>
-<li>수정사항 표시는 '[퍼블수정_날짜] 수정내용'로 조합한다. ([퍼블수정_230612] 문구수정)</li>  
+<li>수정사항 표시는 '[퍼블수정-날짜] 수정내용'로 조합한다. (<span class="point">[퍼블수정-230612] 문구수정</span>)</li>  
 </ul>
 
 <h4>B. 레이아웃 및 콘텐츠 영역의 주석 표기</h4>
@@ -70,7 +70,7 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 &lt;!-- //content --&gt;</pre>
 
 <h4>C. 개발 적용과 관련된 주석 표기</h4>
-<ul class="list__type">
+<ul class="list--type">
 <li>개발 적용과 관련된 주석은 해당되는 영역 위에 표기하며, 종료 주석은 표기하지 않는다.</li>
 <li>주석 앞에는 [D]라는 말머리를 사용하여 담당 개발자가 반드시 확인할 수 있도록 한다.</li>
 </ul>
@@ -85,8 +85,8 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <td>
 <pre>&lt;!-- content -- &gt;
 &lt;!-- [D] 케이스별 클래스 변화
-의사 : my_doctor
-변호사 : my_lawyer --&gt;</pre>
+의사 : my-doctor
+변호사 : my-lawyer --&gt;</pre>
 </td>
 </tr>
 <tr>
@@ -102,17 +102,17 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <h2 id="convention3">3. 네이밍 규칙</h2>
 
 <h3>3.1 기본 규칙</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>네이밍 규칙은 레이아웃, 객체, 이미지, 폴더, 파일의 이름을 작성하는 규칙이다.</li>
 <li>이해하기 쉬운 이름으로 작성해야 코드를 쉽게 파악할 수 있다.</li>    
 </ul>
 
 <h4>A. 일반 규칙</h4>
-<ul class="list__type">
-<li>이름은 영문 소문자, 숫자, 언더스코어(_)로 작성한다.</li>    
-<li>언더스코어(_)는 단어와 단어 조합할 때만 사용한다.</li>
-<li>언더스코어(_)가 포함된 약속어는 숫자, 영문 소문자와 조합하여 사용할 수 있다.</li>
-<li>공통관리는 더블언더스코어(__)로 작성한다.</li>
+<ul class="list--type">
+<li>이름은 영문 소문자, 숫자, 하이픈(-)로 작성한다.</li>    
+<li>하이픈(-)는 단어와 단어 조합할 때만 사용한다.</li>
+<li>하이픈(-)가 포함된 약속어는 숫자, 영문 소문자와 조합하여 사용할 수 있다.</li>
+<li>공통관리는 더블하이픈(--)로 작성한다.</li>
 </ul>
 
 <h4>B. 시작 이름</h4>
@@ -139,31 +139,31 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <tbody>
 <tr>
 <td rowspan="9">레이아웃</td>
-<td>.gnb_</td>
+<td>.gnb-</td>
 <td>최상위 전역 내비게이션 영역</td>
 </tr>
 <tr>
-<td>.sta_</td>
+<td>.sta-</td>
 <td>서비스 이름, 연관 서비스, 검색 영역</td>
 </tr>
 <tr>
-<td>.lnb_</td>
+<td>.lnb-</td>
 <td>현재 서비스의 지역 내비게이션 영역</td>
 </tr>
 <tr>
-<td>.snb_</td>
+<td>.snb-</td>
 <td>측면 내비게이션 영역</td>
 </tr>
 <tr>
-<td>.aside_</td>
+<td>.aside-</td>
 <td>문서의 주요 부분을 표시하고 남은 콘텐츠 영역</td>
 </tr>
 <tr>
-<td>.spot_</td>
+<td>.spot-</td>
 <td>강조하는 상위 콘텐츠 영역</td>
 </tr>
 <tr>
-<td>.path_</td>
+<td>.path-</td>
 <td>현재 페이지의 경로</td>
 </tr>
 <tr>
@@ -171,7 +171,7 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <td>스킵네비게이션</td>
 </tr>
 <tr>
-<td>.nav_</td>
+<td>.nav-</td>
 <td>내비게이션 요소</td>
 </tr>
 <tr>
@@ -180,83 +180,83 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <td>숨김영역</td>
 </tr>
 <tr>
-<td>.btn__</td>
+<td>.btn--</td>
 <td>버튼</td>
 </tr>
 <tr>
-<td>.icon__</td>
+<td>.icon--</td>
 <td>아이콘</td>
 </tr>
 <tr>
-<td>.fig__</td>
+<td>.fig--</td>
 <td>그림이 있는 이미지</td>
 </tr>
 <tr>
-<td>.inp__</td>
+<td>.inp--</td>
 <td>input 입력박스</td>
 </tr>
 <tr>
-<td>.chkbox__</td>
+<td>.chkbox--</td>
 <td>체크박스(라디오) 선택</td>
 </tr>
 <tr>
-<td>.slct__</td>
+<td>.slct--</td>
 <td>셀릭트박스</td>
 </tr>
 <tr>
-<td>.ad__</td>
+<td>.ad--</td>
 <td>광고</td>
 </tr>
 <tr>
-<td>.page__</td>
+<td>.page--</td>
 <td>페이지 목록</td>
 </tr>
 <tr>
-<td>.list__</td>
+<td>.list--</td>
 <td>리스트</td>
 </tr>
 <tr>
-<td>.acn__</td>
+<td>.acn--</td>
 <td>아코디언 형태</td>
 </tr>
 <tr>
-<td>.tab__</td>
+<td>.tab--</td>
 <td>탭</td>
 </tr>
 <tr>
-<td>.ly__</td>
+<td>.ly--</td>
 <td>컨텐츠 내 팝업</td>
 </tr>
 <tr>
-<td>.srch__</td>
+<td>.srch--</td>
 <td>컨텐츠내 검색박스</td>
 </tr>
 
 <tr>
 <td rowspan="5">요소 그루핑</td>
-<td>_section</td>
+<td>-section</td>
 <td>heading 태그(h1~h6)를 포함한 요소들의 그루핑</td>
 </tr>
 <tr>
-<td>_group</td>
+<td>-group</td>
 <td>section 보다 낮은 단계의 heading 태그를 포함한 요소들의 그루핑</td>
 </tr>
 <tr>
-<td>_area</td>
+<td>-area</td>
 <td>group 안으로 태그들을 추가 그루핑</td>
 </tr>
 <tr>
-<td>_type</td>
+<td>-type</td>
 <td>자식이 있는 엘리멘트들을 그룹핑(ul, dl, table, select)</td>
 </tr>
 <tr>
-<td>_set</td>
+<td>-set</td>
 <td>엘리먼트들을 그룹핑(ex: a, button, span)</td>
 </tr>
 </tbody>
 </table>  
 <table class="table2">
-<caption>이미지 약속어</caption>
+<caption>이미지 약속어 (작성시 언더바 사용)</caption>
 <colgroup>
 <col width="40%">
 <col>
@@ -330,7 +330,7 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 <h3>3.2 id 및 class 네이밍 규칙</h3>
 
 <h4>A. id, class</h4>
-<ul class="list__type">
+<ul class="list--type">
 <li>id는 문서 전체의 고유 식별자 이므로 한 문서에서 동일한 id를 여러 번 사용하지 않는다.</li>
 <li>레이아웃을 제외한 id는 스타일을 지정하지 않는다.</li>
 <li>class는 문서에서 여러 번 사용할 수 있다.</li>
@@ -386,23 +386,23 @@ wrap을 제외한 레이아웃과 독립된 콘텐츠 영역의 시작과 끝에
 </thead>
 <tbody>
 <tr>
-<td>.pop_wrap </td>
+<td>.pop-wrap </td>
 <td>페이지 전체 영역</td>
 </tr>
 <tr>
-<td>.pop_header </td>
+<td>.pop-header </td>
 <td>머리글 영역</td>
 </tr>
 <tr>
-<td>.pop_container </td>
+<td>.pop-container </td>
 <td>본문 영역</td>
 </tr>
 <tr>
-<td>.pop_content</td>
+<td>.pop-content</td>
 <td>주요 콘텐츠 영역</td>
 </tr>
 <tr>
-<td>.pop_footer</td>
+<td>.pop-footer</td>
 <td>바닥글 영역</td>
 </tr>
 <tr>
@@ -417,16 +417,16 @@ compornents &gt; popup 참고
 </table>
 
 <h4>D. 레이아웃 네이밍 조합</h4>
-<ul class="list__type">
+<ul class="list--type">
 <li>레이아웃에 디자인 속성을 추가/변경하려면 class를 사용한다.</li>
-<li>ex: id="content" class="content_style"</li>
+<li>ex: id="content" class="content-style"</li>
 </ul>
 
 <h4>E. class 네이밍</h4>
-<ul class="list__type">
-<li>공통관리(__)와 일반관리(_) 코드를 명확히 구분한다.</li>
-<li>네이밍은 '역할_형태_타입' 형태로 한다.(form__group_row, srch_set)</li>
-<li>뎁스의 길이는 가급적 3뎁스를 넘기지 않는다.(btn__m_info)</li>
+<ul class="list--type">
+<li>공통관리(--)와 일반관리(-) 코드를 명확히 구분한다.</li>
+<li>네이밍은 '역할_형태_타입' 형태로 한다.(form--group-row, srch-set)</li>
+<li>뎁스의 길이는 가급적 3뎁스를 넘기지 않는다.(btn--m-info)</li>
 </ul>
 <table class="table2">
 <colgroup>
@@ -445,12 +445,12 @@ compornents &gt; popup 참고
 <tr>
 <td>공통</td>
 <td>
-list__type<br>
-btn__x<br>
-form__type<br>
+list--type<br>
+btn--x<br>
+form--type<br>
 </td>
 <td>
-일반 약속어 class와 겹치지 않기 위해 언더스코어를 두번(__) 사용<br>
+일반 약속어 class와 겹치지 않기 위해 하이픈을 두번(--) 사용<br>
 공통업무 담당자에 한에서만 사용
 </td>
 </tr>
@@ -467,8 +467,8 @@ script 작업 등 기능적인 요소만을 추가해야 할 경우 단어 사�
 <tr>
 <td>확장</td>
 <td>
-list__row_box<br>
-msg_row_box
+list--row-box<br>
+msg-row-box
 </td>
 <td>
 2뎁스를 기본으로 하고 필요시 1뎁스(타입)를 붙여 작성한다.
@@ -477,48 +477,9 @@ msg_row_box
 </tbody>
 </table>
 
-<h4>F. (-)사용범위</h4>
-(-)는 id에 사용하고 class는 스크립트를 이용한 기능 구현시에만 사용한다.
-<table class="table2">
-<colgroup>
-<col width="30%">
-<col width="30%">
-<col>
-</colgroup>
-<thead>
-<tr>
-<th>분류</th>
-<th>사용 예</th>
-<th>설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>popup</td>
-<td>mw-alert</td>
-<td>팝업에 사용</td>
-</tr>
-<tr>
-<td>form</td>
-<td>id="input-name"</td>
-<td>입력폼의 아이디 값</td>
-</tr>
-<tr>
-<td>a11y</td>
-<td>aria-describedby="error-msg"</td>
-<td>안내(에러) 메시지 연결</td>
-</tr>
-<tr>
-<td>script</td>
-<td>class="input-copy"</td>
-<td>copy버튼 선택시 텍스트 복사</td>
-</tr>
-</tbody>
-</table>
-
 <h3>3.3 이미지 네이밍 규칙</h3>
 <h4>A. 이미지 네이밍</h4>
-<ul class="list__type">
+<ul class="list--type">
 <li>같은 분류의 이미지가 두 개 이상이면 파일 이름 마지막에 숫자를 추가하여 구분한다.</li>
 <li>이미지 네이밍은 이미지 확장자와 관계 없이 순차적으로 적용한다. 예) bu_dot1.gif, bu_dot2.jpg, bu_dot3.png</li>
 <li>임시 이미지는 tmp_를 조합한다. 예) tmp_</li>
@@ -564,7 +525,7 @@ msg_row_box
 
 <h2 id="convention4">4. CSS 코드 작성 규칙</h2>
 <h3>4.1 기본 규칙</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>기본단위는 rem으로 한다 (1rem = 10px)</li>
 <li>모든 속성은 영문 소문자로만 작성한다.</li>
 <li>마지막 속성의 세미콜론(;)은 삭제한다.</li>
@@ -683,9 +644,9 @@ color:
 </tr>
 <tr>
 <td>
-.class__name_name1,
-.class__name_name2,
-.class__name_name3{width:100px;color:#000}</td>
+.class--name-name1,
+.class--name-name2,
+.class--name-name3{width:100px;color:#000}</td>
 </tr>
 <tr>
 <td>@media print{#header{display:none}}</td>
@@ -811,14 +772,14 @@ z-index 속성의 속성 값의 범위는 최소 10, 최고 1000이며, 10 단�
 
 <h2 id="convention5">5. SCRIPT 코드 작성 규칙</h2>
 <h3>5.1 기본 규칙</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>ui.common.js 파일에 공통 코드 관리한다.</li>
 <li>ui.page.js 파일에 공통을 제외한 코드 관리한다.</li>
 <li>대형 프로젝트일 경우 파일은 메뉴별로 세분화하여 관리 할 수 있다.</li>
 <li>데이터바인딩 후에 실행해야할 함수는 기본적으로 실행하지 않고 페이내에 제일 하단에 추가한다.</li>
 </ul>
 <h3>5.2 작성 규칙</h3>
-<ul class="list__type">    
+<ul class="list--type">    
 <li>순수 javascript로 작업을 기본으로 한다.</li>
 <li>공통함수 실행은 최상단에 추가하여 관리한다.</li>
 <li>작은따옴표('')를 사용한다.</li>
@@ -829,7 +790,7 @@ z-index 속성의 속성 값의 범위는 최소 10, 최고 1000이며, 10 단�
 
 <h2 id="convention6">6. 웹 접근성 작성 규칙</h2>
 <h3>6.1 기본 규칙</h3>
-<ul class="list__type">
+<ul class="list--type">
 <li>크로스 브라우징이 가능하도록 한다.</li>
 <li>이미지 태그에는 alt를 반드시 지정한다.</li>
 <li>제목(h) 태그를 적절하게 사용한다.</li>

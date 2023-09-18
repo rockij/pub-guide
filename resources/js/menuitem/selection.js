@@ -3,7 +3,7 @@ let selection = [
     number: 1,
     tag_title: 'Checkbox Native',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li>html 태그만을 이용하였으며 label 안에 input을 넣는 방식이다.</li>
 <li>체크시에 모션이 필요하면 _ani을 붙이다.</li>
 </ul>
@@ -22,7 +22,7 @@ let selection = [
     number: 2,
     tag_title: 'Checkbox Custom',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li>그룹 체크박스에 타이틀이 있다면 id = aria-labelledby 로 연결해준다.</li>
 <li>태그 작성시 소스보기를 참고하여 role, aria- 관련 태그는 가이드에 맞춰 작성한다.</li>
 <li>실행: CHECKED_UI.checkBox();</li>
@@ -49,7 +49,7 @@ let selection = [
     number: 3,
     tag_title: 'Checkbox All Checked',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li>기본 작성 가이드는 Checkbox Custom를 참고한다.</li>
 <li>체크박스의 id값을 aria-controls에 모두 넣어준다.</li>
 <li>실행: CHECKED_UI.checkBox();</li>
@@ -84,7 +84,7 @@ let selection = [
     number: 5,
     tag_title: 'Radio Native',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li>html 태그만을 이용하였으며 label 안에 input을 넣는 방식이다.</li>
 <li>체크시에 모션이 필요하면 _ani을 붙이다.</li>
 </ul>
@@ -106,7 +106,7 @@ let selection = [
     number: 6,
     tag_title: 'Radio Custom',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li>그룹 체크박스에 타이틀이 있다면 id = aria-labelledby 로 연결해준다.</li>
 <li>태그 작성시 소스보기를 참고하여 role, aria- 관련 태그는 가이드에 맞춰 작성한다.</li>
 <li>실행: CHECKED_UI.radioBox();</li>
@@ -127,12 +127,12 @@ let selection = [
     number: 7,
     tag_title: 'Switch Ios',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li></li>
 </ul>
     `,
     tag_html: `
-<input type="checkbox" class="switch__spring touch hit">
+<input type="checkbox" class="switch--spring touch hit">
     `,
     tag_css: `
     `
@@ -141,12 +141,12 @@ let selection = [
     number: 8,
     tag_title: 'Switch Rubber',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li></li>
 </ul>
     `,
     tag_html: `
-<label class="switch__rubber">
+<label class="switch--rubber">
     <input type="checkbox" value="0" class="blind" />
     <span class="slider"></span>
 </label>
@@ -158,7 +158,7 @@ let selection = [
     number: 9,
     tag_title: 'Number Stepper',
     tag_text: `
-<ul class="list__type">
+<ul class="list--type">
 <li></li>
 </ul>
     `,
@@ -176,7 +176,7 @@ let selection = [
 //     number: ,
 //     tag_title: '',
 //     tag_text: `
-// <ul class="list__type">
+// <ul class="list--type">
 // <li></li>
 // </ul>
 //     `,

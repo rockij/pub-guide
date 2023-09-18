@@ -32,7 +32,7 @@ const snbEvent = {
         }
     },
 };
-const hamburgerButtons = document.querySelectorAll('.snb_handle');
+const hamburgerButtons = document.querySelectorAll('.snb-handle');
 hamburgerButtons.forEach((button) =>
     button.addEventListener('click', snbEvent.hamburgerToggle)
 );
@@ -107,7 +107,7 @@ const contentSelect = {
         document.querySelector('.shortcut').innerHTML = '';
         document.querySelector('.snb').classList.remove('type');
         document.querySelector('.shortcut').style.display = 'none';
-        document.querySelector('.state_info').style.display = 'none';
+        document.querySelector('.state-info').style.display = 'none';
     },
 
     // shortcut
@@ -187,14 +187,14 @@ const contentSelect = {
             content.prepend(pageTitle);
             content.appendChild(cardWrap);
             cardWrap.appendChild(card);
-            cardWrap.classList.add('section_card_wrap');
+            cardWrap.classList.add('section-card_wrap');
             pageTitle.classList.add('pagetitle');
             breadCrumb.classList.add('breadcrumb');
-            codeWrap.classList.add('codeview_wrap');
+            codeWrap.classList.add('codeview-wrap');
             pre_html.setAttribute('data-enlighter-language', 'generic');
             pre_css.setAttribute('data-enlighter-language', 'generic');
             codeView.classList.add('codeview');
-            card.classList.add('section_card');
+            card.classList.add('section-card');
             pageTitle.appendChild(cardTitle);
             pageTitle.appendChild(breadCrumb);
             card.prepend(tagText);
@@ -207,11 +207,11 @@ const contentSelect = {
             codeWrap.appendChild(codePanel);
             codePanel.appendChild(codePanelInner);            
             codePanel.id = `codePanel-${i.number}`;
-            codePanel.classList.add('accordion__panel');
+            codePanel.classList.add('accordion--panel');
             codePanel.setAttribute('aria-labelledby', `codeView-${i.number}`);
             codePanel.setAttribute('role', 'region');
             codeHeader.id = `codeView-${i.number}`;
-            codeHeader.classList.add('codeview_header');
+            codeHeader.classList.add('codeview-header');
             codeHeaderBtn.innerText = '소스보기';
             codeHeaderBtn.setAttribute('aria-controls', `codePanel-${i.number}`);
             codeHeaderBtn.setAttribute('aria-expanded', false);
@@ -238,7 +238,7 @@ const contentSelect = {
         EnlighterJS.init('pre', 'code', {});
 
         const expandButtons = document.querySelectorAll(
-            '.codeview_header [aria-expanded]'
+            '.codeview-header [aria-expanded]'
         );
         expandButtons.forEach((expandButton) => {
             expandButton.addEventListener('click', () =>
@@ -248,44 +248,43 @@ const contentSelect = {
 
         // button
         if (dataName === buttons) {
-            BUTTON_OPTION.ripple('btn__ripple');
+            BUTTON_OPTION.ripple('btn--ripple');
         }
 
         // input
         if (dataName === inputs) {
-            INPUT_OPTION.otpField('input__otp');
-            INPUT_OPTION.labelControl('input__label');
-            INPUT_OPTION.textSelectAll('input__select');
-            INPUT_OPTION.textCopy('input__copy');
-            INPUT_OPTION.inputRemove('input__del');
-            INPUT_OPTION.passToggle('input__pw_toggle');
-            INPUT_OPTION.inputMaxlength('input__maxlength');
-            INPUT_OPTION.inputEmail('input__email_select');
-            INPUT_OPTION.autoResize('textarea__autosize', 83);
+            INPUT_OPTION.otpField('input--otp');
+            INPUT_OPTION.labelControl('input--label');
+            INPUT_OPTION.textSelectAll('input--select');
+            INPUT_OPTION.textCopy('input--copy');
+            INPUT_OPTION.inputRemove('input--del');
+            INPUT_OPTION.passToggle('input--pw-toggle');
+            INPUT_OPTION.inputMaxlength('input--maxlength');
+            INPUT_OPTION.inputEmail('input--email-select');
+            INPUT_OPTION.autoResize('textarea--autosize', 83);
         }
 
         // selction
         if (dataName === selection) {
             CHECKED_UI.checkBox();
             CHECKED_UI.radioBox();
-            SWITCH_UI.spring('switch__spring');
-            SWITCH_UI.rubber('switch__rubber');
+            SWITCH_UI.spring('switch--spring');
+            SWITCH_UI.rubber('switch--rubber');
         }
 
         // tab
         if (dataName === tabs) {
-            const tabDefualts = document.querySelectorAll('.tab__defualt');
+            const tabDefualts = document.querySelectorAll('.tab--defualt');
             tabDefualts.forEach((tabDefualt) => new TAB_DEFAULT(tabDefualt));
-            const tabBarmovs = document.querySelectorAll('.tab__movbar');
+            const tabBarmovs = document.querySelectorAll('.tab--movbar');
             tabBarmovs.forEach((tabBarmov) => new TAB_BARMOV(tabBarmov));
-            TAB_DRAGSLIDE('tab__drag_slide');
-            PAGING.gooey('page__link2');
+            PAGING.gooey('page--link2');
         }
         
         // list
         if (dataName === list) {
-            LIST_LIBRARY.dragDrop('list__drag');
-            LIST_LIBRARY.loadMore('list__more', 1, 10, 50);
+            LIST_LIBRARY.dragDrop('list--drag');
+            LIST_LIBRARY.loadMore('list--more', 1, 10, 50);
         }
         
         // layout
@@ -298,8 +297,8 @@ const contentSelect = {
     projectName(snbName, dataTitle, dataName) {
         contentSelect.contentRemove();
         document.querySelector('.shortcut').style.display = 'none';
-        document.querySelector('.state_info').style.display = 'none';
-        document.querySelector('.state_info').style.display = '';
+        document.querySelector('.state-info').style.display = 'none';
+        document.querySelector('.state-info').style.display = '';
         document.querySelector('.shortcut').style.display = '';
         document.querySelector('.snb').classList.add('type');
         const items = {
@@ -357,7 +356,7 @@ const contentSelect = {
         let card = document.createElement('div');
         content.prepend(pageTitle);
         content.appendChild(card);
-        card.classList.add('section_card');
+        card.classList.add('section-card');
         pageTitle.classList.add('pagetitle');
         breadCrumb.classList.add('breadcrumb');
         pageTitle.appendChild(cardTitle);
@@ -369,7 +368,7 @@ const contentSelect = {
         const thEnd = document.querySelector('.end');
         thEnd.innerHTML = `
         <strong>완료일</strong>
-        <div class="sort_arrows">
+        <div class="sort-arrows">
             <button onclick="tableSort.sort(true, 'end', 'table')" class="before" title="지난일"></button>
             <button onclick="tableSort.sort(false, 'end', 'table')" class="after" title="최신일"></button>
         </div>
@@ -378,7 +377,7 @@ const contentSelect = {
         const thModify = document.querySelector('.modify');
         thModify.innerHTML = `
         <strong>수정일</strong>
-        <div class="sort_arrows">
+        <div class="sort-arrows">
             <button onclick="tableSort.sort(true, 'modify', 'table')" class="before" title="지난일"></button>
             <button onclick="tableSort.sort(false, 'modify', 'table');" class="after" title="최신일"></button>
         </div>
@@ -510,7 +509,7 @@ const contentSelect = {
             (countDone / (countTotal - countDefer)) * 100
         );
         document.querySelector(
-            '.progress_done'
+            '.progress-done'
         ).style.width = `${donePercent}%`;
         document.querySelector('.percent-done').textContent = `${donePercent}%`;
 
@@ -542,7 +541,7 @@ const contentSelect = {
                 preview.setAttribute('src', url);
             });
         });
-        const previewHandle = document.querySelector('.preview_opener');
+        const previewHandle = document.querySelector('.preview-opener');
         previewHandle.addEventListener('click', () => {
             const content = document.querySelector('#content');
             wrap.classList.toggle('previewOpen');
@@ -550,14 +549,14 @@ const contentSelect = {
 
         // id검색 스크롤 이동
         const idSrchBox = document.createElement('div');
-        idSrchBox.classList.add('idSearch_box');
+        idSrchBox.classList.add('idSearch-box');
         document.querySelector('.pagetitle').appendChild(idSrchBox);
         idSrchBox.innerHTML = `
-            <input type="text" class="idSearch_input" placeholder="ID입력 GO(enter) 선택 스크롤 이동">
-            <a class="btn__m btn__secondary idSearch_go">GO</a>
+            <input type="text" class="idSearch-input" placeholder="ID입력 GO(enter) 선택 스크롤 이동">
+            <a class="btn--m btn--secondary idSearch-go">GO</a>
         `;
-        const idSrchInp = document.querySelector('.idSearch_input');
-        const idSrchGo = document.querySelector('.idSearch_go');
+        const idSrchInp = document.querySelector('.idSearch-input');
+        const idSrchGo = document.querySelector('.idSearch-go');
         idSrchInp.addEventListener('keyup', (e) => {
             idSrchGo.setAttribute('href', `#${e.target.value}`);
             if (e.key == 'Enter') {
@@ -569,7 +568,7 @@ const contentSelect = {
 
 // mobile
 function reportWindowSize() {
-    const hamburger = document.querySelector('.snb_handle');
+    const hamburger = document.querySelector('.snb-handle');
     if (window.innerWidth <= 1024) {
         wrap.classList.add('snbClose');
         wrap.classList.remove('previewOpen');

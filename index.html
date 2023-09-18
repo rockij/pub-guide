@@ -23,11 +23,11 @@
 
   <header id="header">
     <a href="index.html" class="logo">PORTFOLIO</a>
-    <button type="button" class="snb_handle" title="사이드메뉴선택">
+    <button type="button" class="snb-handle" title="사이드메뉴선택">
       <span class="icon"><i></i><i></i><i></i><i></i></span>
     </button>
     <div class="shortcut"></div>
-    <div class="state_info">
+    <div class="state-info">
         <div class="info_item">
             <div class="info_key">진행</div>
             <div class="info_value count-ing"></div>
@@ -50,14 +50,14 @@
         </div>
         <div class="info_item info_progress">
             <div class="progress">
-                <div class="progress_total">
-                    <div class="progress_total-text">
+                <div class="progress-total">
+                    <div class="progress-total-text">
                         전체
-                        <span class="progress_total-count count-total"></span>개
+                        <span class="progress-total-count count-total"></span>개
                     </div>
                 </div>
-                <div class="progress_done">
-                    <div class="progress_done-percent percent-done">0%</div>
+                <div class="progress-done">
+                    <div class="progress-done-percent percent-done">0%</div>
                 </div>
             </div>
         </div>
@@ -69,19 +69,19 @@
   <aside class="snb">
 
     <ul>
-      <li class="snb_item">
-        <button onclick="contentSelect.originalTag('Profile','Profile', profile)" class="snb_link snb-link">Profile</button>
+      <li class="snb-item">
+        <button onclick="contentSelect.originalTag('Profile','Profile', profile)" class="snb-link snb-link">Profile</button>
       </li>
-      <li class="snb_item">
-        <button onclick="contentSelect.originalTag('Convention','Convention', convention)" class="snb_link snb-link">Convention</button>
+      <li class="snb-item">
+        <button onclick="contentSelect.originalTag('Convention','Convention', convention)" class="snb-link snb-link">Convention</button>
       </li>
-      <li class="snb_item">
+      <li class="snb-item">
         <header id="accordion-header-1" class="snb_toggle">
-          <button type="button" aria-expanded="false" aria-controls="accordion-panel-1" class="snb_link collapsed">
+          <button type="button" aria-expanded="false" aria-controls="accordion-panel-1" class="snb-link collapsed">
             <span class="title">Components</span>
           </button>
         </header>
-        <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion__panel snb_submenu" aria-hidden="true">
+        <div id="accordion-panel-1" role="region" aria-labelledby="accordion-header-1" class="accordion--panel snb-submenu" aria-hidden="true">
             <div>
                 <ul>
                 <li><button onclick="contentSelect.originalTag('Components','Color', color)" class="snb-link">Color</button></li>
@@ -90,7 +90,7 @@
                 <li><button onclick="contentSelect.componentsName('Components', 'Tab', tabs)" class="snb-link">Tab</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Input', inputs)" class="snb-link">Input</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Selection', selection)" class="snb-link">Selection</button></li>
-                <li><button onclick="contentSelect.componentsName('Components', 'Accordion', accordion);EXPANDED_EVENT.init('.accordion_sample_header [aria-expanded]')" class="snb-link">Accordion</button></li>
+                <li><button onclick="contentSelect.componentsName('Components', 'Accordion', accordion);EXPANDED_EVENT.init('.accordion-sample-header [aria-expanded]')" class="snb-link">Accordion</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'List', list)" class="snb-link">List</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Layout', layout)" class="snb-link">Layout</button></li>
                 <li><button onclick="contentSelect.componentsName('Components', 'Popup', popup)" class="snb-link">Popup</button></li>
@@ -100,13 +100,13 @@
             </div>
         </div>
       </li>
-      <li class="snb_item">
+      <li class="snb-item">
         <header id="accordion-header-2" class="snb_toggle">
-          <button type="button" aria-expanded="false" aria-controls="accordion-panel-2" class="snb_link collapsed">
+          <button type="button" aria-expanded="false" aria-controls="accordion-panel-2" class="snb-link collapsed">
             <span class="title">Project</span>
           </button>
         </header>
-        <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion__panel snb_submenu" aria-hidden="true">
+        <div id="accordion-panel-2" role="region" aria-labelledby="accordion-header-2" class="accordion--panel snb-submenu" aria-hidden="true">
             <div>
                 <ul>
                 <li><button onclick="contentSelect.projectName('Project', 'Members', project)" class="snb-link">Members</button></li>
@@ -128,7 +128,7 @@
 
   <div class="func">
     <a href="#wrap" class="top" title="맨위로">TOP</a>
-    <button type="button" class="preview_opener" title="미리보기 열기"></button>
+    <button type="button" class="preview-opener" title="미리보기 열기"></button>
   </div>
 
 </div>
