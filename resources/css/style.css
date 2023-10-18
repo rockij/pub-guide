@@ -561,7 +561,7 @@ content:'';display:block;position:absolute;top:calc(var(--spacing) / 2 - var(--r
 .table>:not(caption)>*>*{padding:1rem}
 .table td{border-bottom:1px solid var(--border);text-align:center;font-size:1.2rem}
 .table a{text-decoration:underline;color:var(--color-primary)}
-.table td.url .copy{display:inline-block;background-color:var(--color-secondary2);padding:.2rem .4rem .4rem;border-radius:.4rem;line-height:1.1;font-size:.1rem;color:#fff}
+.table td.url .copy{display:inline-block;background-color:var(--color-secondary2);padding:.2rem .4rem .4rem;border-radius:.4rem;line-height:1.1;font-size:1rem;color:#fff}
 .table td.state strong{display:inline-block;padding:.2rem .4rem;border-radius:.4rem;color:#fff}
 .table td.ing strong{background-color:var(--color-ing)}
 .table td.test strong{background-color:var(--color-notice)}
